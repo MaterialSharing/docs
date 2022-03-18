@@ -7,6 +7,9 @@ marp: true
 
 集四级/六级/考研/语法/学习规划/拼写检查/查词翻译等功能为一体的小程序
 
+## 原型链接
+[modaoDesign](https://modao.cc/app/CMLTThqNr8ojxs36dKaQQk) 《EnglishLearningAsistant》 
+
 ## 主页@main1
 
 ### 功能
