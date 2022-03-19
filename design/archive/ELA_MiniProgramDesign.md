@@ -8,20 +8,25 @@ marp: true
 集四级/六级/考研/语法/学习规划/拼写检查/查词翻译等功能为一体的小程序
 
 ## 原型链接
-[modaoDesign](https://modao.cc/app/CMLTThqNr8ojxs36dKaQQk) 《EnglishLearningAsistant》 
+
+[modaoDesign](https://modao.cc/app/CMLTThqNr8ojxs36dKaQQk) 《EnglishLearningAsistant》
 
 ## 主页@main1
 
 ### 功能
-
-- 查询单词
-- 查词记录
-- 近义词对比
-- 纠正猜测&长句推荐
-- 句子翻译
+#### 还未查单词时的首页
 - 每日一图(轮播图)
 - 每日一句(英文/中文)
 - 单词收藏
+
+#### 单词查询/翻译
+- 查询单词
+- 查词记录
+- 近义词对比
+- 句子翻译
+#### 未搜到单词
+- 纠正猜测&长句推荐
+
 
 ---
 
