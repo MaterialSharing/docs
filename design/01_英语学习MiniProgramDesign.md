@@ -214,29 +214,27 @@ code{
 
 ### 原型
 
-#### 简介模式卡片
-
-- ![1647532685281.png ](https://s2.loli.net/2022/03/18/lutUq27ZicIXOvb.png)
-
----
-
 #### 学习进度
 
 - ![1647533179552.png ](https://s2.loli.net/2022/03/18/rvTB7bD4O6MLUJN.png)
 
 ---
+#### 简洁模式卡片
 
-#### 卡片:简洁模式
+- ![1647532685281.png ](https://s2.loli.net/2022/03/18/lutUq27ZicIXOvb.png)
+
+---
+
+
+
+#### 卡片:正常模式
+
 
 - ![1647532961778.png  ](https://s2.loli.net/2022/03/18/dSEe8QmxMjl3oUa.png)
 
 ---
 
-#### 卡片:正常模式
 
-- ![1647533051662.png  ](https://s2.loli.net/2022/03/18/6wqazJgBe4DkhTl.png)
-
----
 
 #### 给单词添加批注
 
@@ -244,13 +242,11 @@ code{
 
 ---
 
-- ![1647563583580.png  ](https://s2.loli.net/2022/03/18/hUn6I359yfHterA.png)
 
----
 
 #### 词汇列表
 
-- ![1647516614464.png  ](https://s2.loli.net/2022/03/18/EH5tFNdTIO1ozlK.png)
+- ![1647533051662.png  ](https://s2.loli.net/2022/03/18/6wqazJgBe4DkhTl.png)
 
 ---
 
