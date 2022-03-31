@@ -1,94 +1,30 @@
 ---
+theme: gaia
+class: lead
 marp: true
----
-<!-- 利用元素审查来了解marp的页面到底对应了html中的那种元素以及样式 -->
-
-<style>
-h1{
-  color: rgb(0, 26, 255);
-
-}
-
-h2 {
-    border: solid 2px blue;
-    background-color: rgba(255, 192, 203, 0.562);
-    border-radius: 15px;
-}
-h1,h2,h3,h4,span, {
-  text-align:center;
-  margin:.2rem;
-  margin-top:.1rem;
-}
-
-/* img[src*="#thumbnail"] {
-   width:50px;
-   height:100px;
-}
-img[src~="thumbnail"] {
-   width:150px;
-   height:100px;
-} */
-/* img[src~="bordered"] {
-   border: 1px solid black;
-} */
-
-ul{
-    box-sizing:border-box;
-    /* border:solid 1px blue; */
-    padding:inherit;
+paginate: true
+style: |
+  section{
+    padding:1rem;
+  }
+  
+  li,ul{
+    list-style-type:none ;
     margin:0 auto;
-  /* max-height:90%; */
-}
-li{
-  box-sizing:border-box;
-  /* max-height:98%; */
-  /* position:relative; */
-  /* border:solid 1px; */
-  border-radius:.5rem;
-  list-style:inside;
-  text-align:left;
-  margin-left:2rem;
-  padding:.5rem;
 
-}
-section{
-  border:dotted;
-  padding:0.2rem;
-  /* max-height:90vh; */
-  /* height:700px; */
-  /* display:flex;
-  flex-flow:wrap;
-  align-items:center;
-  justify-content:center; */
-}
-blockquote,ul,section,img,p,div{
+  }
+  ul,section{
     overflow:auto;
-    box-sizing:border-box;
-    max-height:98%;
-}
-/* li ul{
-  border:solid 1px
-} */
-citation{
-  background:aqua;
-}
-img{
-  box-sizing:border-box;
-  max-height:75vh;
-  /* max-height:570px; */
-  border:solid 1px red;
-  margin:.1rem;
-  border-radius:1rem;
-  object-fit:contain;
-  /* float:right; */
-  /* width:260px; */
-  /* height:600px; */
-}
-code{
-  color:red;
-  text-decoration: underline wavy blue 1px ;
-}
-</style>
+  }
+---
+
+<!-- size: 4:3 -->
+<!-- metadata中不允许注释,否者将破坏规则 -->
+<!-- <style>
+</style> -->
+<!-- <link rel="stylesheet" href="../styles/style.css"> -->
+
+<!-- 利用元素审查来了解marp的页面到底对应了html中的那种元素以及样式 -->
 
 # 个性化 词汇学习
 
@@ -100,10 +36,6 @@ code{
 ## 原型链接
 
 [modaoDesign](https://modao.cc/app/CMLTThqNr8ojxs36dKaQQk) 《EnglishLearningAsistant》
-
-## 接口设计文档链接
-
-- [查询用户详情 - 英语学习助手 (apifox.cn)](https://www.apifox.cn/apidoc/shared-69ffdf70-8152-45e7-8d2e-8eb24107f870/api-15000167)
 
 ---
 
@@ -151,25 +83,25 @@ code{
 
 #### 主界面
 
-- ![1647516184561.png  ](https://s2.loli.net/2022/03/18/sIGrixtCMNgQeUP.png)
+- ![1647516184561.png  bg right contain 80%](https://s2.loli.net/2022/03/18/sIGrixtCMNgQeUP.png)
 
 ---
 
 #### 大纲分类
 
-- ![1647516250871.png  ](https://s2.loli.net/2022/03/18/W7xdLjQhGsNO4Dv.png)
+- ![1647516250871.png  bg right contain 80%](https://s2.loli.net/2022/03/18/W7xdLjQhGsNO4Dv.png)
 
 ---
 
 #### 单词详情
 
-- ![1647533937137.png  ](https://s2.loli.net/2022/03/18/R1piFjWEHsbNMhI.png)
+- ![1647533937137.png  bg right contain 80%](https://s2.loli.net/2022/03/18/R1piFjWEHsbNMhI.png)
 
 ---
 
 #### 纠正猜测&长难句推荐
 
-- ![1647532171222.png  ](https://s2.loli.net/2022/03/18/wAN8K3kmtxEQTiv.png)
+- ![1647532171222.png  bg right contain 80%](https://s2.loli.net/2022/03/18/wAN8K3kmtxEQTiv.png)
 
 ---
 
@@ -178,6 +110,8 @@ code{
 #### 每日一图来源
 
 > Bing:`https://cn.bing.com/HPImageArchive.aspx?format=js&n=2&mkt=en-us`
+
+---
 
 #### 单词详情:
 
@@ -219,31 +153,31 @@ code{
 
 #### 学习进度
 
-- ![1647533179552.png ](https://s2.loli.net/2022/03/18/rvTB7bD4O6MLUJN.png)
+- ![1647533179552.png bg right contain 70%](https://s2.loli.net/2022/03/18/rvTB7bD4O6MLUJN.png)
 
 ---
 
 #### 简洁模式卡片
 
-- ![1647532685281.png ](https://s2.loli.net/2022/03/18/lutUq27ZicIXOvb.png)
+- ![1647532685281.png bg right contain 80%](https://s2.loli.net/2022/03/18/lutUq27ZicIXOvb.png)
 
 ---
 
 #### 卡片:正常模式
 
-- ![1647532961778.png  ](https://s2.loli.net/2022/03/18/dSEe8QmxMjl3oUa.png)
+- ![1647532961778.png  bg right contain 80%](https://s2.loli.net/2022/03/18/dSEe8QmxMjl3oUa.png)
 
 ---
 
 #### 给单词添加批注
 
-- ![1647563564238.png  ](https://s2.loli.net/2022/03/18/WJVpYSlijnGwQ3C.png)
+- ![1647563564238.png  bg right contain 80%](https://s2.loli.net/2022/03/18/WJVpYSlijnGwQ3C.png)
 
 ---
 
 #### 词汇列表
 
-- ![1647533051662.png  ](https://s2.loli.net/2022/03/18/6wqazJgBe4DkhTl.png)
+- ![1647533051662.png  bg right contain 80%](https://s2.loli.net/2022/03/18/6wqazJgBe4DkhTl.png)
 
 ---
 
@@ -266,7 +200,7 @@ code{
 #### 每个单词详情页面中设置元素
 
 - 基本中文释义
-- 收藏按钮收藏之后可以到 `我的`页面查看
+- 收藏按钮收藏之后可以到`我的`页面查看
 - 通过左右滑动来切换卡片
 
 ---
@@ -319,31 +253,28 @@ code{
 ### 原型
 
 - 选取考试大纲类别
-
-  - ![1647533384115.png  ](https://s2.loli.net/2022/03/18/ZFPmER1yObkBCfN.png)
+  - ![1647533384115.png  bg right contain 80%](https://s2.loli.net/2022/03/18/ZFPmER1yObkBCfN.png)
 
 ---
 
 - 语法纲要速查
 - 语法大纲
-  - ![1647533750320.png  ](https://s2.loli.net/2022/03/18/1ldD3ZQXHIzTMrm.png)
+  - ![1647533750320.png  bg right contain 80%](https://s2.loli.net/2022/03/18/1ldD3ZQXHIzTMrm.png)
 
 ---
 
 - 精选长难句学习
-  - ![1647533659934.png  ](https://s2.loli.net/2022/03/18/qh3QRzkBPYuUIDX.png)
+  - ![1647533659934.png  bg right contain 80%](https://s2.loli.net/2022/03/18/qh3QRzkBPYuUIDX.png)
 
 ---
 
 - 学习规划
-
-  - ![1647533308121.png   ](https://s2.loli.net/2022/03/18/LMVA34SP7cgkBs8.png)
+  - ![1647533308121.png   bg right contain 80%](https://s2.loli.net/2022/03/18/LMVA34SP7cgkBs8.png)
 
 ---
 
 - 随机抽查单词
-
-  - ![1647533628731.png  ](https://s2.loli.net/2022/03/18/o5dLQEuaC17PImp.png)
+  - ![1647533628731.png  bg right contain 80%](https://s2.loli.net/2022/03/18/o5dLQEuaC17PImp.png)
 
 ---
 
@@ -379,28 +310,27 @@ code{
 ### 原型
 
 - 授权登录
-
-  - ![1647533542201.png  ](https://s2.loli.net/2022/03/18/gprVRKzYU7F29vP.png)
+  - ![1647533542201.png  bg right contain 80%](https://s2.loli.net/2022/03/18/gprVRKzYU7F29vP.png)
 
 ---
 
 - 主要布局
-  - ![1647533767010.png  ](https://s2.loli.net/2022/03/18/AOIafyZuohE6mSL.png)
+  - ![1647533767010.png  bg right:70% contain ](https://s2.loli.net/2022/03/18/AOIafyZuohE6mSL.png)
 
 ---
 
 - 考试倒计时
-  - ![1647565322305.png  ](https://s2.loli.net/2022/03/18/mvfsoGTieM7LcX1.png)
+  - ![1647565322305.png  bg right contain 80%](https://s2.loli.net/2022/03/18/mvfsoGTieM7LcX1.png)
 
 ---
 
 - 查词记录
-  - ![1647534118228.png  ](https://s2.loli.net/2022/03/18/JlCdSK9UOHQIkc7.png)
+  - ![1647534118228.png  bg right contain 80%](https://s2.loli.net/2022/03/18/JlCdSK9UOHQIkc7.png)
 
 ---
 
 - 反馈与改进
-  - ![1647533803658.png  ](https://s2.loli.net/2022/03/18/dGMQgeLWcpau83U.png)
+  - ![1647533803658.png  bg right contain 80%](https://s2.loli.net/2022/03/18/dGMQgeLWcpau83U.png)
 
 ---
 
@@ -454,6 +384,6 @@ code{
   - 单词
     - 保存组织词典库以提供查词服务
     - 用户对单词的批注以及难度评分
-- 后端框架提供api给前端操作数据库等服务
+- 后端框架提供 api 给前端操作数据库等服务
 
 ---
