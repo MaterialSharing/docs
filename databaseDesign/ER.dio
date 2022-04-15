@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="wb8dv5j-11_bC70jpVk-" name="Page-1">
-        <mxGraphModel dx="1071" dy="1882" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="1115" dy="1882" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -61,13 +61,13 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="105" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="104">
+                <mxCell id="105" value="" style="edgeStyle=none;html=1;" parent="1" source="2" target="104" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="107" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="106">
+                <mxCell id="107" value="" style="edgeStyle=none;html=1;" parent="1" source="2" target="106" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="109" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="2" target="108">
+                <mxCell id="109" value="" style="edgeStyle=none;html=1;" parent="1" source="2" target="108" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="2" value="用户" style="rounded=0;whiteSpace=wrap;html=1;labelBackgroundColor=default;endArrow=none;fontSize=11;endFill=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=0;startSize=0;shadow=0;sketch=0;" parent="1" vertex="1">
@@ -376,6 +376,12 @@
                         <mxPoint as="offset"/>
                     </mxGeometry>
                 </mxCell>
+                <mxCell id="111" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="GHGoszLTh95ESVHVcOyo-129" target="110">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="113" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="GHGoszLTh95ESVHVcOyo-129" target="112">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
                 <mxCell id="GHGoszLTh95ESVHVcOyo-129" value="学习状况" style="rhombus;&#10;rounded=0;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=11;fontColor=default;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="780" y="680" width="120" height="60" as="geometry"/>
                 </mxCell>
@@ -400,14 +406,20 @@
                 <mxCell id="91" value="pastParticiple(过去分词)" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;rounded=0;labelBackgroundColor=default;endArrow=none;endFill=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=0;startSize=0;shadow=0;sketch=0;" parent="1" vertex="1">
                     <mxGeometry x="700" y="200" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="104" value="progress4" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;rounded=0;labelBackgroundColor=default;endArrow=none;endFill=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=0;startSize=0;shadow=0;sketch=0;" vertex="1" parent="1">
+                <mxCell id="104" value="progress4" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;rounded=0;labelBackgroundColor=default;endArrow=none;endFill=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=0;startSize=0;shadow=0;sketch=0;" parent="1" vertex="1">
                     <mxGeometry x="10" y="430" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="106" value="progress6" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;rounded=0;labelBackgroundColor=default;endArrow=none;endFill=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=0;startSize=0;shadow=0;sketch=0;" vertex="1" parent="1">
+                <mxCell id="106" value="progress6" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;rounded=0;labelBackgroundColor=default;endArrow=none;endFill=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=0;startSize=0;shadow=0;sketch=0;" parent="1" vertex="1">
                     <mxGeometry x="50" y="520" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="108" value="progressNeep" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;rounded=0;labelBackgroundColor=default;endArrow=none;endFill=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=0;startSize=0;shadow=0;sketch=0;" vertex="1" parent="1">
+                <mxCell id="108" value="progressNeep" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;rounded=0;labelBackgroundColor=default;endArrow=none;endFill=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=0;startSize=0;shadow=0;sketch=0;" parent="1" vertex="1">
                     <mxGeometry x="110" y="580" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="110" value="last_see_datetime(datetime)" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="780" y="820" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="112" value="familiarity(int)" style="ellipse;whiteSpace=wrap;html=1;fontSize=11;rounded=0;" vertex="1" parent="1">
+                    <mxGeometry x="650" y="810" width="120" height="60" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
