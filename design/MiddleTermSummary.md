@@ -145,7 +145,7 @@ ___
 ___
 
 
-END!(●'◡'●)
+part1 END!(●'◡'●)
 
 
 ___
@@ -164,6 +164,13 @@ ___
 
 ![微信图片_202204150948472](https://s2.loli.net/2022/04/15/XsjihqLa5WgOuVo.png)
 
+
+
+___
+
+选择对应的科目
+
+![image-20220415101116551](https://s2.loli.net/2022/04/15/ZXhBqdj3MDEuly7.png)
 ___
 
 ![微信图片_20220415094847](https://s2.loli.net/2022/04/15/f3ctwVU6AFkoLav.png)
