@@ -1,8 +1,13 @@
 ## 当前问题分析
 
+- [How to Solve You are trying to add a non-nullable field to without a default (pytutorial.com)](https://pytutorial.com/how-to-solve-you-are-trying-to-add-a-non-nullable-field-to-without-a-default?msclkid=b50806aaceb511ec85958a63972f1a07)
+  
+- [python - Rolling back to a previous migration in django - Stack Overflow](https://stackoverflow.com/questions/30749363/rolling-back-to-a-previous-migration-in-django?msclkid=c20fc122ced211ecbaa86fe79673b2c5)
+  
 - 将不同考纲的词汇怎么处理
+  
   - 放在不同表
-
+  
     - 好处是清晰
     
   - 放在一张表
