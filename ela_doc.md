@@ -58,7 +58,7 @@ description: |
 >
 > 除了设计图之外，应该用语言详细说明自己的设计理念，为什么要这么设计，有什么优缺点，实现的难度如何等等。
 
-- https://modao.cc/app/CMLTThqNr8ojxs36dKaQQk 《EnglishLearningAsistant》 
+- https://modao.cc/app/JUQ6ZAl4rcklsj2jT450yX 《EnglishLearningAsistant》 
 - https://modao.cc/app/xg43top2raoiorN4gHVgF 《ELA_morePages》 
 
 # 三、系统架构设计 [徐超信]
