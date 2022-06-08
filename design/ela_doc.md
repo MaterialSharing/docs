@@ -12,7 +12,7 @@ description: |
 
 文档可以使用markdown编写，用[Pandoc](https://pandoc.org/)转成PDF、html或者word等格式。
 
-# 一、项目介绍 [徐超信,盘淼森]
+# 一、项目介绍 [徐超信,潘淼森]
 
 ## 背景
 
@@ -216,11 +216,42 @@ description: |
 
 ## 首页
 
+![首页设计](https://img-blog.csdnimg.cn/ea9e2431c925449fa1b05c3d9c6079db.png)
+- 用户可以在首页提供的查词框中输入单词进行查词
+- 查词框下面是一个轮播图,获取通过bing的图片接口,获取精美图片,为学习带来一点视觉上的享受
+- 我们将单词的解释分为两层,第一层仅仅提供单词的音标和简单的解释,这一般能够满足主要的需求;此外,我们在第一层中配置了一个进一步查询单词的词形变化的按钮,点击该按钮,会跳转到第二层,这一层提供了更详细的解释,包括单词的词性等等
+- 此外,还提供了收藏该的单词的按钮,点击该按钮,会将该单词添加到收藏列表中
+
+![image-20220608181908470](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220608181908470.png)
+
+- 轮播图下面安排了用户当前的学习科目和学习进度,用户点击继续学习,便可以进入学习模式
+
+
+
+![请添加图片描述](https://img-blog.csdnimg.cn/06d87c57851d462da531acf846027e5b.png)
+
+- 对于拼写错误的单词,后台会尝试通过匹配算法推荐一些形近词
+  - 对于记忆不清的单词来说,非常有用,用户也可以利用该接口查找形近词
+  ![请添加图片描述](https://img-blog.csdnimg.cn/ae7cf0f2d90347eca6e0c959d96b1fd5.png)
+
+- 
+
+  
+
 ## 学单词
+![请添加图片描述](https://img-blog.csdnimg.cn/e47c3386c0444de6a6508c497189118b.png)
 
+![请添加图片描述](https://img-blog.csdnimg.cn/8bc5e7ec92304ff0b9563342c3f2b74b.png)
 ## 复习与测验
+![请添加图片描述](https://img-blog.csdnimg.cn/a1eaba552a494f09a42457c4c43fac65.png)
+![请添加图片描述](https://img-blog.csdnimg.cn/4e96e13bd2f342eab9a19ac8d6a8c188.png)
 
-## wo'de
+## 我的
+![请添加图片描述](https://img-blog.csdnimg.cn/dfb8484b4cfb48b0946d4a4ebdec51a9.png)
+
+![请添加图片描述](https://img-blog.csdnimg.cn/292f8e20c1cd431aa28e74a55f996798.png)
+
+
 
 ## 墨刀在线预览(可交互)
 
