@@ -435,20 +435,116 @@ description: |
 # 六、微信小程序端的实现 [潘淼森]
 
 > 这部分分模块来描述前端的具体实现，比如：
->
 
-## 6.1 查词功能的实现
+## 6.1 登录登出功能的实现
 
 > 这部分是用户管理模块，如登录、注册、修改等功能的具体实现。这里应该重点将实现时考虑的因素，使用的算法以及这样做的优缺点，最后可以通过界面的截图来展示实现效果。
 
-## 6.2 学单词功能的实现
+<img src="https://img-blog.csdnimg.cn/335d26fb8ba74397a42ddcd1db6a39e1.png" alt="image-20220607201359428" style="zoom:50%;" />
 
-## 6.3 复习功能的实现
 
-> 这部分主要讲点名功能的具体实现方案，可以通过用例图、流程图等来辅助说明。并通过截图来展示效果。
->
-> 实现部分不要只有截图，要有文字说明，讲讲这部分实现时采用什么技术，优缺点是什么，实现难点在哪里。
->
+
+
+
+<img src="https://img-blog.csdnimg.cn/07bc0df6722a4d34a41ae4b46028e4eb.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+
+
+
+
+<img src="https://img-blog.csdnimg.cn/ab7571f4a11a41ff860c15f37cd5139f.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+
+
+
+
+## 6.2 查词功能的实现
+
+> 这部分是用户管理模块，如登录、注册、修改等功能的具体实现。这里应该重点将实现时考虑的因素，使用的算法以及这样做的优缺点，最后可以通过界面的截图来展示实现效果。
+
+
+
+1.如果数据库中未找到则显示未找到相关内容
+
+<img src="https://img-blog.csdnimg.cn/b7e5234012314390a4548018f0dcb811.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+2.如果输入正确
+
+<img src="https://img-blog.csdnimg.cn/011f5a30d6dc49c1af82a6bcbe26d707.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+<img src="https://img-blog.csdnimg.cn/65ff17ea489d466e9fb73e0bf02e7947.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+<img src="https://img-blog.csdnimg.cn/3a51c0d4f3854e859c260e7c475876c7.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+<img src="https://img-blog.csdnimg.cn/e9e9feaa414e458090afbab420ff7c6f.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+
+
+## 6.3 学单词功能的实现
+
+左滑右滑实现翻页，翻到第一页再往前翻会提示
+
+<img src="https://img-blog.csdnimg.cn/51e868097d7e4a5393a72948e187b2a8.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+<img src="https://img-blog.csdnimg.cn/920924aa1e1b41abbc2f1c74baa1ec86.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+<img src="https://img-blog.csdnimg.cn/5ab5bd57fdf942cc8ecd05531c67b562.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+难度评价打分
+
+<img src="https://img-blog.csdnimg.cn/cab3373d433d4b11a48c44abc80b3aca.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+添加批注
+
+<img src="https://img-blog.csdnimg.cn/291ca656070c401bbcec36370ac4106d.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+<img src="https://img-blog.csdnimg.cn/a6d922da2aab445f96c434ddb6f41e5f.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+<img src="https://img-blog.csdnimg.cn/855a8d37be6748b0aa27ce45e9e2f43f.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+
+
+
+
+
+
+## 6.4 查考纲功能的实现
+
+<img src="https://img-blog.csdnimg.cn/55aabd4ea0304a9390812f3f4a4d1fe5.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+
+
+<img src="https://img-blog.csdnimg.cn/06556ba4c4f746078fbfafb9746fe5c9.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+
+
+
+
+
+
+<img src="https://img-blog.csdnimg.cn/0cbb554de1724c8988e5772175898d2b.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+
+
+## 6.5 计算ddl功能的实现
+
+<img src="https://img-blog.csdnimg.cn/ab7571f4a11a41ff860c15f37cd5139f.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+
+
+<img src="https://img-blog.csdnimg.cn/5d8a6c3d24c84863bf436418f7aa050b.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+
+
+<img src="https://img-blog.csdnimg.cn/1581772b39d9473b8c3cb50501a08430.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+## 6.6 反馈建议&在线客服功能的实现
+
+<img src="https://img-blog.csdnimg.cn/d95df938405d4162bb1d950129a6740d.jpeg" alt="image-20220607201359428" style="zoom:20%;" />
+
+<img src="https://img-blog.csdnimg.cn/8db86656eed0474abb7319fa52eefa45.jpeg" alt="image-20220607201359428" style="zoom:20%;" />
+
+
 
 # 七、英语助手后端的实现[徐超信]
 
@@ -595,8 +691,7 @@ description: |
 
 # 十、功能展示 [潘淼森]
 
-> 基本的功能展示，可以用视频来展示。如果贴图，请尽量将相同模块的图拼接在一起以减少空间占用。
->
+> 项目演示视频: ela/docs/videos目录
 
 # 十一、清单 [徐超信,潘淼森]
 
