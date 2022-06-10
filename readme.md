@@ -353,7 +353,10 @@ description: |
 - 尽管RESTful 是一个很好的理念,但是在开发过程中,发现有少量的api较难通过四个动词来贴切地描述api的实际用意,因此,我们结合实际需求,对少数api做了折衷处理
 
 ##  详细的api文档参看附件
-附件中的api文档是通过apifox导出
+
+- 附件中的api文档是通过apifox导出
+- tables:[英语学习助手_api文档.md (github.com)](https://github.com/MaterialSharing/docs/blob/main/design/英语学习助手_api文档.md)
+- swagger:[英语学习助手_api.html (github.com)](https://github.com/MaterialSharing/docs/blob/main/design/英语学习助手_api.html)
 
 # 五、数据库设计 [徐超信]
 
@@ -1016,7 +1019,7 @@ root@localhost [Sat Jun  4 20:56:41 2022 23 ela4]> desc feed_back;
 
 # 十、功能展示 [潘淼森]
 
-- 参看演示视频附件
+- 参看演示视频附件:[video.mp4 (github.com)](https://github.com/MaterialSharing/docs/blob/main/video.mp4)
 
 # 十一、清单 [徐超信,潘淼森]
 * 项目github(组织):[MaterialSharing (github.com)](https://github.com/MaterialSharing)
