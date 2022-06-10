@@ -316,6 +316,34 @@ description: |
   - 为了实现灵活性,独立性,使用前后端分离的方式渐渐称为主流,本项目中,我们采用前后端分离的开发模式,并且借助于apifox做接口设计和对接,前后端可以有自己实际开发进度
   - 我们奉行`api first`的开发方式,促进前后端的进一步分离
 - 后端采用Python/Django技术实现数据管理,用户登录与信息同步等功能
+- 采用python mysqlclient模块来对接&管理mysql数据库
+- 后端的各个模块内的基本结构(主要采用MVC设计模式来组织后端项目)
+  - 根据我们选用的技术和设计模式,后端项目组织的基本规范如下(根据实际需求可以稍作调整)
+  - ```python
+    PS D:\repos\ELA\backEnd\user> lsd --tree --depth 1
+     .
+    ├──  __init__.py
+    ├──  __pycache__
+    ├──  admin.py
+    ├──  apps.py
+    ├──  loginMiddleware.py
+    ├──  migrations
+    ├──  models.py
+    ├──  serializer.py
+    ├──  tests
+    ├──  tests.py
+    ├──  urls.py
+    └──  views
+    
+    ```
+  - 下面解释一下各个文件和目录的作用
+  - 其中admin.py作为注册后台模块管理的代码,用于管理后台的各个模块
+  - apps.py向后端注册该Django应用,urls.py是该模块管理的子路由
+  - Middleware.py作为中间件,用于登录验证/或者其他鉴权/自动处理
+  - serializer.py是该模块使用DRF来数据模型的序列化和反序列化,可以在该文件中指定数据转化规则
+  - tests目录中存放了该模块下的所有测试代码
+  - views充当MVC中的Controller,负责存放和组织逻辑处理的代码文件
+  
 ##  数据库
 - 数据库采用免费的关系型数据库mysql,该数据库足够流行(意味着它经过了足够多的考验),完全可以胜任我们的本次项目
 - 除了数据库软件本身的功能足够,我们本身已有的数据库知识也主要是关系型数据库的理论,因此最终采用mysql来提供数据管理服务
@@ -328,8 +356,8 @@ description: |
 
 - 此外,后端还提供了基于swagger的文档,前端即使不查看后端代码,也可以对后端提供的接口有所了解
 
-- `123.56.72.67:8000/doc/`
-  - <img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imageswvMN7ACpkDd8qzX.png" alt="image-20220607201359428" style="zoom:50%;" />
+- `123.56.72.67:8000/doc/`(局部api接口一览)
+- ![](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imageswvMN7ACpkDd8qzX.png" alt="image-20220607201359428" style="zoom:50%;)
 图3.2:后端的swagger文档接口
 
 
@@ -2035,75 +2063,6 @@ GET /info/
 }
 ```
 
-```json
-{
-  "count": 152,
-  "next": "http://127.0.0.1:8000/user/info/?page=2&size=5",
-  "previous": null,
-  "results": [
-    {
-      "uid": 13,
-      "nickname": "testNickname",
-      "name": "create_ser_pyt",
-      "status": 0,
-      "signin": 778,
-      "openid": null,
-      "examdate": "1970-01-01",
-      "examtype": "4",
-      "signupdate": "1970-01-01",
-      "schedule": 30
-    },
-    {
-      "uid": 3,
-      "nickname": "testNickname",
-      "name": "testScriptUser",
-      "status": 0,
-      "signin": 0,
-      "openid": null,
-      "examdate": "1970-01-01",
-      "examtype": "4",
-      "signupdate": "1970-01-01",
-      "schedule": 30
-    },
-    {
-      "uid": 4,
-      "nickname": "testNickname",
-      "name": "testScriptUser",
-      "status": 0,
-      "signin": 0,
-      "openid": null,
-      "examdate": "1970-01-01",
-      "examtype": "4",
-      "signupdate": "1970-01-01",
-      "schedule": 30
-    },
-    {
-      "uid": 5,
-      "nickname": "testNickname",
-      "name": "testScriptUser",
-      "status": 0,
-      "signin": 0,
-      "openid": null,
-      "examdate": "1970-01-01",
-      "examtype": "4",
-      "signupdate": "1970-01-01",
-      "schedule": 30
-    },
-    {
-      "uid": 31,
-      "nickname": "testNickname",
-      "name": "create_ser_M_pyt",
-      "status": 0,
-      "signin": 8,
-      "openid": null,
-      "examdate": "1970-01-01",
-      "examtype": "4",
-      "signupdate": "1970-01-01",
-      "schedule": 30
-    }
-  ]
-}
-```
 
 ### 返回结果
 
@@ -4397,124 +4356,97 @@ root@localhost [Sat Jun  4 20:56:41 2022 23 ela4]> desc feed_back;
 
 # 六、微信小程序端的实现 [潘淼森]
 
-> 这部分分模块来描述前端的具体实现，比如：
+> 实现技术:vant app 组件+微信小程序
 
-- vant app 组件+微信小程序
 
 ## 6.1 登录登出功能的实现
 
-> 这部分是用户管理模块，如登录、注册、修改等功能的具体实现。这里应该重点将实现时考虑的因素，使用的算法以及这样做的优缺点，最后可以通过界面的截图来展示实现效果。
+![幻灯片1](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images%E5%B9%BB%E7%81%AF%E7%89%871.PNG)
 
-<img src="https://img-blog.csdnimg.cn/335d26fb8ba74397a42ddcd1db6a39e1.png" alt="image-20220607201359428" style="zoom:50%;" />
+图6.1
 
-图6.1.1
-
-
-
-<img src="https://img-blog.csdnimg.cn/07bc0df6722a4d34a41ae4b46028e4eb.png" alt="image-20220607201359428" style="zoom:50%;" />
-
-图6.1.2
-
-
-
-<img src="https://img-blog.csdnimg.cn/ab7571f4a11a41ff860c15f37cd5139f.png" alt="image-20220607201359428" style="zoom:50%;" />
-
-图6.1.3
-
-
+- 点击授权登录按钮，可以获取微信头像和昵称。
+- 使用了微信官方文档的`API:wx.getUserProfile`实现授权登录功能。
+- 登录前只能看到反馈建议和在线客服。
+- 为了能够保持登录或者退出登录状态，用了微信官方文档API:wx.setStorageSync进行数据缓存，用wx.getStorageSync读取缓存。
+- 申请获取头像和昵称
+- 授权登录后可以看到累计打卡天数、ddl时间、我的收藏和历史记录。
+- 点击"退出登录"按钮退出登录。
+- 退出登录后看清空数据
 
 ## 6.2 查词功能的实现
 
-> 这部分是用户管理模块，如登录、注册、修改等功能的具体实现。这里应该重点将实现时考虑的因素，使用的算法以及这样做的优缺点，最后可以通过界面的截图来展示实现效果。
+![image-20220610143226955](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610143226955.png)
 
+图6.2
 
+- 如果输入123，因为单词数据库中没有该内容因此显示未找到相关内容
+- 如果输入一个正确的单词，然后回车或者点击搜索
+- 显示单词、音标和释义。
+- 如果单词没有变形，则不会显示单词变形内容。
+- 如果搜索的单词有变形，则会显示单词变形内容。
+- 单词变形内容包括：第三人称单数、复数、现在分词、过去式、过去分词等。
+- 点击搜索框右侧的清除按钮，可以清空搜索框
+- 点击查询历史右侧的垃圾桶图标，会提示是否清空历史记录。选择“是”，历史记录将被清空。
 
-1.如果数据库中未找到则显示未找到相关内容
-
-<img src="https://img-blog.csdnimg.cn/b7e5234012314390a4548018f0dcb811.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.2.1
-2.如果输入正确
-
-<img src="https://img-blog.csdnimg.cn/011f5a30d6dc49c1af82a6bcbe26d707.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.2.2
-
-<img src="https://img-blog.csdnimg.cn/65ff17ea489d466e9fb73e0bf02e7947.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.2.3
-<img src="https://img-blog.csdnimg.cn/3a51c0d4f3854e859c260e7c475876c7.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.2.4
-<img src="https://img-blog.csdnimg.cn/e9e9feaa414e458090afbab420ff7c6f.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.2.5
 
 
 ## 6.3 学单词功能的实现
 
-左滑右滑实现翻页，翻到第一页再往前翻会提示
+![幻灯片3](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images%E5%B9%BB%E7%81%AF%E7%89%873.PNG)
 
-<img src="https://img-blog.csdnimg.cn/51e868097d7e4a5393a72948e187b2a8.png" alt="image-20220607201359428" style="zoom:50%;" />
 图6.3.1
-<img src="https://img-blog.csdnimg.cn/920924aa1e1b41abbc2f1c74baa1ec86.png" alt="image-20220607201359428" style="zoom:50%;" />
+
+- 最上方是当前已背单词书/该词书单词总数。
+- 中间是单词、音标、释义。如果没有单词变形则不显示，如果有则显示。
+- 右滑实现翻页，翻到第一页再往前翻会提示
+- 如果滑到第一页还左滑，那么会提示已经到第一个单词了
+- 可以查看后端统计的难度等级
+
+![image-20220610143934193](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610143934193.png)
+
 图6.3.2
-<img src="https://img-blog.csdnimg.cn/5ab5bd57fdf942cc8ecd05531c67b562.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.3.3
-难度评价打分
 
-<img src="https://img-blog.csdnimg.cn/cab3373d433d4b11a48c44abc80b3aca.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.3.4
-添加批注
-
-<img src="https://img-blog.csdnimg.cn/291ca656070c401bbcec36370ac4106d.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.3.5
-<img src="https://img-blog.csdnimg.cn/a6d922da2aab445f96c434ddb6f41e5f.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.3.6
-<img src="https://img-blog.csdnimg.cn/855a8d37be6748b0aa27ce45e9e2f43f.png" alt="image-20220607201359428" style="zoom:50%;" />
-
-图6.3.7
-
-
+- 点击“添加我的批注”按钮添加批注。
+- 输入框会提示"分享你的想法..."。
+- 如果输入框内容为空，则发表按钮被禁用；如果输入了内容，则发表按钮被启用。
+- 点击发表按钮后，回到背单词页面。
+- 发表批注后可以在批注区看到自己的微信头像、微信昵称和评论内容。
 
 
 
 ## 6.4 查考纲功能的实现
 
-<img src="https://img-blog.csdnimg.cn/55aabd4ea0304a9390812f3f4a4d1fe5.png" alt="image-20220607201359428" style="zoom:50%;" />
+![幻灯片6](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images%E5%B9%BB%E7%81%AF%E7%89%876.PNG)
 
-图6.4.1
+图6.4
 
-<img src="https://img-blog.csdnimg.cn/06556ba4c4f746078fbfafb9746fe5c9.png" alt="image-20220607201359428" style="zoom:50%;" />
+- 记忆模式可以切换四级大纲、六级大纲、考研大纲
 
-图6.4.2
-
-
+- 选择相应的大纲后可以展示相应的大纲
 
 
 
-<img src="https://img-blog.csdnimg.cn/0cbb554de1724c8988e5772175898d2b.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.4.3
+## 6.5 计算ddl(deadline)功能的实现
 
+![幻灯片7](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images%E5%B9%BB%E7%81%AF%E7%89%877.PNG)
 
-## 6.5 计算ddl功能的实现
+图6.5
 
-<img src="https://img-blog.csdnimg.cn/ab7571f4a11a41ff860c15f37cd5139f.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.5.1
+- 点击日期可以切换考试日期。
+- 如果还未选择考试日期，显示null天。
+- 切换考试日期后自动计算ddl。
 
-
-<img src="https://img-blog.csdnimg.cn/5d8a6c3d24c84863bf436418f7aa050b.png" alt="image-20220607201359428" style="zoom:50%;" />
-
-图6.5.2
-
-<img src="https://img-blog.csdnimg.cn/1581772b39d9473b8c3cb50501a08430.png" alt="image-20220607201359428" style="zoom:50%;" />
-图6.5.3
 ## 6.6 反馈建议&在线客服功能的实现
 
-<img src="https://img-blog.csdnimg.cn/d95df938405d4162bb1d950129a6740d.jpeg" alt="image-20220607201359428" style="zoom:20%;" />
-图6.6.1
-<img src="https://img-blog.csdnimg.cn/8db86656eed0474abb7319fa52eefa45.jpeg" alt="image-20220607201359428" style="zoom:20%;" />
-图6.6.2
+![幻灯片8](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images%E5%B9%BB%E7%81%AF%E7%89%878.PNG)
+
+图6.6
+
+- 点击反馈建议可以反馈信息
+- 点击在线客服可以与客服会话
+
 # 七、英语助手后端的实现[徐超信]
-
-> 这部分也是分模块来展示后端的实现方案。具体参见前面第六部分。
-
-> 这部分分模块来描述后端的具体实现，比如：
 
 ## 7.1 查词功能的实现
 
@@ -4543,7 +4475,7 @@ root@localhost [Sat Jun  4 20:56:41 2022 23 ela4]> desc feed_back;
 - 该指标是通过计算数据库中所有用户对该单词的熟练度,并计算平均值,以此来计算单词的平均难度指数
 - 可以帮助用户参考准确记忆该单词的难度
 
-7.3 复习功能的实现
+## 7.3 复习功能的实现
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/0bf8da54db6f45818cf502b5c0655e06.png)
 图7.3.1
@@ -4577,17 +4509,19 @@ root@localhost [Sat Jun  4 20:56:41 2022 23 ela4]> desc feed_back;
 - 接口效果:
 ###  eg0:
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/4f9b35ca1edc43fba01f0c260f671331.png)
-7.4.2
+图7.4.2
+
 ### eg1:
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/3af4a149f56c40359f688adf88783569.png)
-7.4.3
+
+图7.4.3
+
 ###  eg2
 `GEThttp://127.0.0.1:8000/word/fuzzy/fhather/1`
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/555e35733de84570bd5f40d9fa088e96.png)
-7.4.3
-> 这部分主要讲点名功能的具体实现方案，可以通过用例图、流程图等来辅助说明。并通过截图来展示效果。
->
-> 实现部分不要只有截图，要有文字说明，讲讲这部分实现时采用什么技术，优缺点是什么，实现难点在哪里。
+图7.4.3
+
 ## 7.5 用户中心
 
 ### 登录功能方案选型:
@@ -4614,15 +4548,13 @@ is_success-->|no|login_required
 
 
 
-
-
 # 八、系统测试
 
 
 
 ## 8.1 单元测试
 
-> 这部分是单元测试的方案，可以列表统计有多少测试，覆盖率是多少。
+> 
 
 
 
@@ -4638,6 +4570,22 @@ is_success-->|no|login_required
     - apifox也提供了简单易用的批量测试接口的功能,可以在线上环境中进行测试,也可以在本地进行测试,甚至支持多线程测试和并发测试,而且统计了接口的调用次数和调用时间,比较直观
     - 本项目在开发过程中就受益于批量测试,帮助我在部分接口缺少测试的时候及时发现问题并解决
 
+#### coverage.py提供的测试覆盖率统计报告服务
+
+![image-20220610132351149](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610132351149.png)
+
+图8.1通过coverage收集测试运行的信息(以项目中的word模块为例)
+
+![image-20220610131701793](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610131701793.png)
+
+图8.2开始统计测试
+
+![image-20220610131742120](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610131742120.png)
+
+图8.3,总结当前的测试覆盖率(58%)
+
+
+
 
 ## 8.2 集成测试集
 * 成测试（Integration Testing），也叫组装测试或联合测试。在单元测试的基础上，将所有模块按照设计要求（如根据结构图）组装成为子系统或系统，进行集成测试
@@ -4646,9 +4594,11 @@ is_success-->|no|login_required
 
 ![image-20220610090324016](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610090324016.png)
 
-- 通过apifox 进行的批量自动化测试,每个几口可以又多个测试实例
+图8.2.1通过apifox 进行的批量自动化测试,每个接口可以又多个测试实例
 
 ![image-20220610090904377](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610090904377.png)
+
+图8.2.2
 
 - 这是通过apifox的套件测试,批量测试接口下的测试用例,并且测试保证顺序
 - 报告测试结果
@@ -4657,6 +4607,8 @@ is_success-->|no|login_required
 ## 8.3 测试部署及结果
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/4598744f2c954c0d84e8adc0bd95eb1d.png)
+
+图8.3.1再GitHub上部署并项目并且执行`Run Tests`,报告结果
 
 * 我们利用github Actions 来执行自动化测试,主要的内容是,当我从本地将项目push到github上时,我们会自动运行测试,并且将测试结果发送到我的邮箱中,这样我们就可以更加方便的了解项目的测试结果,问题和故障可以及时的得到反馈,而不需要每次在本地跑一遍所有测试,可以节约时间
 * 不仅如此,团队中的其他人也可以看到测试结果
@@ -4795,8 +4747,40 @@ is_success-->|no|login_required
 
 
 # 十、功能展示 [潘淼森]
+> 详细的操作逻辑和实现在第六部分作了解释
 
-- 参看演示视频附件:[video.mp4 (github.com)](https://github.com/MaterialSharing/docs/blob/main/video.mp4)
+- 授权登录与退出
+
+![](https://img-blog.csdnimg.cn/77b25372b0204667a0765a31c36be7d0.png)
+
+- 查词
+
+![](https://img-blog.csdnimg.cn/48fb3a1616a1497785bf6f47bdadd81d.png)
+
+- 背单词，左右滑动实现翻页
+
+![](https://img-blog.csdnimg.cn/8543b1cf082343f9883f13b8cfc5e606.png)
+
+- 发表批注
+
+![](https://img-blog.csdnimg.cn/2c0017d0294f4bbc8352b684b2b911e6.png)
+
+- 难度指标评价
+
+![](https://img-blog.csdnimg.cn/594fa69c9618421c8a7577bc928e719c.png)
+
+- 切换考纲
+
+![](https://img-blog.csdnimg.cn/c03f2bb647114f0487743f5a2b71094d.png)
+
+- 计算ddl
+
+![](https://img-blog.csdnimg.cn/bc9207f31d17473ab84ce49db61423e9.png)
+
+- 反馈与客服
+
+![](https://img-blog.csdnimg.cn/87fc067463e44f579f8ab09ac5fef2ae.png)
+
 
 # 十一、清单 [徐超信,潘淼森]
 * 项目github(组织):[MaterialSharing (github.com)](https://github.com/MaterialSharing)
@@ -4806,19 +4790,15 @@ is_success-->|no|login_required
 > - 后端代码: backEnd
 > - 原型设计文件: docs/design/design_原型操作逻辑1.pptx
 > - 项目演示视频: docs/video.mp4
+> - 项目ppt:docs/ppt.html (以及ppt.pptx)
 > - 各种流图和思维导图文件: docs/design/
-> - ……
->
+> 
 
 # 十二、总结 [徐超信,潘淼森]
 
-> 项目的总结，整个项目的感受以及下一步的计划。
-
-[version control - How do I force "git pull" to overwrite local files? - Stack Overflow](https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files)
-
 在开发本项目的过程中,我们收获了很多
 
-- 学习,了解并实践了当下流行的开发技术,体验了规范的和相对完善的开发流程
+- 学习,了解并实践了当下流行的开发技术,体验了规范的和相对完善的开发流程,学习并体验了先进的TDD方式开发项目以及各种有利于提高开发&部署效率的技术
 - 培养了我们的主动学习能力,思考能力以及动手能力,为我们今后的工作学习打下了重要的基础
 
 在开发过程中,我们同样遇到了各种问题
@@ -4827,7 +4807,7 @@ is_success-->|no|login_required
 - 小组成员合理分工,沟通协商,团结一致也是分重要,不合理的分工会导致矛盾,缺乏沟通也会导致组内矛盾,影响开发效率和进度,而不团结的队伍也不利于项目的完善
 - 此外还有进度安排不签当的任务复杂度估计往往会导致项目开发无法及时完成或者流程不够完善.
 
-# 十二、参考文献 [徐超信,潘淼森]
+# 十三、参考文献 [徐超信,潘淼森]
 
 > 系统所参考的文献或者代码，比如：
 >

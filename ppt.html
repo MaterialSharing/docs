@@ -1,0 +1,1537 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"><meta name="apple-mobile-web-app-capable" content="yes"><meta http-equiv="X-UA-Compatible" content="ie=edge"><meta property="og:type" content="website"><meta name="twitter:card" content="summary"><style>@media screen{body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container button{-webkit-tap-highlight-color:transparent;-webkit-appearance:none;-moz-appearance:none;appearance:none;background-color:transparent;border:0;color:inherit;cursor:pointer;font-size:inherit;opacity:.8;outline:none;padding:0;transition:opacity .2s linear}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:disabled,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:disabled,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:disabled,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container button:disabled{cursor:not-allowed;opacity:.15!important}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:hover,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:hover,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:hover,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container button:hover{opacity:1}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:active,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:active,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:hover:active,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container button:hover:active{opacity:.6}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:not(:disabled),body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button:hover:not(:disabled),body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button:hover:not(:disabled),body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container button:hover:not(:disabled){transition:none}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev],body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button.bespoke-marp-presenter-info-page-prev{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI1IiBkPSJNNjggOTAgMjggNTBsNDAtNDAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button.bespoke-marp-presenter-info-page-next{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIgc3Ryb2tlLWxpbmVqb2luPSJyb3VuZCIgc3Ryb2tlLXdpZHRoPSI1IiBkPSJtMzIgOTAgNDAtNDAtNDAtNDAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen]{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6NXB4fTwvc3R5bGU+PC9kZWZzPjxyZWN0IGNsYXNzPSJhIiB4PSIxMCIgeT0iMjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI2MCIgcng9IjUuNjciLz48cGF0aCBjbGFzcz0iYSIgZD0iTTQwIDcwSDIwVjUwbTIwIDBMMjAgNzBtNDAtNDBoMjB2MjBtLTIwIDAgMjAtMjAiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button.exit[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button.exit[data-bespoke-marp-osc=fullscreen]{background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6NXB4fTwvc3R5bGU+PC9kZWZzPjxyZWN0IGNsYXNzPSJhIiB4PSIxMCIgeT0iMjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI2MCIgcng9IjUuNjciLz48cGF0aCBjbGFzcz0iYSIgZD0iTTIwIDUwaDIwdjIwbS0yMCAwIDIwLTIwbTQwIDBINjBWMzBtMjAgMEw2MCA1MCIvPjwvc3ZnPg==")}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter]{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNODcuOCA0Ny41Qzg5IDUwIDg3LjcgNTIgODUgNTJIMzVhOC43IDguNyAwIDAgMS03LjItNC41bC0xNS42LTMxQzExIDE0IDEyLjIgMTIgMTUgMTJoNTBhOC44IDguOCAwIDAgMSA3LjIgNC41ek02MCA1MnYzNm0tMTAgMGgyME00NSA0MmgyMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIHN0cm9rZS13aWR0aD0iNSIvPjwvc3ZnPg==") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container button.bespoke-marp-presenter-note-bigger{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMTIgNTBoODBNNTIgOTBWMTAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjUiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container button.bespoke-marp-presenter-note-smaller{background:transparent url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMTIgNTBoODAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBzdHJva2Utd2lkdGg9IjUiLz48L3N2Zz4=") no-repeat 50%;background-size:contain;overflow:hidden;text-indent:100%;white-space:nowrap}}.bespoke-marp-note,.bespoke-marp-osc,.bespoke-progress-parent{display:none;transition:none}@media screen{body,html{height:100%;margin:0}body{background:#000;overflow:hidden}svg.bespoke-marp-slide{content-visibility:hidden;opacity:0;pointer-events:none;z-index:-1}svg.bespoke-marp-slide.bespoke-marp-active{content-visibility:visible;opacity:1;pointer-events:auto;z-index:0}svg.bespoke-marp-slide.bespoke-marp-active.bespoke-marp-active-ready *{-webkit-animation-name:__bespoke_marp__!important;animation-name:__bespoke_marp__!important}@supports not (content-visibility:hidden){svg.bespoke-marp-slide[data-bespoke-marp-load=hideable]{display:none}svg.bespoke-marp-slide[data-bespoke-marp-load=hideable].bespoke-marp-active{display:block}}[data-bespoke-marp-fragment=inactive]{visibility:hidden}body[data-bespoke-view=""] .bespoke-marp-parent,body[data-bespoke-view=next] .bespoke-marp-parent{bottom:0;left:0;position:absolute;right:0;top:0}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc{background:rgba(0,0,0,.65);border-radius:7px;bottom:50px;color:#fff;contain:paint;display:block;font-family:Helvetica,Arial,sans-serif;font-size:16px;left:50%;line-height:0;opacity:1;padding:12px;position:absolute;touch-action:manipulation;transform:translateX(-50%);transition:opacity .2s linear;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;white-space:nowrap;will-change:transform;z-index:1}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>*,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>*{margin-left:6px}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>:first-child,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>:first-child{margin-left:0}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>span,body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>span{opacity:.8}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>span[data-bespoke-marp-osc=page],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>span[data-bespoke-marp-osc=page]{display:inline-block;min-width:140px;text-align:center}body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter],body[data-bespoke-view=""] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=fullscreen],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=next],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=presenter],body[data-bespoke-view=next] .bespoke-marp-parent>.bespoke-marp-osc>button[data-bespoke-marp-osc=prev]{height:32px;line-height:32px;width:32px}body[data-bespoke-view=""] .bespoke-marp-parent.bespoke-marp-inactive,body[data-bespoke-view=next] .bespoke-marp-parent.bespoke-marp-inactive{cursor:none}body[data-bespoke-view=""] .bespoke-marp-parent.bespoke-marp-inactive>.bespoke-marp-osc,body[data-bespoke-view=next] .bespoke-marp-parent.bespoke-marp-inactive>.bespoke-marp-osc{opacity:0;pointer-events:none}body[data-bespoke-view=""] svg.bespoke-marp-slide,body[data-bespoke-view=next] svg.bespoke-marp-slide{height:100%;left:0;position:absolute;top:0;width:100%}body[data-bespoke-view=""] .bespoke-progress-parent{background:#222;display:flex;height:5px;width:100%}body[data-bespoke-view=""] .bespoke-progress-parent+.bespoke-marp-parent{top:5px}body[data-bespoke-view=""] .bespoke-progress-parent .bespoke-progress-bar{background:#0288d1;flex:0 0 0;transition:flex-basis .2s cubic-bezier(0,1,1,1)}body[data-bespoke-view=next]{background:transparent}body[data-bespoke-view=presenter]{background:#161616}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container{display:grid;font-family:Helvetica,Arial,sans-serif;grid-template:"current dragbar next" minmax(140px,1fr) "current dragbar note" 2fr "info    dragbar note" 3em;grid-template-columns:minmax(3px,var(--bespoke-marp-presenter-split-ratio,66%)) 0 minmax(3px,1fr);height:100%;left:0;position:absolute;top:0;width:100%}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-parent{grid-area:current;overflow:hidden;position:relative}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-parent svg.bespoke-marp-slide{height:calc(100% - 40px);left:20px;pointer-events:none;position:absolute;top:20px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:calc(100% - 40px)}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-parent svg.bespoke-marp-slide.bespoke-marp-active{filter:drop-shadow(0 3px 10px rgba(0,0,0,.5))}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-dragbar-container{background:#0288d1;cursor:col-resize;grid-area:dragbar;margin-left:-3px;opacity:0;position:relative;transition:opacity .4s linear .1s;width:6px;z-index:10}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-dragbar-container:hover{opacity:1}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-dragbar-container.active{opacity:1;transition-delay:0s}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-next-container{background:#222;cursor:pointer;display:none;grid-area:next;overflow:hidden;position:relative}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-next-container.active{display:block}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-next-container iframe.bespoke-marp-presenter-next{background:transparent;border:0;display:block;filter:drop-shadow(0 3px 10px rgba(0,0,0,.5));height:calc(100% - 40px);left:20px;pointer-events:none;position:absolute;top:20px;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;width:calc(100% - 40px)}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container{background:#222;color:#eee;grid-area:note;position:relative;z-index:1}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container button{height:1.5em;line-height:1.5em;width:1.5em}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-presenter-note-wrapper{bottom:0;display:block;left:0;position:absolute;right:0;top:0}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-presenter-note-buttons{background:rgba(0,0,0,.65);border-radius:4px;bottom:0;display:flex;gap:4px;margin:12px;opacity:0;padding:6px;pointer-events:none;position:absolute;right:0;transition:opacity .2s linear}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-presenter-note-buttons:focus-within,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-presenter-note-wrapper:focus-within+.bespoke-marp-presenter-note-buttons,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container:hover .bespoke-marp-presenter-note-buttons{opacity:1;pointer-events:auto}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note{word-wrap:break-word;box-sizing:border-box;font-size:calc(1.1em*var(--bespoke-marp-note-font-scale, 1));height:calc(100% - 40px);margin:20px;overflow:auto;padding-right:3px;scrollbar-color:hsla(0,0%,93%,.5) transparent;scrollbar-width:thin;white-space:pre-wrap;width:calc(100% - 40px)}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note::-webkit-scrollbar{width:6px}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note::-webkit-scrollbar-track{background:transparent}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note::-webkit-scrollbar-thumb{background:hsla(0,0%,93%,.5);border-radius:6px}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note:empty{pointer-events:none}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note.active{display:block}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note p:first-child{margin-top:0}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-note-container .bespoke-marp-note p:last-child{margin-bottom:0}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container{align-items:center;box-sizing:border-box;color:#eee;display:flex;flex-wrap:nowrap;grid-area:info;justify-content:center;overflow:hidden;padding:0 10px}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-page,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-time,body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-timer{box-sizing:border-box;display:block;padding:0 10px;white-space:nowrap;width:100%}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container button{height:1.5em;line-height:1.5em;width:1.5em}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-page{order:2;text-align:center}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-page .bespoke-marp-presenter-info-page-text{display:inline-block;min-width:120px;text-align:center}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-time{color:#999;order:1;text-align:left}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-timer{color:#999;order:3;text-align:right}body[data-bespoke-view=presenter] .bespoke-marp-presenter-container .bespoke-marp-presenter-info-container .bespoke-marp-presenter-info-timer:hover{cursor:pointer}}@media print{.bespoke-marp-presenter-info-container,.bespoke-marp-presenter-next-container,.bespoke-marp-presenter-note-container{display:none}}</style><style>div#p>svg>foreignObject>section{width:1280px;height:720px;box-sizing:border-box;overflow:hidden;position:relative;scroll-snap-align:center center}div#p>svg>foreignObject>section:after{bottom:0;content:attr(data-marpit-pagination);padding:inherit;pointer-events:none;position:absolute;right:0}div#p>svg>foreignObject>section:not([data-marpit-pagination]):after{display:none}/* Normalization */div#p>svg>foreignObject>section h1{font-size:2em;margin:0.67em 0}div#p>svg>foreignObject>section video::-webkit-media-controls{will-change:transform}@page{size:1280px 720px;margin:0}@media print{body,html{background-color:#fff;margin:0;page-break-inside:avoid;break-inside:avoid-page}div#p>svg>foreignObject>section{page-break-before:always;break-before:page}div#p>svg>foreignObject>section,div#p>svg>foreignObject>section *{-webkit-print-color-adjust:exact!important;animation-delay:0s!important;animation-duration:0s!important;color-adjust:exact!important;transition:none!important}div#p>svg[data-marpit-svg]{display:block;height:100vh;width:100vw}}div#p>svg>foreignObject>section svg[data-marp-fitting=svg]{display:block;height:auto;width:100%}@supports (-ms-ime-align:auto){div#p>svg>foreignObject>section svg[data-marp-fitting=svg]{position:static}}div#p>svg>foreignObject>section svg[data-marp-fitting=svg].__reflow__{content:""}@supports (-ms-ime-align:auto){div#p>svg>foreignObject>section svg[data-marp-fitting=svg].__reflow__{position:relative}}div#p>svg>foreignObject>section [data-marp-fitting-svg-content]{display:table;white-space:nowrap;width:-webkit-max-content;width:-moz-max-content;width:max-content}div#p>svg>foreignObject>section [data-marp-fitting-svg-content-wrap]{white-space:pre}div#p>svg>foreignObject>section img[data-marp-twemoji]{background:transparent;height:1em;margin:0 .05em 0 .1em;vertical-align:-.1em;width:1em}
+/*!
+ * Marp default theme.
+ *
+ * @theme default
+ * @author Yuki Hattori
+ *
+ * @auto-scaling true
+ * @size 16:9 1280px 720px
+ * @size 4:3 960px 720px
+ */div#p>svg>foreignObject>section{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;word-wrap:break-word;background-color:#fff;color:#24292f;font-family:-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;font-size:16px;line-height:1.5;margin:0}div#p>svg>foreignObject>section{--marpit-root-font-size:16px}div#p>svg>foreignObject>section h1:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h2:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h3:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h4:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h5:hover .anchor .octicon-link:before,div#p>svg>foreignObject>section h6:hover .anchor .octicon-link:before{background-color:currentColor;content:" ";display:inline-block;height:16px;-webkit-mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 0 0 1.06 1.06l1.25-1.25a2 2 0 1 1 2.83 2.83l-2.5 2.5a2 2 0 0 1-2.83 0 .75.75 0 0 0-1.06 1.06 3.5 3.5 0 0 0 4.95 0l2.5-2.5a3.5 3.5 0 0 0-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 0 1 0-2.83l2.5-2.5a2 2 0 0 1 2.83 0 .75.75 0 0 0 1.06-1.06 3.5 3.5 0 0 0-4.95 0l-2.5 2.5a3.5 3.5 0 0 0 4.95 4.95l1.25-1.25a.75.75 0 0 0-1.06-1.06l-1.25 1.25a2 2 0 0 1-2.83 0z"/></svg>');mask-image:url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M7.775 3.275a.75.75 0 0 0 1.06 1.06l1.25-1.25a2 2 0 1 1 2.83 2.83l-2.5 2.5a2 2 0 0 1-2.83 0 .75.75 0 0 0-1.06 1.06 3.5 3.5 0 0 0 4.95 0l2.5-2.5a3.5 3.5 0 0 0-4.95-4.95l-1.25 1.25zm-4.69 9.64a2 2 0 0 1 0-2.83l2.5-2.5a2 2 0 0 1 2.83 0 .75.75 0 0 0 1.06-1.06 3.5 3.5 0 0 0-4.95 0l-2.5 2.5a3.5 3.5 0 0 0 4.95 4.95l1.25-1.25a.75.75 0 0 0-1.06-1.06l-1.25 1.25a2 2 0 0 1-2.83 0z"/></svg>');width:16px}div#p>svg>foreignObject>section details,div#p>svg>foreignObject>section figcaption,div#p>svg>foreignObject>section figure{display:block}div#p>svg>foreignObject>section summary{display:list-item}div#p>svg>foreignObject>section [hidden]{display:none!important}div#p>svg>foreignObject>section a{background-color:transparent;color:#0969da;text-decoration:none}div#p>svg>foreignObject>section a:active,div#p>svg>foreignObject>section a:hover{outline-width:0}div#p>svg>foreignObject>section abbr[title]{border-bottom:none;-webkit-text-decoration:underline dotted;text-decoration:underline dotted}div#p>svg>foreignObject>section b,div#p>svg>foreignObject>section strong{font-weight:600}div#p>svg>foreignObject>section dfn{font-style:italic}div#p>svg>foreignObject>section h1{border-bottom:1px solid #d8dee4;font-size:2em;font-weight:600;margin:.67em 0;padding-bottom:.3em}div#p>svg>foreignObject>section mark{background-color:#fff8c5;color:#24292f}div#p>svg>foreignObject>section small{font-size:90%}div#p>svg>foreignObject>section sub,div#p>svg>foreignObject>section sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}div#p>svg>foreignObject>section sub{bottom:-.25em}div#p>svg>foreignObject>section sup{top:-.5em}div#p>svg>foreignObject>section img{background-color:#fff;border-style:none;box-sizing:content-box;max-width:100%}div#p>svg>foreignObject>section code,div#p>svg>foreignObject>section kbd,div#p>svg>foreignObject>section pre,div#p>svg>foreignObject>section samp{font-family:monospace,monospace;font-size:1em}div#p>svg>foreignObject>section figure{margin:1em 40px}div#p>svg>foreignObject>section hr{background:transparent;background-color:#d0d7de;border:0;box-sizing:content-box;height:.25em;margin:24px 0;overflow:hidden;padding:0}div#p>svg>foreignObject>section input{font:inherit;font-family:inherit;font-size:inherit;line-height:inherit;margin:0;overflow:visible}div#p>svg>foreignObject>section [type=button],div#p>svg>foreignObject>section [type=reset],div#p>svg>foreignObject>section [type=submit]{-webkit-appearance:button}div#p>svg>foreignObject>section [type=button]::-moz-focus-inner,div#p>svg>foreignObject>section [type=reset]::-moz-focus-inner,div#p>svg>foreignObject>section [type=submit]::-moz-focus-inner{border-style:none;padding:0}div#p>svg>foreignObject>section [type=button]:-moz-focusring,div#p>svg>foreignObject>section [type=reset]:-moz-focusring,div#p>svg>foreignObject>section [type=submit]:-moz-focusring{outline:1px dotted ButtonText}div#p>svg>foreignObject>section [type=checkbox],div#p>svg>foreignObject>section [type=radio]{box-sizing:border-box;padding:0}div#p>svg>foreignObject>section [type=number]::-webkit-inner-spin-button,div#p>svg>foreignObject>section [type=number]::-webkit-outer-spin-button{height:auto}div#p>svg>foreignObject>section [type=search]{-webkit-appearance:textfield;outline-offset:-2px}div#p>svg>foreignObject>section [type=search]::-webkit-search-cancel-button,div#p>svg>foreignObject>section [type=search]::-webkit-search-decoration{-webkit-appearance:none}div#p>svg>foreignObject>section ::-webkit-input-placeholder{color:inherit;opacity:.54}div#p>svg>foreignObject>section ::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}div#p>svg>foreignObject>section a:hover{text-decoration:underline}div#p>svg>foreignObject>section hr:after,div#p>svg>foreignObject>section hr:before{content:"";display:table}div#p>svg>foreignObject>section hr:after{clear:both}div#p>svg>foreignObject>section table{border-collapse:collapse;border-spacing:0;display:block;max-width:100%;overflow:auto;width:-webkit-max-content;width:-moz-max-content;width:max-content}div#p>svg>foreignObject>section td,div#p>svg>foreignObject>section th{padding:0}div#p>svg>foreignObject>section details summary{cursor:pointer}div#p>svg>foreignObject>section details:not([open])>:not(summary){display:none!important}div#p>svg>foreignObject>section kbd{background-color:#f6f8fa;border:1px solid rgba(175,184,193,.2);border-radius:6px;box-shadow:inset 0 -1px 0 rgba(175,184,193,.2);color:#24292f;display:inline-block;font:11px ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;line-height:10px;padding:3px 5px;vertical-align:middle}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2,div#p>svg>foreignObject>section h3,div#p>svg>foreignObject>section h4,div#p>svg>foreignObject>section h5,div#p>svg>foreignObject>section h6{font-weight:600;line-height:1.25;margin-bottom:16px;margin-top:24px}div#p>svg>foreignObject>section h2{border-bottom:1px solid #d8dee4;font-size:1.5em;font-weight:600;padding-bottom:.3em}div#p>svg>foreignObject>section h3{font-size:1.25em;font-weight:600}div#p>svg>foreignObject>section h4{font-size:1em;font-weight:600}div#p>svg>foreignObject>section h5{font-size:.875em;font-weight:600}div#p>svg>foreignObject>section h6{color:#57606a;font-size:.85em;font-weight:600}div#p>svg>foreignObject>section p{margin-bottom:10px;margin-top:0}div#p>svg>foreignObject>section blockquote{border-left:.25em solid #d0d7de;color:#57606a;margin:0;padding:0 1em}div#p>svg>foreignObject>section ol,div#p>svg>foreignObject>section ul{margin-bottom:0;margin-top:0;padding-left:2em}div#p>svg>foreignObject>section ol ol,div#p>svg>foreignObject>section ul ol{list-style-type:lower-roman}div#p>svg>foreignObject>section ol ol ol,div#p>svg>foreignObject>section ol ul ol,div#p>svg>foreignObject>section ul ol ol,div#p>svg>foreignObject>section ul ul ol{list-style-type:lower-alpha}div#p>svg>foreignObject>section dd{margin-left:0}div#p>svg>foreignObject>section code,div#p>svg>foreignObject>section pre,div#p>svg>foreignObject>section tt{font-family:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;font-size:12px}div#p>svg>foreignObject>section pre{word-wrap:normal;margin-bottom:0;margin-top:0}div#p>svg>foreignObject>section .octicon{fill:currentColor;display:inline-block;overflow:visible!important;vertical-align:text-bottom}div#p>svg>foreignObject>section ::-moz-placeholder{color:#6e7781;opacity:1}div#p>svg>foreignObject>section :-ms-input-placeholder{color:#6e7781;opacity:1}div#p>svg>foreignObject>section ::placeholder{color:#6e7781;opacity:1}div#p>svg>foreignObject>section input::-webkit-inner-spin-button,div#p>svg>foreignObject>section input::-webkit-outer-spin-button{-webkit-appearance:none;appearance:none;margin:0}div#p>svg>foreignObject>section .pl-c{color:#6e7781}div#p>svg>foreignObject>section .pl-c1,div#p>svg>foreignObject>section .pl-s .pl-v{color:#0550ae}div#p>svg>foreignObject>section .pl-e,div#p>svg>foreignObject>section .pl-en{color:#8250df}div#p>svg>foreignObject>section .pl-s .pl-s1,div#p>svg>foreignObject>section .pl-smi{color:#24292f}div#p>svg>foreignObject>section .pl-ent{color:#116329}div#p>svg>foreignObject>section .pl-k{color:#cf222e}div#p>svg>foreignObject>section .pl-pds,div#p>svg>foreignObject>section .pl-s,div#p>svg>foreignObject>section .pl-s .pl-pse .pl-s1,div#p>svg>foreignObject>section .pl-sr,div#p>svg>foreignObject>section .pl-sr .pl-cce,div#p>svg>foreignObject>section .pl-sr .pl-sra,div#p>svg>foreignObject>section .pl-sr .pl-sre{color:#0a3069}div#p>svg>foreignObject>section .pl-smw,div#p>svg>foreignObject>section .pl-v{color:#953800}div#p>svg>foreignObject>section .pl-bu{color:#82071e}div#p>svg>foreignObject>section .pl-ii{background-color:#82071e;color:#f6f8fa}div#p>svg>foreignObject>section .pl-c2{background-color:#cf222e;color:#f6f8fa}div#p>svg>foreignObject>section .pl-sr .pl-cce{color:#116329;font-weight:700}div#p>svg>foreignObject>section .pl-ml{color:#3b2300}div#p>svg>foreignObject>section .pl-mh,div#p>svg>foreignObject>section .pl-mh .pl-en,div#p>svg>foreignObject>section .pl-ms{color:#0550ae;font-weight:700}div#p>svg>foreignObject>section .pl-mi{color:#24292f;font-style:italic}div#p>svg>foreignObject>section .pl-mb{color:#24292f;font-weight:700}div#p>svg>foreignObject>section .pl-md{background-color:#ffebe9;color:#82071e}div#p>svg>foreignObject>section .pl-mi1{background-color:#dafbe1;color:#116329}div#p>svg>foreignObject>section .pl-mc{background-color:#ffd8b5;color:#953800}div#p>svg>foreignObject>section .pl-mi2{background-color:#0550ae;color:#eaeef2}div#p>svg>foreignObject>section .pl-mdr{color:#8250df;font-weight:700}div#p>svg>foreignObject>section .pl-ba{color:#57606a}div#p>svg>foreignObject>section .pl-sg{color:#8c959f}div#p>svg>foreignObject>section .pl-corl{color:#0a3069;text-decoration:underline}div#p>svg>foreignObject>section [data-catalyst]{display:block}div#p>svg>foreignObject>section g-emoji{font-family:Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;font-size:1em;font-style:normal!important;font-weight:400;line-height:1;vertical-align:-.075em}div#p>svg>foreignObject>section g-emoji img{height:1em;width:1em}div#p>svg>foreignObject>section:after,div#p>svg>foreignObject>section:before{
+  /* content:""; */display:table}div#p>svg>foreignObject>section:after{clear:both}div#p>svg>foreignObject>section>:first-child{margin-top:0!important}div#p>svg>foreignObject>section>:last-child{margin-bottom:0!important}div#p>svg>foreignObject>section a:not([href]){color:inherit;text-decoration:none}div#p>svg>foreignObject>section .absent{color:#cf222e}div#p>svg>foreignObject>section .anchor{float:left;line-height:1;margin-left:-20px;padding-right:4px}div#p>svg>foreignObject>section .anchor:focus{outline:none}div#p>svg>foreignObject>section blockquote,div#p>svg>foreignObject>section details,div#p>svg>foreignObject>section dl,div#p>svg>foreignObject>section ol,div#p>svg>foreignObject>section p,div#p>svg>foreignObject>section pre,div#p>svg>foreignObject>section table,div#p>svg>foreignObject>section ul{margin-bottom:16px;margin-top:0}div#p>svg>foreignObject>section blockquote>:first-child{margin-top:0}div#p>svg>foreignObject>section blockquote>:last-child{margin-bottom:0}div#p>svg>foreignObject>section sup>a:before{content:"["}div#p>svg>foreignObject>section sup>a:after{content:"]"}div#p>svg>foreignObject>section h1 .octicon-link,div#p>svg>foreignObject>section h2 .octicon-link,div#p>svg>foreignObject>section h3 .octicon-link,div#p>svg>foreignObject>section h4 .octicon-link,div#p>svg>foreignObject>section h5 .octicon-link,div#p>svg>foreignObject>section h6 .octicon-link{color:#24292f;vertical-align:middle;visibility:hidden}div#p>svg>foreignObject>section h1:hover .anchor,div#p>svg>foreignObject>section h2:hover .anchor,div#p>svg>foreignObject>section h3:hover .anchor,div#p>svg>foreignObject>section h4:hover .anchor,div#p>svg>foreignObject>section h5:hover .anchor,div#p>svg>foreignObject>section h6:hover .anchor{text-decoration:none}div#p>svg>foreignObject>section h1:hover .anchor .octicon-link,div#p>svg>foreignObject>section h2:hover .anchor .octicon-link,div#p>svg>foreignObject>section h3:hover .anchor .octicon-link,div#p>svg>foreignObject>section h4:hover .anchor .octicon-link,div#p>svg>foreignObject>section h5:hover .anchor .octicon-link,div#p>svg>foreignObject>section h6:hover .anchor .octicon-link{visibility:visible}div#p>svg>foreignObject>section h1 code,div#p>svg>foreignObject>section h1 tt,div#p>svg>foreignObject>section h2 code,div#p>svg>foreignObject>section h2 tt,div#p>svg>foreignObject>section h3 code,div#p>svg>foreignObject>section h3 tt,div#p>svg>foreignObject>section h4 code,div#p>svg>foreignObject>section h4 tt,div#p>svg>foreignObject>section h5 code,div#p>svg>foreignObject>section h5 tt,div#p>svg>foreignObject>section h6 code,div#p>svg>foreignObject>section h6 tt{font-size:inherit;padding:0 .2em}div#p>svg>foreignObject>section ol.no-list,div#p>svg>foreignObject>section ul.no-list{list-style-type:none;padding:0}div#p>svg>foreignObject>section ol[type="1"]{list-style-type:decimal}div#p>svg>foreignObject>section ol[type=a]{list-style-type:lower-alpha}div#p>svg>foreignObject>section ol[type=i]{list-style-type:lower-roman}div#p>svg>foreignObject>section div>ol:not([type]){list-style-type:decimal}div#p>svg>foreignObject>section ol ol,div#p>svg>foreignObject>section ol ul,div#p>svg>foreignObject>section ul ol,div#p>svg>foreignObject>section ul ul{margin-bottom:0;margin-top:0}div#p>svg>foreignObject>section li>p{margin-top:16px}div#p>svg>foreignObject>section li+li{margin-top:.25em}div#p>svg>foreignObject>section dl{padding:0}div#p>svg>foreignObject>section dl dt{font-size:1em;font-style:italic;font-weight:600;margin-top:16px;padding:0}div#p>svg>foreignObject>section dl dd{margin-bottom:16px;padding:0 16px}div#p>svg>foreignObject>section table th{font-weight:600}div#p>svg>foreignObject>section table td,div#p>svg>foreignObject>section table th{border:1px solid #d0d7de;padding:6px 13px}div#p>svg>foreignObject>section table tr{background-color:#fff;border-top:1px solid #d8dee4}div#p>svg>foreignObject>section table tr:nth-child(2n){background-color:#f6f8fa}div#p>svg>foreignObject>section table img{background-color:transparent}div#p>svg>foreignObject>section img[align=right]{padding-left:20px}div#p>svg>foreignObject>section img[align=left]{padding-right:20px}div#p>svg>foreignObject>section .emoji{background-color:transparent;max-width:none;vertical-align:text-top}div#p>svg>foreignObject>section span.frame,div#p>svg>foreignObject>section span.frame>span{display:block;overflow:hidden}div#p>svg>foreignObject>section span.frame>span{border:1px solid #d0d7de;float:left;margin:13px 0 0;padding:7px;width:auto}div#p>svg>foreignObject>section span.frame span img{display:block;float:left}div#p>svg>foreignObject>section span.frame span span{clear:both;color:#24292f;display:block;padding:5px 0 0}div#p>svg>foreignObject>section span.align-center{clear:both;display:block;overflow:hidden}div#p>svg>foreignObject>section span.align-center>span{display:block;margin:13px auto 0;overflow:hidden;text-align:center}div#p>svg>foreignObject>section span.align-center span img{margin:0 auto;text-align:center}div#p>svg>foreignObject>section span.align-right{clear:both;display:block;overflow:hidden}div#p>svg>foreignObject>section span.align-right>span{display:block;margin:13px 0 0;overflow:hidden;text-align:right}div#p>svg>foreignObject>section span.align-right span img{margin:0;text-align:right}div#p>svg>foreignObject>section span.float-left{display:block;float:left;margin-right:13px;overflow:hidden}div#p>svg>foreignObject>section span.float-left span{margin:13px 0 0}div#p>svg>foreignObject>section span.float-right{display:block;float:right;margin-left:13px;overflow:hidden}div#p>svg>foreignObject>section span.float-right>span{display:block;margin:13px auto 0;overflow:hidden;text-align:right}div#p>svg>foreignObject>section code,div#p>svg>foreignObject>section tt{background-color:rgba(175,184,193,.2);border-radius:6px;font-size:85%;margin:0;padding:.2em .4em}div#p>svg>foreignObject>section code br,div#p>svg>foreignObject>section tt br{display:none}div#p>svg>foreignObject>section del code{text-decoration:inherit}div#p>svg>foreignObject>section pre code{font-size:100%}div#p>svg>foreignObject>section pre>code{background:transparent;border:0;margin:0;padding:0;white-space:pre;word-break:normal}div#p>svg>foreignObject>section .highlight{margin-bottom:16px}div#p>svg>foreignObject>section .highlight pre{margin-bottom:0;word-break:normal}div#p>svg>foreignObject>section pre{background-color:#f6f8fa;border-radius:6px;font-size:85%;line-height:1.45;overflow:auto;padding:16px}div#p>svg>foreignObject>section pre code,div#p>svg>foreignObject>section pre tt{word-wrap:normal;background-color:transparent;border:0;display:inline;line-height:inherit;margin:0;max-width:auto;overflow:visible;padding:0}div#p>svg>foreignObject>section .csv-data td,div#p>svg>foreignObject>section .csv-data th{font-size:12px;line-height:1;overflow:hidden;padding:5px;text-align:left;white-space:nowrap}div#p>svg>foreignObject>section .csv-data .blob-num{background:#fff;border:0;padding:10px 8px 9px;text-align:right}div#p>svg>foreignObject>section .csv-data tr{border-top:0}div#p>svg>foreignObject>section .csv-data th{background:#f6f8fa;border-top:0;font-weight:600}div#p>svg>foreignObject>section .footnotes{border-top:1px solid #d0d7de;color:#57606a;font-size:12px}div#p>svg>foreignObject>section div#p>svg>foreignObject>section section.footnotes{--marpit-root-font-size:12px}div#p>svg>foreignObject>section .footnotes ol{padding-left:16px}div#p>svg>foreignObject>section .footnotes li{position:relative}div#p>svg>foreignObject>section .footnotes li:target:before{border:2px solid #0969da;border-radius:6px;bottom:-8px;content:"";left:-24px;pointer-events:none;position:absolute;right:-8px;top:-8px}div#p>svg>foreignObject>section .footnotes li:target{color:#24292f}div#p>svg>foreignObject>section .footnotes .data-footnote-backref g-emoji{font-family:monospace}div#p>svg>foreignObject>section .task-list-item{list-style-type:none}div#p>svg>foreignObject>section .task-list-item label{font-weight:400}div#p>svg>foreignObject>section .task-list-item.enabled label{cursor:pointer}div#p>svg>foreignObject>section .task-list-item+.task-list-item{margin-top:3px}div#p>svg>foreignObject>section .task-list-item .handle{display:none}div#p>svg>foreignObject>section .task-list-item-checkbox{margin:0 .2em .25em -1.6em;vertical-align:middle}div#p>svg>foreignObject>section .contains-task-list:dir(rtl) .task-list-item-checkbox{margin:0 -1.6em .25em .2em}div#p>svg>foreignObject>section ::-webkit-calendar-picker-indicator{filter:invert(50%)}div#p>svg>foreignObject>section .hljs{background:#fff;color:#333;display:block;overflow-x:auto;padding:.5em}div#p>svg>foreignObject>section .hljs-comment,div#p>svg>foreignObject>section .hljs-meta{color:#969896}div#p>svg>foreignObject>section .hljs-emphasis,div#p>svg>foreignObject>section .hljs-quote,div#p>svg>foreignObject>section .hljs-strong,div#p>svg>foreignObject>section .hljs-template-variable,div#p>svg>foreignObject>section .hljs-variable{color:#df5000}div#p>svg>foreignObject>section .hljs-keyword,div#p>svg>foreignObject>section .hljs-selector-tag,div#p>svg>foreignObject>section .hljs-type{color:#d73a49}div#p>svg>foreignObject>section .hljs-attribute,div#p>svg>foreignObject>section .hljs-bullet,div#p>svg>foreignObject>section .hljs-literal,div#p>svg>foreignObject>section .hljs-symbol{color:#0086b3}div#p>svg>foreignObject>section .hljs-name,div#p>svg>foreignObject>section .hljs-section{color:#63a35c}div#p>svg>foreignObject>section .hljs-tag{color:#333}div#p>svg>foreignObject>section .hljs-attr,div#p>svg>foreignObject>section .hljs-selector-attr,div#p>svg>foreignObject>section .hljs-selector-class,div#p>svg>foreignObject>section .hljs-selector-id,div#p>svg>foreignObject>section .hljs-selector-pseudo,div#p>svg>foreignObject>section .hljs-title{color:#6f42c1}div#p>svg>foreignObject>section .hljs-addition{background-color:#eaffea;color:#55a532}div#p>svg>foreignObject>section .hljs-deletion{background-color:#ffecec;color:#bd2c00}div#p>svg>foreignObject>section .hljs-link{text-decoration:underline}div#p>svg>foreignObject>section .hljs-number{color:#005cc5}div#p>svg>foreignObject>section .hljs-string{color:#032f62}div#p>svg>foreignObject>section svg[data-marp-fitting=svg]{max-height:563px}div#p>svg>foreignObject>section h1{color:#246;font-size:1.6em}div#p>svg>foreignObject>section h1,div#p>svg>foreignObject>section h2{border-bottom:none}div#p>svg>foreignObject>section h2{font-size:1.3em}div#p>svg>foreignObject>section h3{font-size:1.1em}div#p>svg>foreignObject>section h4{font-size:1.05em}div#p>svg>foreignObject>section h5{font-size:1em}div#p>svg>foreignObject>section h6{font-size:.9em}div#p>svg>foreignObject>section h1 strong,div#p>svg>foreignObject>section h2 strong,div#p>svg>foreignObject>section h3 strong,div#p>svg>foreignObject>section h4 strong,div#p>svg>foreignObject>section h5 strong,div#p>svg>foreignObject>section h6 strong{color:#48c;font-weight:inherit}div#p>svg>foreignObject>section hr{height:0;padding-top:.25em}div#p>svg>foreignObject>section pre{border:1px solid #999;line-height:1.15;overflow:visible}div#p>svg>foreignObject>section pre code svg[data-marp-fitting=svg]{max-height:529px}div#p>svg>foreignObject>section footer,div#p>svg>foreignObject>section header{color:hsla(0,0%,40%,.75);font-size:18px;left:30px;margin:0;position:absolute}div#p>svg>foreignObject>section header{top:21px}div#p>svg>foreignObject>section footer{bottom:21px}div#p>svg>foreignObject>section{align-items:stretch;background:#fff;display:flex;flex-flow:column nowrap;font-size:29px;height:720px;justify-content:center;padding:78.5px;width:1280px}div#p>svg>foreignObject>section{--marpit-root-font-size:29px}div#p>svg>foreignObject>section>:last-child,div#p>svg>foreignObject>section[data-footer]>:nth-last-child(2){margin-bottom:0}div#p>svg>foreignObject>section>:first-child,div#p>svg>foreignObject>section>header:first-child+*{margin-top:0}div#p>svg>foreignObject>section:after{bottom:21px;color:#777;font-size:24px;padding:0;position:absolute;right:30px}div#p>svg>foreignObject>section:after{--marpit-root-font-size:24px}div#p>svg>foreignObject>section.invert{background-color:#222;color:#e6eaf0}div#p>svg>foreignObject>section.invert:after{color:#999}div#p>svg>foreignObject>section.invert img{background-color:transparent}div#p>svg>foreignObject>section.invert a{color:#50b3ff}div#p>svg>foreignObject>section.invert h1{color:#a3c5e7}div#p>svg>foreignObject>section.invert h2,div#p>svg>foreignObject>section.invert h3,div#p>svg>foreignObject>section.invert h4,div#p>svg>foreignObject>section.invert h5{color:#ebeff5}div#p>svg>foreignObject>section.invert blockquote,div#p>svg>foreignObject>section.invert h6{border-color:#3d3f43;color:#939699}div#p>svg>foreignObject>section.invert h1 strong,div#p>svg>foreignObject>section.invert h2 strong,div#p>svg>foreignObject>section.invert h3 strong,div#p>svg>foreignObject>section.invert h4 strong,div#p>svg>foreignObject>section.invert h5 strong,div#p>svg>foreignObject>section.invert h6 strong{color:#7bf}div#p>svg>foreignObject>section.invert hr{background-color:#3d3f43}div#p>svg>foreignObject>section.invert footer,div#p>svg>foreignObject>section.invert header{color:hsla(0,0%,60%,.75)}div#p>svg>foreignObject>section.invert code,div#p>svg>foreignObject>section.invert kbd{background-color:#111}div#p>svg>foreignObject>section.invert kbd{border-color:#666;box-shadow:inset 0 -1px 0 #555;color:#e6eaf0}div#p>svg>foreignObject>section.invert table tr{background-color:#12181d;border-color:#60657b}div#p>svg>foreignObject>section.invert table tr:nth-child(2n){background-color:#1b2024}div#p>svg>foreignObject>section.invert table td,div#p>svg>foreignObject>section.invert table th{border-color:#5b5e61}div#p>svg>foreignObject>section.invert pre{background-color:#0a0e12;border-color:#777}div#p>svg>foreignObject>section.invert pre code{background-color:transparent}div#p>svg>foreignObject>section[data-color] h1,div#p>svg>foreignObject>section[data-color] h2,div#p>svg>foreignObject>section[data-color] h3,div#p>svg>foreignObject>section[data-color] h4,div#p>svg>foreignObject>section[data-color] h5,div#p>svg>foreignObject>section[data-color] h6{color:currentcolor}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]{columns:initial!important;display:block!important;padding:0!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]:after,div#p>svg>foreignObject>section[data-marpit-advanced-background=background]:before,div#p>svg>foreignObject>section[data-marpit-advanced-background=content]:after,div#p>svg>foreignObject>section[data-marpit-advanced-background=content]:before{display:none!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]{all:initial;display:flex;flex-direction:row;height:100%;overflow:hidden;width:100%}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container][data-marpit-advanced-background-direction=vertical]{flex-direction:column}div#p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split]>div[data-marpit-advanced-background-container]{width:var(--marpit-advanced-background-split,50%)}div#p>svg>foreignObject>section[data-marpit-advanced-background=background][data-marpit-advanced-background-split=right]>div[data-marpit-advanced-background-container]{margin-left:calc(100% - var(--marpit-advanced-background-split, 50%))}div#p>svg>foreignObject>section[data-marpit-advanced-background=background]>div[data-marpit-advanced-background-container]>figure{all:initial;background-position:center;background-repeat:no-repeat;background-size:cover;flex:auto;margin:0}div#p>svg>foreignObject>section[data-marpit-advanced-background=content],div#p>svg>foreignObject>section[data-marpit-advanced-background=pseudo]{background:transparent!important}div#p>svg>foreignObject>section[data-marpit-advanced-background=pseudo],div#p>svg[data-marpit-svg]>foreignObject[data-marpit-advanced-background=pseudo]{pointer-events:none!important}div#p>svg>foreignObject>section[data-marpit-advanced-background-split]{width:100%;height:100%}</style></head><body><div class="bespoke-marp-osc"><button data-bespoke-marp-osc="prev" tabindex="-1" title="Previous slide">Previous slide</button><span data-bespoke-marp-osc="page"></span><button data-bespoke-marp-osc="next" tabindex="-1" title="Next slide">Next slide</button><button data-bespoke-marp-osc="fullscreen" tabindex="-1" title="Toggle fullscreen (f)">Toggle fullscreen</button><button data-bespoke-marp-osc="presenter" tabindex="-1" title="Open presenter view (p)">Open presenter view</button></div><div id="p"><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="1">
+<h1>一、项目介绍 [徐超信,潘淼森]</h1>
+<h2>背景</h2>
+<p>本项目旨在帮助用户记忆和熟悉大学阶段的英语词汇学习,解决日常的查词功能</p>
+<ul>
+<li>当下的词典软件功能很丰富,但是高频使用的功能为数不多,</li>
+<li>而且充斥着各种广告和产品推销</li>
+<li>软件体积较大,运行开销不小,想要流畅的使用软件,需要用户有较好的设备</li>
+<li>千方百计诱导用户充值vip,添加各种限制和不必要的信息,分散用户的精力</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2">
+<p>我们设计的这套英语学习系统,希望能够帮助用户更加轻松愉快的学习英语,包括:</p>
+<ul>
+<li><code>cet4/cet6/考研英语</code>的词汇记忆学习/复习系统</li>
+<li>用户可以分享自己对于词汇的记忆方法和技巧,互助学习</li>
+<li>提供常规的词汇查询功能,用户可以通过输入英文单词来查询单词的基本信息(音标/词形/释义)</li>
+<li>同时提供模糊查词的功能,帮助用户减轻查词过程中<code>摩擦感</code></li>
+<li>同时提供基本的形近词推荐,帮助用户集中记忆相似单词</li>
+<li>记录用户的使用痕迹和习惯,帮助用户定制学习计划,检验学习效果,集中学习专注度,拒绝分心</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3">
+<h2>项目需求分析</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="right" style="--marpit-advanced-background-split:75%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images17u62v9icUIaOeD.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="25%" height="720"><section id="4" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right" style="--marpit-advanced-background-split:75%;">
+<h3>思维导图</h3>
+<p><br />
+思维导图1<br />
+总体的功能设计树</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5">
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesaWivhRq3yEz6rJA.png" alt="image-20220608105853314" /><br />
+思维导图2:复习部分的细节设计树</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="6">
+<h3>首页</h3>
+<h4>欢迎</h4>
+<ul>
+<li>查词框(入口)</li>
+<li>显示精美的轮播图</li>
+<li>用户上次的科目以及对应的学习进度(进度条),诱导用户继续投入学习</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7">
+<h4>查词服务</h4>
+<ul>
+<li>
+<p>查词详情内容:后端数据库直接提供词典</p>
+<ul>
+<li>
+<p>音标</p>
+</li>
+<li>
+<p>词形(包括五种词形)</p>
+</li>
+<li>
+<p>解释</p>
+</li>
+<li>
+<p>用户查过的单词自动添加到查词记录中</p>
+</li>
+<li>
+<p>显示上一次学习的科目以及进度</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>​</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="8">
+<h3>学单词</h3>
+<ul>
+<li>
+<p>记单词首页:</p>
+<ul>
+<li>
+<p>用户可以选择科目进入学习(刷单词卡片)</p>
+</li>
+<li>
+<p>同时提供一个下拉框,可以选择学习模式</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="9">
+<ul>
+<li>
+<p>简洁模式</p>
+<ul>
+<li>
+<p>常驻上方的模式<code>简洁模式/交流模式</code>点击开挂来切换学习模式</p>
+</li>
+<li>
+<p>常驻的进度提示:eg.<code>50/5514</code></p>
+</li>
+<li>
+<p>单词卡片提供:</p>
+<ul>
+<li>单词拼写</li>
+<li>音标</li>
+<li>中文释义</li>
+</ul>
+</li>
+<li>
+<p>显示一个<code>单词详情</code>的查询按钮</p>
+</li>
+<li>
+<p>一个收藏按钮</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="10">
+<ul>
+<li>
+<p>交流模式(引入其他用户的一些统计数据)</p>
+<ul>
+<li>
+<p>基本和简洁模式一致,但包括:</p>
+</li>
+<li>
+<p>提供批注的发送和查看功能</p>
+</li>
+<li>
+<p>显示所有用户对该单词的平均掌握程度</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="11">
+<h3>提分助手(复习/测验)</h3>
+<ul>
+<li>该模块的菜单页包括
+<ul>
+<li>头部显示当前的科目和学习进度(区别于复习)</li>
+<li>复习列表(复习策略)的选择
+<ul>
+<li>最近学过的单词群</li>
+<li>所有熟练度不佳的单词</li>
+<li>当前词书内抽取单词(可作为总复习)(随机不重复)</li>
+</ul>
+</li>
+<li>用户选择一种复习策略后,显示该策略的需要复习的词数</li>
+<li>提供四个题型的练习通道</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="12">
+<h4>复习数据的生成&amp;设计</h4>
+<ul>
+<li>
+<p>用户初次学过一遍单词,可以复习&amp;测验</p>
+<ul>
+<li>
+<p>复习的内容的生成:(两级反馈复习队列)</p>
+<ul>
+<li>最近学过的内容(譬如指定时间24小时)
+<ul>
+<li>如何判断时间:过去24小时见过的单词(刷卡片学习单词时会刷新相关属性,后端会完成响应操作)</li>
+</ul>
+</li>
+<li>所有熟练度小于特定值的单词(该标准参考测验的答题情况,来量化熟练度)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13">
+<ul>
+<li>
+<p>测验:用户复习的形式是通过做测验题目来完成的</p>
+<ul>
+<li>
+<blockquote>
+<p>题目的交互形式主要交由前端来落实,而数据反馈会同步到后端</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="14">
+<ul>
+<li>
+<p>系统的答题模块提供了若干种题型</p>
+<ul>
+<li>根据中文意思选择单词</li>
+<li>根据音标以及意思提示拼写整个单词</li>
+<li>根据提示,为单词字母填空</li>
+</ul>
+</li>
+<li>
+<p>如果用错答,那么系统会将该用户对于错单单词的熟练度值-1</p>
+</li>
+<li>
+<p>如果用户正确答题,那么响应的将熟练度+1</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="15">
+<ul>
+<li>
+<p>提供学习规划:</p>
+<ul>
+<li>帮助用户规划每天学习的词汇数量,前端提供双向联动的学习计划设置入口.
+<ul>
+<li>根据用户设定的每日任务计划数,计算出总耗时(天数)</li>
+<li>比如用户希望在多少天内完成,那么每天任务量是多少词,</li>
+</ul>
+</li>
+<li>后台可以同步用户的计划设置(schedule)</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="16">
+<h3>我的</h3>
+<ul>
+<li>
+<p>提供微信小程序的登录授权按你就,首先要求用户登录授权后继续使用</p>
+</li>
+<li>
+<p>登录成功后显示</p>
+<ul>
+<li>
+<p>用户昵称的基本信息</p>
+<ul>
+<li>
+<p>用户户龄</p>
+</li>
+<li>
+<p>用户打卡累计天数和排行榜</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="17">
+<ul>
+<li>
+<p>用户考试倒计时功能</p>
+<ul>
+<li>用户输入考试时间,系统提示剩余时间倒计时</li>
+</ul>
+</li>
+<li>
+<p>用户学习过程中累计的</p>
+<ul>
+<li>
+<p>收藏列表</p>
+<ul>
+<li>收藏列表显示单词拼写</li>
+<li>用户在收藏列表中可以选择取消收藏</li>
+<li>用户点击单词,可以调转到单词解释详情页</li>
+</ul>
+</li>
+<li>
+<p>查词记录列表</p>
+<ul>
+<li>类似于收藏列表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>提供小程序问题反馈功能</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="18">
+<h2>计划和分工</h2>
+<blockquote>
+<p>介绍大致的开发计划以及每个人的分工。</p>
+</blockquote>
+<ul>
+<li>徐超信:
+<ul>
+<li>原型设计和功能设计</li>
+<li>数据库设计</li>
+<li>后端开发接口开发与测试</li>
+<li>后端服务部署</li>
+<li>文档编写(主体)</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="19">
+<ul>
+<li>潘淼森:
+<ul>
+<li>前端小程序的开发与测试</li>
+<li>文档编写(前端)</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="20">
+<h1>二、界面原型设计 [徐超信]</h1>
+<blockquote>
+<p>结合上述功能设计,我们将原型设计为对应的四个模块,采用<code>墨刀工具进行设计</code></p>
+</blockquote>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="21">
+<h2>首页</h2>
+<p><img src="https://img-blog.csdnimg.cn/ea9e2431c925449fa1b05c3d9c6079db.png" alt="首页设计" /><br />
+图2.1:首页操作</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="22">
+<ul>
+<li>用户可以在首页提供的查词框中输入单词进行查词</li>
+<li>查词框下面是一个轮播图,获取通过bing的图片接口,获取精美图片,为学习带来一点视觉上的享受</li>
+<li>我们将单词的解释分为两层,第一层仅仅提供单词的音标和简单的解释,这一般能够满足主要的需求;此外,我们在第一层中配置了一个进一步查询单词的词形变化的按钮,点击该按钮,会跳转到第二层,这一层提供了更详细的解释,包括单词的词性等等</li>
+<li>此外,还提供了收藏该的单词的按钮,点击该按钮,会将该单词添加到收藏列表中</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:60%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220608181908470.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="40%" height="720" x="60%"><section id="23" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:60%;">
+<p><br />
+<strong>图2.2:继续复习</strong></p>
+<ul>
+<li>轮播图下面安排了用户当前的学习科目和学习进度,用户点击继续学习,便可以进入学习模式</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="left" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="24">
+<p><img src="https://img-blog.csdnimg.cn/06d87c57851d462da531acf846027e5b.png" alt="请添加图片描述" /><br />
+图2.3查词操作</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="25">
+<ul>
+<li>对于拼写错误的单词,后台会尝试通过匹配算法推荐一些形近词
+<ul>
+<li>对于记忆不清的单词来说,这会很有用,用户也可以利用该接口查找形近词</li>
+<li>事实上,后端可以提供正则匹配/通配符等高级功能(尽管已经很少用到了)</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="right" style="--marpit-advanced-background-split:75%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://img-blog.csdnimg.cn/9205722daed04e0093be2f8cdfa7b137.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="25%" height="720"><section id="26" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right" style="--marpit-advanced-background-split:75%;">
+<h2>学单词</h2>
+<p><br />
+图2.4学单词操作流程</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="27">
+<ul>
+<li>学单词模块,也就是本应用的核心模块</li>
+<li>用户可以在该模块的主菜单页选择记忆模式(包括简洁模式和交流模式(也叫常规模式))
+<ul>
+<li>默认的,记忆模式是常规模式</li>
+</ul>
+</li>
+<li>然后选择自己的考试类型(对应的词书)</li>
+<li>其中,简洁模式包含内容弄个较少,只有音标和基本的解释,已经一个查询单词详情解释的按钮和收藏按钮</li>
+<li>而另一个模式(交流模式中),除了包含简洁模式中的相关功能,还提供了基于后台数据分析的<code>所有用户平均熟练度指标</code>(也被称为<code>难度等级</code>)</li>
+<li><code>我的观点</code>则是反映本人的当前对于该词汇的熟练度</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28">
+<p><img src="https://img-blog.csdnimg.cn/ae7cf0f2d90347eca6e0c959d96b1fd5.png" alt="请添加图片描述" /><br />
+图2.5收藏单词操作</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29">
+<ul>
+<li>这是用户点击单词详情和收藏后分别的出现的响应结果</li>
+</ul>
+<p><img src="https://img-blog.csdnimg.cn/e47c3386c0444de6a6508c497189118b.png" alt="请添加图片描述" /><br />
+图2.6交流模式下的批注操作</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="30">
+<ul>
+<li>这是用户在交流模式下,提交自己的记忆技巧(简称为<code>批注</code>)</li>
+<li>提交成功,则反馈一个<code>提交成功</code>的标识给用户</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="31">
+<h2>复习与测验</h2>
+<p><img src="https://img-blog.csdnimg.cn/8bc5e7ec92304ff0b9563342c3f2b74b.png" alt="请添加图片描述" /><br />
+图2.7复习与测验操作流程1</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="32">
+<ul>
+<li>复习&amp;测验也是本应用的主要功能,能够帮助用户检查自己的记忆效果(掌握程度),帮助用户对自己的学习成果有更加客观的把握</li>
+<li>我们提供了多样化的复习策略和题型,包括中文选词,拼写组合,拼写填空和全拼默写</li>
+<li>对于答错的题目,页面会切换到正确答案的解释页面</li>
+<li>对于答对的题目,页面会切换到下一题</li>
+<li>注:问题提交答案的方式:
+<ul>
+<li>用户选中一个选项后,(被自动提交),后台自动判断正确性,根据正确性切换对应的页面</li>
+<li>上述流程表示的是中文选词的答题过程</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="33">
+<p><img src="https://img-blog.csdnimg.cn/a1eaba552a494f09a42457c4c43fac65.png" alt="请添加图片描述" /><br />
+图2.8复习与测验操作流程2</p>
+<ul>
+<li>这是拼写填空题型下的答题过程</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="34">
+<h2>我的</h2>
+<p><img src="https://img-blog.csdnimg.cn/4e96e13bd2f342eab9a19ac8d6a8c188.png" alt="请添加图片描述" /></p>
+<p>图2.9:我的主页</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="35">
+<ul>
+<li>这是<code>我的(用户中心)</code>模块,用于借助于微信平台的登录授权功能方便的注册登录到本系统
+<ul>
+<li>后台通过获取微信提供的信息头像和昵称的信息创建一个用户记录</li>
+<li>该记录也作为登录状态保持(session)的value</li>
+<li>后台将会凭借session来判断和区别用户</li>
+</ul>
+</li>
+<li>登录成功后,小程序拉取必要的同步数据,并且做一定的数据计算和转换,得到签到天数,户龄</li>
+<li>还包括考试倒计时/单词收藏列表和查词记录/反馈与建议的提交入口</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="36">
+<p><img src="https://img-blog.csdnimg.cn/dfb8484b4cfb48b0946d4a4ebdec51a9.png" alt="请添加图片描述" /><br />
+图2.10:我的主页2</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="37">
+<ul>
+<li>
+<p>用户点击我的-&gt;收藏列表,可以看到之前做过的单词收藏,(这些单词可能是用户自认为容易混淆意思/难以拼写/品读正确的单词)</p>
+</li>
+<li>
+<p>用户点击某个条目后,可以跳转到响应的词典解释页面</p>
+</li>
+<li>
+<p>用户点击星号<code>star</code>,可以取消掉对某个单词的收藏,程序会向用户发送一个确认询问,当用户确认取消,才真正将对应的单词从收藏列表中移除,否则,操作被取消</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="38">
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220609081939578.png" alt="image-20220609081939578" /><br />
+图2.11:我的主页3</p>
+<ul>
+<li>这是进入<code>单词搜索记录</code>的流程,UI和操作逻辑基本和<code>收藏列表</code>一致</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="39">
+<h2>墨刀在线预览(可交互)</h2>
+<ul>
+<li><a href="https://modao.cc/app/Zq2TY5o8rd1a7cROgqSHwe">https://modao.cc/app/Zq2TY5o8rd1a7cROgqSHwe</a> 《EnglishLearningAsistant》 (页面附带多种状态)</li>
+<li><a href="https://modao.cc/app/xg43top2raoiorN4gHVgF">https://modao.cc/app/xg43top2raoiorN4gHVgF</a> 《ELA_morePages》</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="40">
+<h1>三、系统架构设计 [徐超信]</h1>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="41">
+<h2>前端</h2>
+<ul>
+<li>前端我们分为四个功能模块</li>
+<li>第一个模块是工具性模块,提供查词功能和形近词推荐功能</li>
+<li>第二个模块是学单词模块(核心),并且具有两种模式可供选择,可以满足用户不同的学习风格</li>
+<li>第三个模块是承接第二个模块,也是核心模块,用户可以复习和检测自己的学习效果;并提供了多样的复习策略和复习题型,也能更加全面的检测对单词的掌握情况</li>
+<li>第四个模块是用户中心,属于不太常用但又不可或缺的模块,用户可以通过本模块获取自己的总体的学习情况和学习痕迹(打卡天数/收藏列表/查词记录列表/…),用户也是在该模块中反馈问题给程序后台</li>
+<li>程序操作逻辑如下</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="right" style="--marpit-advanced-background-split:80%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imageslogic.svg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="20%" height="720"><section id="42" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right" style="--marpit-advanced-background-split:80%;">
+<p><br />
+图3.1:程序操作逻辑流图</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="43">
+<h2>后端</h2>
+<ul>
+<li>
+<blockquote>
+<p>后端对应前端,创建了4个功能模块,每个功能模块中在进一步细分</p>
+</blockquote>
+<ul>
+<li>为了实现灵活性,独立性,使用前后端分离的方式渐渐称为主流,本项目中,我们采用前后端分离的开发模式,并且借助于apifox做接口设计和对接,前后端可以有自己实际开发进度</li>
+<li>我们奉行<code>api first</code>的开发方式,促进前后端的进一步分离</li>
+</ul>
+</li>
+<li>
+<p>后端采用Python/Django技术实现数据管理,用户登录与信息同步等功能</p>
+</li>
+<li>
+<p>采用python mysqlclient模块来对接&amp;管理mysql数据库</p>
+</li>
+<li>
+<p>后端的各个模块内的基本结构(主要采用MVC设计模式来组织后端项目)</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="44">
+<ul>
+<li>根据我们选用的技术和设计模式,后端项目组织的基本规范如下(根据实际需求可以稍作调整)</li>
+<li>
+<pre><code class="language-python"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>PS D:\repos\ELA\backEnd\user&gt; lsd --tree --depth <span class="hljs-number">1</span>
+ .
+├──  __init__.py
+├──  __pycache__
+├──  admin.py
+├──  apps.py
+├──  loginMiddleware.py
+├──  migrations
+├──  models.py
+├──  serializer.py
+├──  tests
+├──  tests.py
+├──  urls.py
+└──  views
+
+</span></span></foreignObject></svg></code></pre>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="45">
+<ul>
+<li>下面解释一下各个文件和目录的作用</li>
+<li>其中admin.py作为注册后台模块管理的代码,用于管理后台的各个模块</li>
+<li>apps.py向后端注册该Django应用,urls.py是该模块管理的子路由</li>
+<li>Middleware.py作为中间件,用于登录验证/或者其他鉴权/自动处理</li>
+<li>serializer.py是该模块使用DRF来数据模型的序列化和反序列化,可以在该文件中指定数据转化规则</li>
+<li>tests目录中存放了该模块下的所有测试代码</li>
+<li>views充当MVC中的Controller,负责存放和组织逻辑处理的代码文件</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="46">
+<h2>数据库</h2>
+<ul>
+<li>数据库采用免费的关系型数据库mysql,该数据库足够流行(意味着它经过了足够多的考验),完全可以胜任我们的本次项目</li>
+<li>除了数据库软件本身的功能足够,我们本身已有的数据库知识也主要是关系型数据库的理论,因此最终采用mysql来提供数据管理服务</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="47">
+<h2>api</h2>
+<blockquote>
+<p>api设计是项目功能的重点,良好的接口设计有利于提高开发效率,节约沟通成本,提供可维护性</p>
+</blockquote>
+<p>本项目的所有api都统一在apifox上设计,包括指定参数和响应,编写mock来实现前后端开发,借助于mock,前后端都有所参照,可以更加灵活的开发,项目的api总体符合restful的设计理念,具有简洁明了的特点</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="right" style="--marpit-advanced-background-split:50%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imageswvMN7ACpkDd8qzX.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="48" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right" style="--marpit-advanced-background-split:50%;">
+<ul>
+<li>
+<p>此外,后端还提供了基于swagger的文档,前端即使不查看后端代码,也可以对后端提供的接口有所了解</p>
+</li>
+<li>
+<p><code>123.56.72.67:8000/doc/</code>局部api接口一览<br />
+</p>
+</li>
+<li>
+<p>图3.2:后端的swagger文档接口</p>
+</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="49">
+<h1>四、API设计 [徐超信]</h1>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="50">
+<h2>api风格与设计理念</h2>
+<p>我们采用流行的RESTful api 设计风格,改善我们的api开发效率和规范性</p>
+<ul>
+<li>
+<p><a href="https://en.wikipedia.org/wiki/Representational_state_transfer">RESTful API</a>是目前比较成熟的一套互联网应用程序的API设计理论。</p>
+<ul>
+<li>
+<blockquote>
+<p>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。</p>
+<p>互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，<strong>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生&quot;状态转化&quot;（State Transfer）。而这种转化是建立在表现层之上的，所以就是&quot;表现层状态转化&quot;。</strong></p>
+<p>客户端用到的手段，只能是HTTP协议。具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种基本操作：<strong>GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。</strong></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="51">
+<ul>
+<li>
+<p>我们在开发项目的api的过程中,尽可能地采用RESTful理念,充分利用了http协议中的四个常用动词来设计api,客户端通过四个HTTP动词，对服务器端资源进行操作，实现&quot;表现层状态转化&quot;</p>
+</li>
+<li>
+<p>RESTful API最好做到Hypermedia，即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么。我们的后端的四个模块的基础路由提供了类似的功能,帮助api的使用者更快了解后端的api功能组织</p>
+<ul>
+<li><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesp2Hwvm8NaDX7TtQ.png" alt="image-20220607201049797" /></li>
+<li>图:4.1</li>
+</ul>
+</li>
+<li>
+<p>尽管RESTful 是一个很好的理念,但是在开发过程中,发现有少量的api较难通过四个动词来贴切地描述api的实际用意,因此,我们结合实际需求,对少数api做了折衷处理</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="52">
+<h2>详细的api文档</h2>
+<ul>
+<li>附件中的api文档是通过apifox导出,文件存放在github仓库中</li>
+<li>tables:<a href="https://github.com/MaterialSharing/docs/blob/main/design/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E5%8A%A9%E6%89%8B_api%E6%96%87%E6%A1%A3.md">英语学习助手_api文档.md (github.com)</a></li>
+<li>swagger:<a href="https://github.com/MaterialSharing/docs/blob/main/design/%E8%8B%B1%E8%AF%AD%E5%AD%A6%E4%B9%A0%E5%8A%A9%E6%89%8B_api.html">英语学习助手_api.html (github.com)</a></li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="53">
+<h1>预览部分api文档</h1>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="54">
+<h2>GET 查询用户详情</h2>
+<p>GET /info/</p>
+<p>如果不传入id,则查询所有用户</p>
+<h3>请求参数</h3>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位置</th>
+<th>类型</th>
+<th>必选</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>page</td>
+<td>query</td>
+<td>integer</td>
+<td>否</td>
+<td>查看第几页数据</td>
+</tr>
+<tr>
+<td>size</td>
+<td>query</td>
+<td>integer</td>
+<td>否</td>
+<td>本次请求获取多少条记录</td>
+</tr>
+<tr>
+<td>search</td>
+<td>query</td>
+<td>string</td>
+<td>否</td>
+<td>支持正则搜索名字</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>返回示例</p>
+</blockquote>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="55">
+<blockquote>
+<p>成功</p>
+</blockquote>
+<pre><code class="language-json"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>{
+  <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-number">1</span>,
+  <span class="hljs-attr">&quot;nickname&quot;</span>: <span class="hljs-string">&quot;testNickname&quot;</span>,
+  <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;Ronald Taylor&quot;</span>,
+  <span class="hljs-attr">&quot;signin&quot;</span>: <span class="hljs-number">28</span>,
+  <span class="hljs-attr">&quot;openid&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">&quot;examtype&quot;</span>: <span class="hljs-string">&quot;6&quot;</span>,
+  <span class="hljs-attr">&quot;examdate&quot;</span>: <span class="hljs-string">&quot;2023-01-13&quot;</span>,
+  <span class="hljs-attr">&quot;signupdate&quot;</span>: <span class="hljs-string">&quot;1970-01-01&quot;</span>
+}
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="56">
+<p>api分页大数据集</p>
+<pre><code class="language-json"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>{
+  <span class="hljs-attr">&quot;count&quot;</span>: <span class="hljs-number">152</span>,
+  <span class="hljs-attr">&quot;next&quot;</span>: <span class="hljs-string">&quot;http://127.0.0.1:8000/user/info/?page=2&quot;</span>,
+  <span class="hljs-attr">&quot;previous&quot;</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">&quot;results&quot;</span>: [
+    {
+      <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-number">13</span>,
+      <span class="hljs-attr">&quot;nickname&quot;</span>: <span class="hljs-string">&quot;testNickname&quot;</span>,
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;create_ser_pyt&quot;</span>,
+      <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">&quot;signin&quot;</span>: <span class="hljs-number">778</span>,
+      <span class="hljs-attr">&quot;openid&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">&quot;examdate&quot;</span>: <span class="hljs-string">&quot;1970-01-01&quot;</span>,
+      <span class="hljs-attr">&quot;examtype&quot;</span>: <span class="hljs-string">&quot;4&quot;</span>,
+      <span class="hljs-attr">&quot;signupdate&quot;</span>: <span class="hljs-string">&quot;1970-01-01&quot;</span>,
+      <span class="hljs-attr">&quot;schedule&quot;</span>: <span class="hljs-number">30</span>
+    },
+
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="57">
+<pre><code class="language-json"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap> ......
+    {
+      <span class="hljs-attr">&quot;uid&quot;</span>: <span class="hljs-number">31</span>,
+      <span class="hljs-attr">&quot;nickname&quot;</span>: <span class="hljs-string">&quot;testNickname&quot;</span>,
+      <span class="hljs-attr">&quot;name&quot;</span>: <span class="hljs-string">&quot;create_ser_M_pyt&quot;</span>,
+      <span class="hljs-attr">&quot;status&quot;</span>: <span class="hljs-number">0</span>,
+      <span class="hljs-attr">&quot;signin&quot;</span>: <span class="hljs-number">8</span>,
+      <span class="hljs-attr">&quot;openid&quot;</span>: <span class="hljs-literal">null</span>,
+      <span class="hljs-attr">&quot;examdate&quot;</span>: <span class="hljs-string">&quot;1970-01-01&quot;</span>,
+      <span class="hljs-attr">&quot;examtype&quot;</span>: <span class="hljs-string">&quot;4&quot;</span>,
+      <span class="hljs-attr">&quot;signupdate&quot;</span>: <span class="hljs-string">&quot;1970-01-01&quot;</span>,
+      <span class="hljs-attr">&quot;schedule&quot;</span>: <span class="hljs-number">30</span>
+    }
+  ]
+}
+</span></span></foreignObject></svg></code></pre>
+<h3>返回结果</h3>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th>状态码含义</th>
+<th>说明</th>
+<th>数据模型</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td><a href="https://tools.ietf.org/html/rfc7231#section-6.3.1">OK</a></td>
+<td>成功</td>
+<td>Inline</td>
+</tr>
+</tbody>
+</table>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="58">
+<h3>返回数据结构</h3>
+<p>状态码 <strong>200</strong></p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>必选</th>
+<th>约束</th>
+<th>中文名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>» data</td>
+<td><a href="#schemauser">User</a></td>
+<td>false</td>
+<td>none</td>
+<td></td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» uid</td>
+<td>integer</td>
+<td>true</td>
+<td>none</td>
+<td></td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» name</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td></td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» signin</td>
+<td>integer</td>
+<td>true</td>
+<td>none</td>
+<td></td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» examtype</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td></td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» examdate</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td></td>
+<td>none</td>
+</tr>
+<tr>
+<td>»» signupdate</td>
+<td>string</td>
+<td>true</td>
+<td>none</td>
+<td></td>
+<td>none</td>
+</tr>
+</tbody>
+</table>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="59">
+<h2>持久化数据</h2>
+<ul>
+<li>本项目中,需要持久化的数据包括
+<ul>
+<li>词典(单词的各个属性)</li>
+<li>三种考试科目考纲词汇列表</li>
+<li>用户信息</li>
+<li>用户的学习记录和学习情况</li>
+<li>用户的问题反馈记录</li>
+<li>用户的收藏</li>
+<li>用户的查词记录</li>
+<li>用户的评论记录(批注)</li>
+<li>等其他附加信息</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="60">
+<h2>数据库的选择</h2>
+<ul>
+<li>数据库方面,我们希望采用具有如下特点的数据库软件:
+<ul>
+<li>当下流行的</li>
+<li>易用的</li>
+<li>参考资料丰富的</li>
+<li>免费的</li>
+<li>跨平台的</li>
+</ul>
+</li>
+<li>由于我们有关系型数据库的理论基础,对此会更加熟悉一些,因此我们考虑在关系型数据库中选择一款数据库软件</li>
+<li>在具体选择数据库的时候,我们考虑过
+<ul>
+<li>postgre数据库(先进,功能完备,django首推的生产环境数据库)</li>
+<li>mysql数据库(小巧,速度快)</li>
+</ul>
+</li>
+<li>两者都是可以免费使用,但基于资料的丰富程度,和现有的教程,我们选择了mysql</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesER.svg&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="1280" height="720"><section id="61" data-marpit-advanced-background="content">
+<h2>ER关系图</h2>
+<p><br />
+图5.1 ER关系图</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="62">
+<h2>各个模块下的表设计</h2>
+<ul>
+<li>根据ER图表示上看,学习记录是一个多对多的关系,对于每个科目下都可以产生一个学习记录表</li>
+<li>但是表的结构上看,如果每个科目一个表,那么就会有三张结构一致的表,这显得不那么有利于后台开发</li>
+<li>所为了方便管理,我们将不同的科目不同用户的学习记录聚合到一张表上并且用一个字段examType来区分每条记录时属于哪个科目下的学习记录</li>
+<li>
+<blockquote>
+<p>根据上述分析,我们创建了9张数据库表,下面举一个例子来描述</p>
+</blockquote>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="63" data-marpit-fragments="2">
+<h3>数据库表示例</h3>
+<h4>words(词典/记单词模块)模块</h4>
+<h5>单词表</h5>
+<ul>
+<li data-marpit-fragment="1">
+<p>词典表</p>
+</li>
+<li data-marpit-fragment="2">
+<pre><code class="language-sql"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-operator">+</span><span class="hljs-comment">--------------------+--------------+------+-----+---------+----------------+</span>
+<span class="hljs-operator">|</span> Field              <span class="hljs-operator">|</span> Type         <span class="hljs-operator">|</span> <span class="hljs-keyword">Null</span> <span class="hljs-operator">|</span> Key <span class="hljs-operator">|</span> <span class="hljs-keyword">Default</span> <span class="hljs-operator">|</span> Extra          <span class="hljs-operator">|</span>
+<span class="hljs-operator">+</span><span class="hljs-comment">--------------------+--------------+------+-----+---------+----------------+</span>
+<span class="hljs-operator">|</span> wid                <span class="hljs-operator">|</span> <span class="hljs-type">int</span>(<span class="hljs-number">11</span>)      <span class="hljs-operator">|</span> <span class="hljs-keyword">NO</span>   <span class="hljs-operator">|</span> PRI <span class="hljs-operator">|</span> <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span> auto_increment <span class="hljs-operator">|</span>
+<span class="hljs-operator">|</span> spelling           <span class="hljs-operator">|</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-operator">|</span> <span class="hljs-keyword">NO</span>   <span class="hljs-operator">|</span>     <span class="hljs-operator">|</span> <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span>                <span class="hljs-operator">|</span>
+<span class="hljs-operator">|</span> phonetic           <span class="hljs-operator">|</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-operator">|</span> YES  <span class="hljs-operator">|</span>     <span class="hljs-operator">|</span> <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span>                <span class="hljs-operator">|</span>
+<span class="hljs-operator">|</span> plurality          <span class="hljs-operator">|</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-operator">|</span> YES  <span class="hljs-operator">|</span>     <span class="hljs-operator">|</span> <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span>                <span class="hljs-operator">|</span>
+<span class="hljs-operator">|</span> thirdpp            <span class="hljs-operator">|</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-operator">|</span> YES  <span class="hljs-operator">|</span>     <span class="hljs-operator">|</span> <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span>                <span class="hljs-operator">|</span>
+<span class="hljs-operator">|</span> present_participle <span class="hljs-operator">|</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-operator">|</span> YES  <span class="hljs-operator">|</span>     <span class="hljs-operator">|</span> <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span>                <span class="hljs-operator">|</span>
+<span class="hljs-operator">|</span> past_tense         <span class="hljs-operator">|</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-operator">|</span> YES  <span class="hljs-operator">|</span>     <span class="hljs-operator">|</span> <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span>                <span class="hljs-operator">|</span>
+<span class="hljs-operator">|</span> past_participle    <span class="hljs-operator">|</span> <span class="hljs-type">varchar</span>(<span class="hljs-number">255</span>) <span class="hljs-operator">|</span> YES  <span class="hljs-operator">|</span>     <span class="hljs-operator">|</span> <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span>                <span class="hljs-operator">|</span>
+<span class="hljs-operator">|</span> explains           <span class="hljs-operator">|</span> longtext     <span class="hljs-operator">|</span> YES  <span class="hljs-operator">|</span>     <span class="hljs-operator">|</span> <span class="hljs-keyword">NULL</span>    <span class="hljs-operator">|</span>                <span class="hljs-operator">|</span>
+<span class="hljs-operator">+</span><span class="hljs-comment">--------------------+--------------+------+-----+---------+----------------+</span>
+<span class="hljs-number">9</span> <span class="hljs-keyword">rows</span> <span class="hljs-keyword">in</span> <span class="hljs-keyword">set</span> (<span class="hljs-number">0.32</span> sec)
+</span></span></foreignObject></svg></code></pre>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="64">
+<ul>
+<li>字段描述:其中
+<ul>
+<li>wid作为主键,表示词汇序号</li>
+<li>thirdpp为单词第三人称单数</li>
+<li>past_tense为动词过去式</li>
+<li>past_participle为动词过去分词</li>
+<li>explains作为单词中文解释</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="65">
+<h2>数据相关技术</h2>
+<ul>
+<li>我们采用django框架提供的ORM来操作数据,这使得后端代码的更加具有通用性,相对于编写原生的SQL语句,使用更加通用和专业的编程语言会更加开发上的有效率优势和维护优势</li>
+<li>此外,django提供了强大的数据库迁移功能,当数据模型发生变化时,数据库迁移<code>migrations&amp;migrate</code>操作可以将模型的修改同步反映到数据库表的修改</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="66">
+<h3>数据库迁移</h3>
+<ul>
+<li>数据库迁移的另一大好处是,可以和代码版本控制相互配合,实现整整的整个项目上的版本控制</li>
+<li>当代码回滚到早期的版本是,数据库结构也需要回滚到相兼容的版本,否则项目可能直接无法运行起来</li>
+<li>另一方面,django自带的ORM操作还比较初级,我们选用了基于Django的子框架DRF来提高数据库操作相关的编码效率和数据安全性检查,</li>
+<li>特别是,对于大量数据查询操作返回的结果的分页功能的实现上,使用DRF会比原生的django分页更加合适前后端分离的项目</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="67">
+<h1>六、微信小程序端的实现 [潘淼森]</h1>
+<blockquote>
+<p>实现技术:vant app 组件+微信小程序<br />
+实现技术:vant app 组件+微信小程序</p>
+</blockquote>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="68">
+<h2>6.1 登录登出功能的实现</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="69">
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images%E5%B9%BB%E7%81%AF%E7%89%871.PNG" alt="[bg left:80% contain]" /></p>
+<p>图6.1</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="70">
+<ul>
+<li>点击授权登录按钮，可以获取微信头像和昵称。</li>
+<li>使用了微信官方文档的<code>API:wx.getUserProfile</code>实现授权登录功能。</li>
+<li>登录前只能看到反馈建议和在线客服。</li>
+<li>为了能够保持登录或者退出登录状态，用了微信官方文档API:wx.setStorageSync进行数据缓存，用wx.getStorageSync读取缓存。</li>
+<li>申请获取头像和昵称</li>
+<li>授权登录后可以看到累计打卡天数、ddl时间、我的收藏和历史记录。</li>
+<li>点击&quot;退出登录&quot;按钮退出登录。</li>
+<li>退出登录后看清空数据</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="71">
+<h2>6.2 查词功能的实现</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:80%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610143226955.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="20%" height="720" x="80%"><section id="72" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:80%;">
+<p>图6.2</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="left" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="73">
+<ul>
+<li>如果输入123，因为单词数据库中没有该内容因此显示未找到相关内容</li>
+<li>如果输入一个正确的单词，然后回车或者点击搜索</li>
+<li>显示单词、音标和释义。</li>
+<li>如果单词没有变形，则不会显示单词变形内容。</li>
+<li>如果搜索的单词有变形，则会显示单词变形内容。</li>
+<li>单词变形内容包括：第三人称单数、复数、现在分词、过去式、过去分词等。</li>
+<li>点击搜索框右侧的清除按钮，可以清空搜索框</li>
+<li>点击查询历史右侧的垃圾桶图标，会提示是否清空历史记录。选择“是”，历史记录将被清空。</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="74">
+<h2>6.3 学单词功能的实现</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="75">
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images%E5%B9%BB%E7%81%AF%E7%89%873.PNG" alt="幻灯片3" /></p>
+<p>图6.3.1</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="76">
+<ul>
+<li>最上方是当前已背单词书/该词书单词总数。</li>
+<li>中间是单词、音标、释义。如果没有单词变形则不显示，如果有则显示。</li>
+<li>右滑实现翻页，翻到第一页再往前翻会提示</li>
+<li>如果滑到第一页还左滑，那么会提示已经到第一个单词了</li>
+<li>可以查看后端统计的难度等级</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="77">
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610143934193.png" alt="image-20220610143934193" /></p>
+<p>图6.3.2</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="78">
+<ul>
+<li>点击“添加我的批注”按钮添加批注。</li>
+<li>输入框会提示&quot;分享你的想法…&quot;。</li>
+<li>如果输入框内容为空，则发表按钮被禁用；如果输入了内容，则发表按钮被启用。</li>
+<li>点击发表按钮后，回到背单词页面。</li>
+<li>发表批注后可以在批注区看到自己的微信头像、微信昵称和评论内容。</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="79">
+<h2>6.4 查考纲功能的实现</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="80">
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images%E5%B9%BB%E7%81%AF%E7%89%876.PNG" alt="幻灯片6" /></p>
+<p>图6.4</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="81">
+<ul>
+<li>
+<p>记忆模式可以切换四级大纲、六级大纲、考研大纲</p>
+</li>
+<li>
+<p>选择相应的大纲后可以展示相应的大纲</p>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="82">
+<h2>6.5 计算ddl(deadline)功能的实现</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:80%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images%E5%B9%BB%E7%81%AF%E7%89%877.PNG&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="20%" height="720" x="80%"><section id="83" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:80%;">
+<p>图6.5</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="left" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="84">
+<ul>
+<li>点击日期可以切换考试日期。</li>
+<li>如果还未选择考试日期，显示null天。</li>
+<li>切换考试日期后自动计算ddl。</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="85">
+<h2>6.6 反馈建议&amp;在线客服功能的实现</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="86">
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/images%E5%B9%BB%E7%81%AF%E7%89%878.PNG" alt="  vertical" /></p>
+<p>图6.6</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="87">
+<ul>
+<li>点击反馈建议可以反馈信息</li>
+<li>点击在线客服可以与客服会话</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="88">
+<h1>七、英语助手后端的实现[徐超信]</h1>
+<blockquote>
+<p>这部分也是分模块来展示后端的实现方案。具体参见前面第六部分。</p>
+</blockquote>
+<blockquote>
+<p>这部分分模块来描述后端的具体实现，比如：</p>
+</blockquote>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="89">
+<h2>7.1 查词功能的实现</h2>
+<blockquote>
+<p>这部分是用户管理模块，如登录、注册、修改等功能的具体实现。这里应该重点将实现时考虑的因素，使用的算法以及这样做的优缺点，最后可以通过界面的截图来展示实现效果。</p>
+</blockquote>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="90">
+<ul>
+<li>查词功能是本程序的首页模块的功能,类似于词典</li>
+<li>我们通过python+pandas从有道词典的接口爬取了13k单词,每个单词都具有
+<ul>
+<li>中文释义</li>
+<li>音标</li>
+<li>5中词形(当然,名词没有过去式,动词没有复数,这种情况下都用NULL来填充字段)</li>
+<li>他们被存储在数据中,并通过ORM编写响应的查词接口,实现查词功能</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="91">
+<p><img src="https://img-blog.csdnimg.cn/bbe7f50e67594f1899914dafae0906b0.png" alt="在这里插入图片描述" /><br />
+图7.2.1:接口效果</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="92">
+<h2>7.2 学单词功能的实现</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:70%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://img-blog.csdnimg.cn/a618bcbe31324b218df90b22032b5d4a.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="30%" height="720" x="70%"><section id="93" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:70%;">
+<p><br />
+<strong>图7.2.2</strong></p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="left" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="94">
+<ul>
+<li>学单词功能的实现,首先要获取对应科目的考纲词汇列表,由于列表很长,所以提供了分页功能</li>
+<li>值得一提的是,后端几乎为所有返会长列表(大数据量)的操作提供了分页参数,因此不在每个接口地反复说明</li>
+<li>实现本功能用到地接口原理也比较简单,获取考纲列表地接口通过读取对应的科目地词汇数据库表,将他们分页返回</li>
+<li>在搭配一个刷单词时更新最近刷过(见过面的)卡片的时间(last_see_datetime),用以提供后面计算复习单词列表的基础数据</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="95">
+<h3>单词平均难度指数的实现</h3>
+<p><img src="https://img-blog.csdnimg.cn/4f267651e3c041a88447cd04b48b4599.png" alt="在这里插入图片描述" /><br />
+图7.2.3</p>
+<ul>
+<li>该指标是通过计算数据库中所有用户对该单词的熟练度,并计算平均值,以此来计算单词的平均难度指数</li>
+<li>可以帮助用户参考准确记忆该单词的难度</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="96">
+<h2>7.3 复习功能的实现</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="97">
+<p><img src="https://img-blog.csdnimg.cn/0bf8da54db6f45818cf502b5c0655e06.png" alt="在这里插入图片描述" /><br />
+图7.3.1</p>
+<ul>
+<li>用户通过指定科目,获取系统推荐的全书范围内的熟练度不佳的单词列表</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="98">
+<p><img src="https://img-blog.csdnimg.cn/2fcf70e6fadc4d9fabb75f1e69607dbb.png" alt="在这里插入图片描述" /><br />
+图7.3.2</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="99">
+<ul>
+<li>这是另一种复习模式:根据用户近期学习的词汇,提供复习列表</li>
+<li>这里使用的是UTC时间,但是不影算法效果</li>
+<li>客户端可以自行指定<code>最近</code>的概念,是最近1天还是最近1小时,甚至可以指定单位和浮点数</li>
+<li>算法的基本原理比较简单,首先获取用户刷单词卡片的时候的时间(后端提供了响应的刷新时间的接口)</li>
+<li>然后利用最近见过单词的时间和此时的时间(用户打开复习模块刷题的时刻)做时间差,当时间差处于指定范围内时,响应的记录就会被返回,用户生成复习列表</li>
+<li>前端同样可以利用本接口开发丰富的复习模式,譬如允许用户输入时间范围.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:60%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://img-blog.csdnimg.cn/5a8f3ab2f64c433f8fd4935e18f5902b.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="40%" height="720" x="60%"><section id="100" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:60%;">
+<ul>
+<li>图7.3.3</li>
+</ul>
+<p>这是最后一种复习模式,用户可以将其作为抽查对全书范围内抽取的一组词汇检验,同样式借助于刷题来完成(原型设计中的四种题型)</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="left" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="101">
+<h2>7.4 模糊查词的实现</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="102">
+<ul>
+<li>模糊查词(模糊匹配)的专业算法设计复杂的理论和推理知识,如果需要带有智能性,还需要人工智能技术来实现</li>
+<li>本项目的匹配算法不具备智能性,但是也有一定的灵活性和实用性,具体的实现过程如下
+<ul>
+<li>django_实现朴素/基本模糊拼写候选/纠错</li>
+<li>使用到的拼写数据库支持(一角)</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:40%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://img-blog.csdnimg.cn/5f9e8eb80d69412582e48f433cfe825c.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="60%" height="720" x="40%"><section id="103" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:40%;">
+<p><br />
+图7.4.1</p>
+<ul>
+<li>计算单词字符集:<code>char_set</code>,计算该属性的目的是为了实现单词间字符构成的相似性匹配</li>
+<li>处于现实效果的考虑,当用户输入的单词长度不超过4个字符时,我们只返回单词长度相同的并且字符构成一致的单词</li>
+</ul>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="left" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="104">
+<ul>
+<li>对于较长的输入,我们会允许一定比例的字符误差(譬如8个字符串长度的输入,允许波动1~2个字符),这样可以匹配到一些字母记错,字母顺序错误的情况,此外,为了使得长度合理,还我还设置了长度波动范围(也是根据比例波动(譬如25%)),这样,可以匹配到比用户拼写的单词更短一些的词汇,这种情况发生的概率较小,但是不可以完全排除</li>
+<li>后端还基于此开发了丰富的query参数,客户端可以以灵活的方式调用该接口,开发出多功能的查词功能
+<ul>
+<li>比如,强制匹配前两个字母(startwith=2)</li>
+<li>强制匹配终结符(endwith=2)</li>
+<li>甚至,后台也提供了正则匹配的功能,但是这不太是本程序的重点目标,遂没有将前端实现出来</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="105">
+<p>接口效果:</p>
+<h3>eg0:</h3>
+<p><img src="https://img-blog.csdnimg.cn/4f9b35ca1edc43fba01f0c260f671331.png" alt="在这里插入图片描述" /><br />
+图7.4.2</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="106">
+<h3>eg1:</h3>
+<p><img src="https://img-blog.csdnimg.cn/3af4a149f56c40359f688adf88783569.png" alt="在这里插入图片描述" /></p>
+<p>图7.4.3</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="107">
+<h3>eg2</h3>
+<p><code>GEThttp://127.0.0.1:8000/word/fuzzy/fhather/1</code><br />
+<img src="https://img-blog.csdnimg.cn/555e35733de84570bd5f40d9fa088e96.png" alt="在这里插入图片描述" /><br />
+图7.4.3</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="108">
+<h2>7.5 用户中心</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="109">
+<h3>登录功能方案选型:</h3>
+<blockquote>
+<p><a href="https://juejin.cn/post/6933115003327217671">前端常见登录实现方案 + 单点登录方案 - 掘金 (juejin.cn)</a></p>
+</blockquote>
+<ul>
+<li><code>Cookie + Session</code> 历史悠久，适合于简单的后端架构，需开发人员自己处理好安全问题。</li>
+<li><code>Token</code> 方案对后端压力小，适合大型分布式的后端架构，但已分发出去的 <code>token</code> ，如果想收回权限，就不是很方便了。</li>
+<li>SSO 单点登录，适用于中大型企业，想要统一内部所有产品的登录方式的情况。</li>
+<li>OAuth 第三方登录，简单易用，对用户和开发者都友好，但第三方平台很多，需要选择合适自己的第三方登录平台。</li>
+</ul>
+<blockquote>
+<ul>
+<li>综合比较,我们选择第一种方案,比较符合项目定位</li>
+<li>利用session,后端可以充分利用用户的登录状态(从客户端提交过来的cookie中解析出用户信息从而帮助前端以更加简洁的参数就可以调用经过改进后的api)</li>
+<li>另一方面,提供身份认证为数据安全提供了基本保障,减少被攻击的可能</li>
+</ul>
+</blockquote>
+<h4>登录流程</h4>
+<pre><code class="language-mermaid"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>graph LR
+star([start])--&gt;is_logged{is logged?}--&gt;|yes|allow_access[allow the user access the apis]
+is_logged --no--&gt;login_required[the api require the user to login]
+login_required--&gt;is_success{is success}--&gt;|yes|allow_access
+is_success--&gt;|no|login_required
+</span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="110">
+<h1>八、系统测试</h1>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="111">
+<h2>8.1 单元测试</h2>
+<h3>后端测试</h3>
+<ul>
+<li>后端的测试采用django推荐的unittest来对代码进行测试</li>
+<li>在开发过程中,我们适当的使用TDD(测试驱动开发)的方式来编写了一部分api,并且认识到了TDD开发的优势</li>
+<li>编写测试需要花费一些实际,但是随着项目的体积的增长,依靠测试带来的便利就回来越显著,我们对自己的代码正确性也心中有底</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="112">
+<ul>
+<li>在编写测试的时候,主要针对以下几个方面:
+<ul>
+<li>路由和试图函数的映射是否正确
+<ul>
+<li>在这里做测试是因为,随着项目规模的增大,我们的代码越来越复杂,对于每一个接口都要有响应的路由,这就发生后写的路由模式和之前已有的模式发生冲突,或者相互覆盖,导致api调用的时候数据传入到错误的函数中去处理</li>
+</ul>
+</li>
+<li>编写关于视图函数的测试,这时候需要操作临时数据库,或者在测似乎代码中模拟出一些随机的或者特定的数据,总之应该使用能够达到检查目的数据</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="113">
+<ul>
+<li>利用APIfox 来测试接口
+<ul>
+<li>apifox也提供了简单易用的批量测试接口的功能,可以在线上环境中进行测试,也可以在本地进行测试,甚至支持多线程测试和并发测试,而且统计了接口的调用次数和调用时间,比较直观</li>
+<li>本项目在开发过程中就受益于批量测试,帮助我在部分接口缺少测试的时候及时发现问题并解决</li>
+</ul>
+</li>
+</ul>
+<h4>coverage.py提供的测试覆盖率统计报告服务</h4>
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610132351149.png" alt="image-20220610132351149" /></p>
+<p>图8.1通过coverage收集测试运行的信息(以项目中的word模块为例)</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="114">
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610131701793.png" alt="image-20220610131701793" /></p>
+<p>图8.2开始统计测试</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="115">
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610131742120.png" alt="image-20220610131742120" /></p>
+<p>图8.3,总结当前的测试覆盖率(58%)</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="116" data-marpit-fragments="1">
+<h2>8.2 集成测试集</h2>
+<ul>
+<li data-marpit-fragment="1">成测试（Integration Testing），也叫组装测试或联合测试。在单元测试的基础上，将所有模块按照设计要求（如根据结构图）组装成为子系统或系统，进行集成测试</li>
+</ul>
+<p>在本项目中,我利用apifox,我定义了若干有步骤之分的测试用例,每个测试用来中可以包含多个来自接口的请求示例,并且可以调整顺序,特别是在测试登录功能的时候,依赖于登录状态的api必须要放在登录后的接口后执行,依次地完对项目地4个模块的有序测试,所有接口,基本全部通过</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:70%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610090324016.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="30%" height="720" x="70%"><section id="117" data-marpit-advanced-background="content" data-marpit-advanced-background-split="left" style="--marpit-advanced-background-split:70%;">
+<p>图8.2.1通过apifox 进行的批量自动化测试,每个接口可以又多个测试实例</p>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="left" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="118">
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610090904377.png" alt="image-20220610090904377" /></p>
+<p>图8.2.2</p>
+<ul>
+<li>这是通过apifox的套件测试,批量测试接口下的测试用例,并且测试保证顺序</li>
+<li>报告测试结果</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="119">
+<h2>8.3 测试部署及结果</h2>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="120">
+<p><img src="https://img-blog.csdnimg.cn/4598744f2c954c0d84e8adc0bd95eb1d.png" alt="在这里插入图片描述" /></p>
+<p>图8.3.1再GitHub上部署并项目并且执行<code>Run Tests</code>,报告结果</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="121" data-marpit-fragments="2">
+<ul>
+<li data-marpit-fragment="1">我们利用github Actions 来执行自动化测试,主要的内容是,当我从本地将项目push到github上时,我们会自动运行测试,并且将测试结果发送到我的邮箱中,这样我们就可以更加方便的了解项目的测试结果,问题和故障可以及时的得到反馈,而不需要每次在本地跑一遍所有测试,可以节约时间</li>
+<li data-marpit-fragment="2">不仅如此,团队中的其他人也可以看到测试结果</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="122">
+<h1>九、系统部署 [徐超信]</h1>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="123">
+<h2>自动部署</h2>
+<ul>
+<li>我们通过云主机来部署我们的项目,使得后台服务可以通过公网ip能够访问</li>
+<li>我们有又利用github+webhook+github Actions实现持续继承和持续交付</li>
+<li>云端可以及时自动的同步本地的最新项目成果,同时能够经过Actions的检查,依赖于本项目的其他成员就可以直到新的版本情况.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="124">
+<h3>操作步骤</h3>
+<ul>
+<li>安装webbook</li>
+</ul>
+<pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>sudo apt-get install webhook
+</span></span></foreignObject></svg></code></pre>
+<ul>
+<li><a href="http://xn--deploy-hw2jj93lg86bl0aj7kf43d.sh">编写部署脚本deploy.sh</a>:任务内容</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="125">
+<pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># cxxu @ cxxuAli in ~/backEnd on git:main x [17:53:07]</span>
+$ cat deploy.sh
+<span class="hljs-comment">#! /bin/bash</span>
+<span class="hljs-built_in">cd</span> ~/backEnd/
+<span class="hljs-comment">#git status</span>
+git pull origin main
+<span class="hljs-built_in">echo</span> `date`
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;
+</span></span></span></foreignObject></svg></code></pre>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="126">
+<ul>
+<li>
+<p>编写hooks.json:</p>
+<ul>
+<li>
+<p>注意,<code>execute-command</code>:是需要运行的脚本的路径(而不是命令,譬如source .deploy.sh)是不正确的</p>
+</li>
+<li>
+<p><code>command-working-directory</code> 是工作目录</p>
+<ul>
+<li>我在实验过程中,发现,当<code>deploy.sh</code>和工作目录在同一目录下,才生效</li>
+<li>此外,为了确保脚本的可用性和正确性,在正式使用前应该手动运行一下脚本文件(可以利用<code>chmod +x deploy.sh</code>赋予脚本可执行的权限)</li>
+</ul>
+</li>
+<li>
+<pre><code class="language-json"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>
+[
+  {
+    <span class="hljs-attr">&quot;id&quot;</span>: <span class="hljs-string">&quot;deploy&quot;</span>,
+    <span class="hljs-attr">&quot;execute-command&quot;</span>: <span class="hljs-string">&quot;./deploy.sh&quot;</span>,
+    <span class="hljs-attr">&quot;command-working-directory&quot;</span>: <span class="hljs-string">&quot;/home/cxxu/backEnd/&quot;</span>
+  }
+]
+</span></span></foreignObject></svg></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="127">
+<ul>
+<li>
+<p>启动服务(临时性实验)</p>
+<ul>
+<li>
+<p>进入到<code>hooks.json</code>所在目录中(或者指定hooks.json的绝对路径)</p>
+</li>
+<li>
+<pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap> webhook -hooks hooks.json -verbose
+</span></span></foreignObject></svg></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="128">
+<ul>
+<li>
+<p>实验webhooks连接</p>
+<ul>
+<li>
+<p>用浏览器(或者其他可以发送http请求的客户端)发送get请求<code>http://123.56.72.67:9000/hooks/deploy/</code></p>
+</li>
+<li>
+<p>这时候检查主机终端,如果能够捕获到请求,并且正确执行相关脚本,那么配置成功</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="129">
+<ul>
+<li>
+<p>配置github</p>
+<ul>
+<li>如果上述的服务启动可以正常运行,则将上述链接添加到githhub项目仓库的webhook中(settings-&gt;webhook)</li>
+</ul>
+</li>
+<li>
+<p>长期运行</p>
+<ul>
+<li>
+<p>将webhook的输出内容重定向到log.txt文件中.</p>
+</li>
+<li>
+<pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap> nohup webhook -hooks hooks.json -verbose &gt;log.txt &amp;
+</span></span></foreignObject></svg></code></pre>
+</li>
+<li>
+<p>将所有输出(包括错误输出重定向到一个文件中)</p>
+</li>
+<li>
+<pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap>$ nohup webhook -hooks hooks.json -verbose &gt;log.txt 2&gt;&amp;1 &amp;
+[1] 29968
+
+</span></span></foreignObject></svg></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="130">
+<blockquote>
+<p>利用github+webhook,实现基本的自动部署</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesMqBf4Zu1VRnLovi.png" alt="image-20220606164228944" />图:github&amp;webhook</p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="131">
+<ul>
+<li>
+<p>查看输出日志</p>
+<ul>
+<li>
+<pre><code class="language-bash"><svg data-marp-fitting="svg" data-marp-fitting-code><foreignObject><span data-marp-fitting-svg-content><span data-marp-fitting-svg-content-wrap><span class="hljs-comment"># cxxu @ cxxuAli in ~/backEnd on git:main x [18:04:52]</span>
+$ cat log.txt
+[webhook] 2022/06/06 16:44:39 version 2.5.0 starting
+[webhook] 2022/06/06 16:44:39 setting up os signal watcher
+[webhook] 2022/06/06 16:44:39 attempting to load hooks from hooks.json
+[webhook] 2022/06/06 16:44:39 found 1 hook(s) <span class="hljs-keyword">in</span> file
+[webhook] 2022/06/06 16:44:39   loaded: deploy
+[webhook] 2022/06/06 16:44:39 serving hooks on http://0.0.0.0:9000/hooks/{id}
+</span></span></foreignObject></svg></code></pre>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="132">
+<h1>十、功能展示 [潘淼森]</h1>
+<blockquote>
+<p>授权登录与退出</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/77b25372b0204667a0765a31c36be7d0.png" alt="" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-marpit-advanced-background="background" data-marpit-advanced-background-split="right" style="--marpit-advanced-background-split:75%;"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://img-blog.csdnimg.cn/48fb3a1616a1497785bf6f47bdadd81d.png&quot;);background-size:contain;"></figure></div></section></foreignObject><foreignObject width="25%" height="720"><section id="133" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right" style="--marpit-advanced-background-split:75%;">
+<blockquote>
+<p>查词</p>
+</blockquote>
+</section>
+</foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right" style=""></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="134">
+<blockquote>
+<p>背单词，左右滑动实现翻页</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/8543b1cf082343f9883f13b8cfc5e606.png" alt="" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="135">
+<blockquote>
+<p>发表批注</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/2c0017d0294f4bbc8352b684b2b911e6.png" alt="" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="136">
+<blockquote>
+<p>难度评价</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/594fa69c9618421c8a7577bc928e719c.png" alt="" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="137">
+<blockquote>
+<p>切换考纲</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/c03f2bb647114f0487743f5a2b71094d.png" alt="" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="138">
+<blockquote>
+<p>计算ddl</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/bc9207f31d17473ab84ce49db61423e9.png" alt="" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="139">
+<blockquote>
+<p>反馈与客服</p>
+</blockquote>
+<p><img src="https://img-blog.csdnimg.cn/87fc067463e44f579f8ab09ac5fef2ae.png" alt="" /></p>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="140" data-marpit-fragments="1">
+<h1>十一、清单 [徐超信,潘淼森]</h1>
+<ul>
+<li data-marpit-fragment="1">项目github(组织):<a href="https://github.com/MaterialSharing">MaterialSharing (github.com)</a></li>
+</ul>
+<blockquote>
+<p>这部分列出项目提交的清单，如：</p>
+<ul>
+<li>前端代码: Front-End</li>
+<li>后端代码: backEnd</li>
+<li>原型设计文件: docs/design/design_原型操作逻辑1.pptx</li>
+<li>项目演示视频: docs/video.mp4</li>
+<li>各种流图和思维导图文件: docs/design/</li>
+</ul>
+</blockquote>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="141">
+<h1>十二、总结 [徐超信,潘淼森]</h1>
+<blockquote>
+<p>项目的总结，整个项目的感受以及下一步的计划。</p>
+</blockquote>
+<p><a href="https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files">version control - How do I force “git pull” to overwrite local files? - Stack Overflow</a></p>
+<p>在开发本项目的过程中,我们收获了很多</p>
+<ul>
+<li>学习,了解并实践了当下流行的开发技术,体验了规范的和相对完善的开发流程</li>
+<li>培养了我们的主动学习能力,思考能力以及动手能力,为我们今后的工作学习打下了重要的基础</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="142">
+<p>在开发过程中,我们同样遇到了各种问题</p>
+<ul>
+<li>由于缺乏产品设计经验以及实战开发经验,我们小组在项目之初进度就较为落后,我们深刻的认识到,需求设计和架构设计一点也不能轻视,轻则拖慢项目开发进展,重则推导重来.</li>
+<li>小组成员合理分工,沟通协商,团结一致也是分重要,不合理的分工会导致矛盾,缺乏沟通也会导致组内矛盾,影响开发效率和进度,而不团结的队伍也不利于项目的完善</li>
+<li>此外还有进度安排不签当的任务复杂度估计往往会导致项目开发无法及时完成或者流程不够完善.</li>
+</ul>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="143">
+<h1>十三、参考文献 [徐超信,潘淼森]</h1>
+<blockquote>
+<p>系统所参考的文献或者代码，比如：</p>
+<ul>
+<li>django4:<a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiYp9yJ2__3AhW6qVYBHS0TCZgQFnoECBUQAQ&amp;url=https%3A%2F%2Fwww.djangoproject.com%2F&amp;usg=AOvVaw3E6qaJashVeeIx3oahQxD7"> Django: The web framework for perfectionists with deadlines https://www.djangoproject.com (google.com)</a></li>
+<li>Django Rest framework:<a href="https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi7qJ-Y2__3AhUepVYBHbjiAPEQFnoECAcQAQ&amp;url=https%3A%2F%2Fwww.django-rest-framework.org%2F&amp;usg=AOvVaw0ZGmLSXHw1XKCvqteVn5f-"> Django REST framework: Home https://www.django-rest-framework.org (google.com)</a></li>
+<li>mysql8:<a href="https://dev.mysql.com/doc/refman/8.0/en/">MySQL :: MySQL 8.0 Reference Manual</a></li>
+<li>wechat 小程序开发文档:<a href="https://developers.weixin.qq.com/miniprogram/dev/framework/">微信开放文档 (qq.com)</a></li>
+<li>vant3:<a href="https://youzan.github.io/vant/#/zh-CN">Vant 3 - 轻量、可靠的移动端组件库 (youzan.github.io)</a></li>
+<li>uni-app: <a href="https://uniapp.dcloud.io/">https://uniapp.dcloud.io/</a></li>
+<li><a href="https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files">version control - How do I force “git pull” to overwrite local files? - Stack Overflow</a></li>
+</ul>
+</blockquote>
+</section>
+<script>!function(){"use strict";const t="marpitSVGPolyfill:setZoomFactor,",e=Symbol();let r,o;function n(n){const i="object"==typeof n&&n.target||document,a="object"==typeof n?n.zoom:n;window[e]||(Object.defineProperty(window,e,{configurable:!0,value:!0}),window.addEventListener("message",(({data:e,origin:r})=>{if(r===window.origin)try{if(e&&"string"==typeof e&&e.startsWith(t)){const[,t]=e.split(","),r=Number.parseFloat(t);Number.isNaN(r)||(o=r)}}catch(t){console.error(t)}})));let l=!1;Array.from(i.querySelectorAll("svg[data-marpit-svg]"),(t=>{var e,n,i,s;t.style.transform||(t.style.transform="translateZ(0)");const c=a||o||t.currentScale||1;r!==c&&(r=c,l=c);const d=t.getBoundingClientRect(),{length:f}=t.children;for(let r=0;r<f;r+=1){const o=t.children[r];if(o.getScreenCTM){const t=o.getScreenCTM();if(t){const r=null!==(n=null===(e=o.x)||void 0===e?void 0:e.baseVal.value)&&void 0!==n?n:0,a=null!==(s=null===(i=o.y)||void 0===i?void 0:i.baseVal.value)&&void 0!==s?s:0,l=o.children.length;for(let e=0;e<l;e+=1){const n=o.children[e];if("SECTION"===n.tagName){const{style:e}=n;e.transformOrigin||(e.transformOrigin=`${-r}px ${-a}px`),e.transform=`scale(${c}) matrix(${t.a}, ${t.b}, ${t.c}, ${t.d}, ${t.e-d.left}, ${t.f-d.top}) translateZ(0.0001px)`;break}}}}}})),!1!==l&&Array.from(i.querySelectorAll("iframe"),(({contentWindow:e})=>{null==e||e.postMessage(`${t}${l}`,"null"===window.origin?"*":window.origin)}))}r=1,o=void 0;const i=(t,e,r)=>{if(t.getAttribute(e)!==r)return t.setAttribute(e,r),!0};function a({once:t=!1,target:e=document}={}){const r="Apple Computer, Inc."===navigator.vendor?[n]:[];let o=!t;const a=()=>{for(const t of r)t({target:e});!function(t=document){Array.from(t.querySelectorAll('svg[data-marp-fitting="svg"]'),(t=>{var e;const r=t.firstChild,o=r.firstChild,{scrollWidth:n,scrollHeight:a}=o;let l,s=1;if(t.hasAttribute("data-marp-fitting-code")&&(l=null===(e=t.parentElement)||void 0===e?void 0:e.parentElement),t.hasAttribute("data-marp-fitting-math")&&(l=t.parentElement),l){const t=getComputedStyle(l),e=Math.ceil(l.clientWidth-parseFloat(t.paddingLeft||"0")-parseFloat(t.paddingRight||"0"));e&&(s=e)}const c=Math.max(n,s),d=Math.max(a,1),f=`0 0 ${c} ${d}`;i(r,"width",`${c}`),i(r,"height",`${d}`),i(t,"preserveAspectRatio",getComputedStyle(t).getPropertyValue("--preserve-aspect-ratio")||"xMinYMin meet"),i(t,"viewBox",f)&&t.classList.toggle("__reflow__")}))}(e),o&&window.requestAnimationFrame(a)};return a(),()=>{o=!1}}const l=Symbol(),s=document.currentScript;((t=document)=>{if("undefined"==typeof window)throw new Error("Marp Core's browser script is valid only in browser context.");if(t[l])return t[l];const e=a({target:t}),r=()=>{e(),delete t[l]};Object.defineProperty(t,l,{configurable:!0,value:r})})(s?s.getRootNode():document)}();
+</script></foreignObject></svg></div><script>/*!! License: https://unpkg.com/@marp-team/marp-cli@1.7.1/lib/bespoke.js.LICENSE.txt */
+!function(){"use strict";const e=document.body,t=(...e)=>history.replaceState(...e),n="presenter",r="next",o=["",n,r],a="data-bespoke-marp-",i=(e,{protocol:t,host:n,pathname:r,hash:o}=location)=>{const a=e.toString();return`${t}//${n}${r}${a?"?":""}${a}${o}`},s=()=>e.dataset.bespokeView,l=e=>new URLSearchParams(location.search).get(e),d=(e,n={})=>{var r;const o={location,setter:t,...n},a=new URLSearchParams(o.location.search);for(const t of Object.keys(e)){const n=e[t];"string"==typeof n?a.set(t,n):a.delete(t)}try{o.setter({...null!==(r=window.history.state)&&void 0!==r?r:{}},"",i(a,o.location))}catch(e){console.error(e)}},c=(()=>{const e="bespoke-marp";try{return localStorage.setItem(e,e),localStorage.removeItem(e),!0}catch(e){return!1}})(),u=e=>{try{return localStorage.getItem(e)}catch(e){return null}},f=(e,t)=>{try{return localStorage.setItem(e,t),!0}catch(e){return!1}},m=e=>{try{return localStorage.removeItem(e),!0}catch(e){return!1}},g=(e,t)=>{const n="aria-hidden";t?e.setAttribute(n,"true"):e.removeAttribute(n)},p=e=>{e.parent.classList.add("bespoke-marp-parent"),e.slides.forEach((e=>e.classList.add("bespoke-marp-slide"))),e.on("activate",(t=>{const n="bespoke-marp-active",r=t.slide,o=r.classList,a=!o.contains(n);if(e.slides.forEach((e=>{e.classList.remove(n),g(e,!0)})),o.add(n),g(r,!1),a){const e=`${n}-ready`;o.add(e),document.body.clientHeight,o.remove(e)}}))},v=e=>{let t=0,n=0;Object.defineProperty(e,"fragments",{enumerable:!0,value:e.slides.map((e=>[null,...e.querySelectorAll("[data-marpit-fragment]")]))});const r=r=>void 0!==e.fragments[t][n+r],o=(r,o)=>{t=r,n=o,e.fragments.forEach(((e,t)=>{e.forEach(((e,n)=>{if(null==e)return;const i=t<r||t===r&&n<=o;e.setAttribute(`${a}fragment`,(i?"":"in")+"active");const s=`${a}current-fragment`;t===r&&n===o?e.setAttribute(s,"current"):e.removeAttribute(s)}))})),e.fragmentIndex=o;const i={slide:e.slides[r],index:r,fragments:e.fragments[r],fragmentIndex:o};e.fire("fragment",i)};e.on("next",(({fragment:a=!0})=>{if(a){if(r(1))return o(t,n+1),!1;const a=t+1;e.fragments[a]&&o(a,0)}else{const r=e.fragments[t].length;if(n+1<r)return o(t,r-1),!1;const a=e.fragments[t+1];a&&o(t+1,a.length-1)}})),e.on("prev",(({fragment:a=!0})=>{if(r(-1)&&a)return o(t,n-1),!1;const i=t-1;e.fragments[i]&&o(i,e.fragments[i].length-1)})),e.on("slide",(({index:t,fragment:n})=>{let r=0;if(void 0!==n){const o=e.fragments[t];if(o){const{length:e}=o;r=-1===n?e-1:Math.min(Math.max(n,0),e-1)}}o(t,r)})),o(0,0)},h=document,y=()=>!(!h.fullscreenEnabled&&!h.webkitFullscreenEnabled),b=()=>!(!h.fullscreenElement&&!h.webkitFullscreenElement),x=e=>{e.fullscreen=()=>{y()&&(async()=>{return b()?null===(e=h.exitFullscreen||h.webkitExitFullscreen)||void 0===e?void 0:e.call(h):((e=h.body)=>{var t;return null===(t=e.requestFullscreen||e.webkitRequestFullscreen)||void 0===t?void 0:t.call(e)})();var e})()},document.addEventListener("keydown",(t=>{"f"!==t.key&&"F11"!==t.key||t.altKey||t.ctrlKey||t.metaKey||!y()||(e.fullscreen(),t.preventDefault())}))},w="bespoke-marp-inactive",k=(e=2e3)=>({parent:t,fire:n})=>{const r=t.classList,o=e=>n(`marp-${e?"":"in"}active`);let a;const i=()=>{a&&clearTimeout(a),a=setTimeout((()=>{r.add(w),o()}),e),r.contains(w)&&(r.remove(w),o(!0))};for(const e of["mousedown","mousemove","touchend"])document.addEventListener(e,i);setTimeout(i,0)},E=["AUDIO","BUTTON","INPUT","SELECT","TEXTAREA","VIDEO"],L=e=>{e.parent.addEventListener("keydown",(e=>{if(!e.target)return;const t=e.target;(E.includes(t.nodeName)||"true"===t.contentEditable)&&e.stopPropagation()}))},$=e=>{window.addEventListener("load",(()=>{for(const t of e.slides){const e=t.querySelector("[data-marp-fitting]")?"":"hideable";t.setAttribute(`${a}load`,e)}}))},S=({interval:e=250}={})=>t=>{document.addEventListener("keydown",(e=>{if(" "===e.key&&e.shiftKey)t.prev();else if("ArrowLeft"===e.key||"ArrowUp"===e.key||"PageUp"===e.key)t.prev({fragment:!e.shiftKey});else if(" "!==e.key||e.shiftKey)if("ArrowRight"===e.key||"ArrowDown"===e.key||"PageDown"===e.key)t.next({fragment:!e.shiftKey});else if("End"===e.key)t.slide(t.slides.length-1,{fragment:-1});else{if("Home"!==e.key)return;t.slide(0)}else t.next();e.preventDefault()}));let n,r,o=0;t.parent.addEventListener("wheel",(a=>{let i=!1;const s=(e,t)=>{e&&(i=i||((e,t)=>((e,t)=>{const n="X"===t?"Width":"Height";return e[`client${n}`]<e[`scroll${n}`]})(e,t)&&((e,t)=>{const{overflow:n}=e,r=e[`overflow${t}`];return"auto"===n||"scroll"===n||"auto"===r||"scroll"===r})(getComputedStyle(e),t))(e,t)),(null==e?void 0:e.parentElement)&&s(e.parentElement,t)};if(0!==a.deltaX&&s(a.target,"X"),0!==a.deltaY&&s(a.target,"Y"),i)return;a.preventDefault();const l=Math.sqrt(a.deltaX**2+a.deltaY**2);if(void 0!==a.wheelDelta){if(void 0===a.webkitForce&&Math.abs(a.wheelDelta)<40)return;if(a.deltaMode===a.DOM_DELTA_PIXEL&&l<4)return}else if(a.deltaMode===a.DOM_DELTA_PIXEL&&l<12)return;r&&clearTimeout(r),r=setTimeout((()=>{n=0}),e);const d=Date.now()-o<e,c=l<=n;if(n=l,d||c)return;let u;(a.deltaX>0||a.deltaY>0)&&(u="next"),(a.deltaX<0||a.deltaY<0)&&(u="prev"),u&&(t[u](),o=Date.now())}))},P=(e=".bespoke-marp-osc")=>{const t=document.querySelector(e);if(!t)return()=>{};const n=(e,n)=>{t.querySelectorAll(`[${a}osc=${JSON.stringify(e)}]`).forEach(n)};return y()||n("fullscreen",(e=>e.style.display="none")),c||n("presenter",(e=>{e.disabled=!0,e.title="Presenter view is disabled due to restricted localStorage."})),e=>{t.addEventListener("click",(t=>{if(t.target instanceof HTMLElement){const{bespokeMarpOsc:n}=t.target.dataset;n&&t.target.blur();const r={fragment:!t.shiftKey};"next"===n?e.next(r):"prev"===n?e.prev(r):"fullscreen"===n?null==e||e.fullscreen():"presenter"===n&&e.openPresenterView()}})),e.parent.appendChild(t),e.on("activate",(({index:t})=>{n("page",(n=>n.textContent=`Page ${t+1} of ${e.slides.length}`))})),e.on("fragment",(({index:t,fragments:r,fragmentIndex:o})=>{n("prev",(e=>e.disabled=0===t&&0===o)),n("next",(n=>n.disabled=t===e.slides.length-1&&o===r.length-1))})),e.on("marp-active",(()=>g(t,!1))),e.on("marp-inactive",(()=>g(t,!0))),y()&&(e=>{for(const t of["","webkit"])h.addEventListener(t+"fullscreenchange",e)})((()=>n("fullscreen",(e=>e.classList.toggle("exit",y()&&b())))))}},T=e=>{window.addEventListener("message",(t=>{if(t.origin!==window.origin)return;const[n,r]=t.data.split(":");if("navigate"===n){const[t,n]=r.split(",");let o=Number.parseInt(t,10),a=Number.parseInt(n,10)+1;a>=e.fragments[o].length&&(o+=1,a=0),e.slide(o,{fragment:a})}}))};var I=["area","base","br","col","command","embed","hr","img","input","keygen","link","meta","param","source","track","wbr"];let N=e=>String(e).replace(/[&<>"']/g,(e=>`&${C[e]};`)),C={"&":"amp","<":"lt",">":"gt",'"':"quot","'":"apos"},A="dangerouslySetInnerHTML",D={className:"class",htmlFor:"for"},M={};function B(e,t){let n=[],r="";t=t||{};for(let e=arguments.length;e-- >2;)n.push(arguments[e]);if("function"==typeof e)return t.children=n.reverse(),e(t);if(e){if(r+="<"+e,t)for(let e in t)!1!==t[e]&&null!=t[e]&&e!==A&&(r+=` ${D[e]?D[e]:N(e)}="${N(t[e])}"`);r+=">"}if(-1===I.indexOf(e)){if(t[A])r+=t[A].__html;else for(;n.length;){let e=n.pop();if(e)if(e.pop)for(let t=e.length;t--;)n.push(e[t]);else r+=!0===M[e]?e:N(e)}r+=e?`</${e}>`:""}return M[r]=!0,r}const K=({children:e})=>B(null,null,...e),O="bespoke-marp-presenter-",q={container:`${O}container`,dragbar:`${O}dragbar-container`,next:`${O}next`,nextContainer:`${O}next-container`,noteContainer:`${O}note-container`,noteWrapper:`${O}note-wrapper`,noteButtons:`${O}note-buttons`,infoContainer:`${O}info-container`,infoPage:`${O}info-page`,infoPageText:`${O}info-page-text`,infoPagePrev:`${O}info-page-prev`,infoPageNext:`${O}info-page-next`,noteButtonsBigger:`${O}note-bigger`,noteButtonsSmaller:`${O}note-smaller`,infoTime:`${O}info-time`,infoTimer:`${O}info-timer`},_=e=>{const{title:t}=document;document.title="[Presenter view]"+(t?` - ${t}`:"");const n={},r=e=>(n[e]=n[e]||document.querySelector(`.${e}`),n[e]);document.body.appendChild((e=>{const t=document.createElement("div");return t.className=q.container,t.appendChild(e),t.insertAdjacentHTML("beforeend",B(K,null,B("div",{class:q.nextContainer},B("iframe",{class:q.next,src:"?view=next"})),B("div",{class:q.dragbar}),B("div",{class:q.noteContainer},B("div",{class:q.noteWrapper}),B("div",{class:q.noteButtons},B("button",{class:q.noteButtonsSmaller,tabindex:"-1",title:"Smaller notes font size"},"Smaller notes font size"),B("button",{class:q.noteButtonsBigger,tabindex:"-1",title:"Bigger notes font size"},"Bigger notes font size"))),B("div",{class:q.infoContainer},B("div",{class:q.infoPage},B("button",{class:q.infoPagePrev,tabindex:"-1",title:"Previous"},"Previous"),B("span",{class:q.infoPageText}),B("button",{class:q.infoPageNext,tabindex:"-1",title:"Next"},"Next")),B("time",{class:q.infoTime,title:"Current time"}),B("time",{class:q.infoTimer,title:"Timer"})))),t})(e.parent)),(e=>{let t=!1;r(q.dragbar).addEventListener("mousedown",(()=>{t=!0,r(q.dragbar).classList.add("active")})),window.addEventListener("mouseup",(()=>{t=!1,r(q.dragbar).classList.remove("active")})),window.addEventListener("mousemove",(e=>{if(!t)return;const n=e.clientX/document.documentElement.clientWidth*100;r(q.container).style.setProperty("--bespoke-marp-presenter-split-ratio",`${Math.max(0,Math.min(100,n))}%`)})),r(q.nextContainer).addEventListener("click",(()=>e.next()));const n=r(q.next),o=(a=n,(e,t)=>{var n;return null===(n=a.contentWindow)||void 0===n?void 0:n.postMessage(`navigate:${e},${t}`,"null"===window.origin?"*":window.origin)});var a;n.addEventListener("load",(()=>{r(q.nextContainer).classList.add("active"),o(e.slide(),e.fragmentIndex),e.on("fragment",(({index:e,fragmentIndex:t})=>o(e,t)))}));const i=document.querySelectorAll(".bespoke-marp-note");i.forEach((e=>{e.addEventListener("keydown",(e=>e.stopPropagation())),r(q.noteWrapper).appendChild(e)})),e.on("activate",(()=>i.forEach((t=>t.classList.toggle("active",t.dataset.index==e.slide())))));let s=0;const l=e=>{s=Math.max(-5,s+e),r(q.noteContainer).style.setProperty("--bespoke-marp-note-font-scale",(1.2**s).toFixed(4))},d=()=>l(1),c=()=>l(-1),u=r(q.noteButtonsBigger),f=r(q.noteButtonsSmaller);u.addEventListener("click",(()=>{u.blur(),d()})),f.addEventListener("click",(()=>{f.blur(),c()})),document.addEventListener("keydown",(e=>{"+"===e.key&&d(),"-"===e.key&&c()}),!0),e.on("activate",(({index:t})=>{r(q.infoPageText).textContent=`${t+1} / ${e.slides.length}`}));const m=r(q.infoPagePrev),g=r(q.infoPageNext);m.addEventListener("click",(t=>{m.blur(),e.prev({fragment:!t.shiftKey})})),g.addEventListener("click",(t=>{g.blur(),e.next({fragment:!t.shiftKey})})),e.on("fragment",(({index:t,fragments:n,fragmentIndex:r})=>{m.disabled=0===t&&0===r,g.disabled=t===e.slides.length-1&&r===n.length-1}));let p=new Date;const v=()=>{const e=new Date,t=e=>`${Math.floor(e)}`.padStart(2,"0"),n=e.getTime()-p.getTime(),o=t(n/1e3%60),a=t(n/1e3/60%60),i=t(n/36e5%24);r(q.infoTime).textContent=e.toLocaleTimeString(),r(q.infoTimer).textContent=`${i}:${a}:${o}`};v(),setInterval(v,250),r(q.infoTimer).addEventListener("click",(()=>{p=new Date}))})(e)},X=e=>{if(!(e=>e.syncKey&&"string"==typeof e.syncKey)(e))throw new Error("The current instance of Bespoke.js is invalid for Marp bespoke presenter plugin.");Object.defineProperties(e,{openPresenterView:{enumerable:!0,value:F},presenterUrl:{enumerable:!0,get:U}}),c&&document.addEventListener("keydown",(t=>{"p"!==t.key||t.altKey||t.ctrlKey||t.metaKey||(t.preventDefault(),e.openPresenterView())}))};function F(){const{max:e,floor:t}=Math,n=e(t(.85*window.innerWidth),640),r=e(t(.85*window.innerHeight),360);return window.open(this.presenterUrl,O+this.syncKey,`width=${n},height=${r},menubar=no,toolbar=no`)}function U(){const e=new URLSearchParams(location.search);return e.set("view","presenter"),e.set("sync",this.syncKey),i(e)}const V=e=>{const t=s();return t===r&&e.appendChild(document.createElement("span")),{"":X,[n]:_,[r]:T}[t]},R=e=>{e.on("activate",(t=>{document.querySelectorAll(".bespoke-progress-parent > .bespoke-progress-bar").forEach((n=>{n.style.flexBasis=100*t.index/(e.slides.length-1)+"%"}))}))},j=e=>{const t=Number.parseInt(e,10);return Number.isNaN(t)?null:t},H=(e={})=>{const t={history:!0,...e};return e=>{let n=!0;const r=e=>{const t=n;try{return n=!0,e()}finally{n=t}},o=(t={fragment:!0})=>{((t,n)=>{const{min:r,max:o}=Math,{fragments:a,slides:i}=e,s=o(0,r(t,i.length-1)),l=o(0,r(n||0,a[s].length-1));s===e.slide()&&l===e.fragmentIndex||e.slide(s,{fragment:l})})((j(location.hash.slice(1))||1)-1,t.fragment?j(l("f")||""):null)};e.on("fragment",(({index:e,fragmentIndex:r})=>{n||d({f:0===r||r.toString()},{location:{...location,hash:`#${e+1}`},setter:(...e)=>t.history?history.pushState(...e):history.replaceState(...e)})})),setTimeout((()=>{o(),window.addEventListener("hashchange",(()=>r((()=>{o({fragment:!1}),d({f:void 0})})))),window.addEventListener("popstate",(()=>{n||r((()=>o()))})),n=!1}),0)}},W=(e={})=>{var n;const r=e.key||(null===(n=window.history.state)||void 0===n?void 0:n.marpBespokeSyncKey)||Math.random().toString(36).slice(2),o=`bespoke-marp-sync-${r}`;var a;a={marpBespokeSyncKey:r},d({},{setter:(e,...n)=>t({...e,...a},...n)});const i=()=>{const e=u(o);return e?JSON.parse(e):Object.create(null)},s=e=>{const t=i(),n={...t,...e(t)};return f(o,JSON.stringify(n)),n},l=()=>{window.removeEventListener("pageshow",l),s((e=>({reference:(e.reference||0)+1})))};return e=>{l(),Object.defineProperty(e,"syncKey",{value:r,enumerable:!0});let t=!0;setTimeout((()=>{e.on("fragment",(e=>{t&&s((()=>({index:e.index,fragmentIndex:e.fragmentIndex})))}))}),0),window.addEventListener("storage",(n=>{if(n.key===o&&n.oldValue&&n.newValue){const r=JSON.parse(n.oldValue),o=JSON.parse(n.newValue);if(r.index!==o.index||r.fragmentIndex!==o.fragmentIndex)try{t=!1,e.slide(o.index,{fragment:o.fragmentIndex})}finally{t=!0}}}));const n=()=>{const{reference:e}=i();void 0===e||e<=1?m(o):s((()=>({reference:e-1})))};window.addEventListener("pagehide",(e=>{e.persisted&&window.addEventListener("pageshow",l),n()})),e.on("destroy",n)}},{PI:Y,abs:J,sqrt:z,atan2:G}=Math,Q={passive:!0},Z=({slope:e=-.7,swipeThreshold:t=30}={})=>n=>{let r;const o=n.parent,a=e=>{const t=o.getBoundingClientRect();return{x:e.pageX-(t.left+t.right)/2,y:e.pageY-(t.top+t.bottom)/2}};o.addEventListener("touchstart",(({touches:e})=>{r=1===e.length?a(e[0]):void 0}),Q),o.addEventListener("touchmove",(e=>{if(r)if(1===e.touches.length){e.preventDefault();const t=a(e.touches[0]),n=t.x-r.x,o=t.y-r.y;r.delta=z(J(n)**2+J(o)**2),r.radian=G(n,o)}else r=void 0})),o.addEventListener("touchend",(o=>{if(r){if(r.delta&&r.delta>=t&&r.radian){const t=(r.radian-e+Y)%(2*Y)-Y;n[t<0?"next":"prev"](),o.stopPropagation()}r=void 0}}),Q)},ee="_tA",te=e=>{const t=document.documentTransition;if(!t)return;let n;e._tP=!1;const r=(n,{back:r,cond:o})=>a=>{var i,s;const l=e.slides[e.slide()].querySelector("section[data-transition]");if(!l)return!0;const d=document.querySelector(".bespoke-marp-osc"),c=d?[d]:void 0;if(e._tP){if(a._tA){e._tP=!1;try{t.start({sharedElements:c}).catch((()=>{}))}catch(e){}return!0}}else{if(!o(a))return!0;const d="transition"+(a.back||r?"Back":""),u=Number.parseInt(null!==(i=l.dataset[`${d}Duration`])&&void 0!==i?i:"",10),f=Number.parseInt(null!==(s=l.dataset[`${d}Delay`])&&void 0!==s?s:"",10),m={};Number.isNaN(u)||(m.duration=u.toString()),Number.isNaN(f)||(m.delay=f.toString()),e._tP=t.prepare({rootTransition:l.dataset[d],rootConfig:m,sharedElements:c}).then((()=>n(a))).catch((()=>n(a)))}return!1};e.on("prev",r((t=>e.prev({...t,[ee]:!0})),{back:!0,cond:e=>{var t;return e.index>0&&!((null===(t=e.fragment)||void 0===t||t)&&n.fragmentIndex>0)}})),e.on("next",r((t=>e.next({...t,[ee]:!0})),{cond:t=>t.index+1<e.slides.length&&!(n.fragmentIndex+1<n.fragments.length)})),setTimeout((()=>{e.on("slide",r((t=>e.slide(t.index,{...t,[ee]:!0})),{cond:t=>{const n=e.slide();return t.index!==n&&(t.back=t.index<n,!0)}}))}),0),e.on("fragment",(e=>{n=e}))};let ne;const re=()=>(void 0===ne&&(ne="wakeLock"in navigator&&navigator.wakeLock),ne),oe=async()=>{const e=re();if(e)try{return await e.request("screen")}catch(e){console.warn(e)}return null},ae=async()=>{if(!re())return;let e;const t=()=>{e&&"visible"===document.visibilityState&&oe()};for(const e of["visibilitychange","fullscreenchange"])document.addEventListener(e,t);return e=await oe(),e};((t=document.getElementById("p"))=>{(()=>{const t=l("view");e.dataset.bespokeView=t===r||t===n?t:""})();const a=(e=>{const t=l(e);return d({[e]:void 0}),t})("sync")||void 0;var i,c,u,f,m,g,h,y,b,w,E,T;i=t,c=((...e)=>{const t=o.findIndex((e=>s()===e));return e.map((([e,n])=>e[t]&&n)).filter((e=>e))})([[1,1,0],W({key:a})],[[1,1,1],V(t)],[[1,1,0],L],[[1,1,1],p],[[1,0,0],k()],[[1,1,1],$],[[1,1,1],H({history:!1})],[[1,1,0],S()],[[1,1,0],x],[[1,0,0],R],[[1,1,0],Z()],[[1,0,0],P()],[[1,0,0],te],[[1,1,1],v],[[1,1,0],ae]),f=1===(i.parent||i).nodeType?i.parent||i:document.querySelector(i.parent||i),m=[].filter.call("string"==typeof i.slides?f.querySelectorAll(i.slides):i.slides||f.children,(function(e){return"SCRIPT"!==e.nodeName})),g={},h=function(e,t){return(t=t||{}).index=m.indexOf(e),t.slide=e,t},w=function(e,t){m[e]&&(u&&b("deactivate",h(u,t)),u=m[e],b("activate",h(u,t)))},E=function(e,t){var n=m.indexOf(u)+e;b(e>0?"next":"prev",h(u,t))&&w(n,t)},T={off:y=function(e,t){g[e]=(g[e]||[]).filter((function(e){return e!==t}))},on:function(e,t){return(g[e]||(g[e]=[])).push(t),y.bind(null,e,t)},fire:b=function(e,t){return(g[e]||[]).reduce((function(e,n){return e&&!1!==n(t)}),!0)},slide:function(e,t){if(!arguments.length)return m.indexOf(u);b("slide",h(m[e],t))&&w(e,t)},next:E.bind(null,1),prev:E.bind(null,-1),parent:f,slides:m,destroy:function(e){b("destroy",h(u,e)),g={}}},(c||[]).forEach((function(e){e(T)})),u||w(0)})()}();</script></body></html>
