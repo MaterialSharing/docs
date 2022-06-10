@@ -1,0 +1,939 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+  .CodeMirror-sizer { margin-left: 0px !important; }
+  .CodeMirror-gutters { display: none !important; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotateY(-20deg);
+  }
+
+  100% {
+    transform: rotateY(20deg);
+  }
+}
+
+/* 全局属性 */
+#write {
+  max-width: 860px;
+  font-size: 16px;
+  color: black;
+  padding: 0 10px;
+  /* line-height: 1.1; */
+  word-spacing: 0px;
+  letter-spacing: 0px;
+  word-break: break-word;
+  word-wrap: break-word;
+  text-align: left;
+  font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light,
+    "PingFang SC", Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+/*段落*/
+content div>p {
+  font-size: 16px;
+  border-style: solid;
+  border-width: 0.02rem 0 0 0;
+  border-color: rgba(255, 105, 180, 0.315);
+  /* border-left: 0;
+  border-right: 0; */
+  margin: .1rem 0;
+  /* box-shadow: .3rem .1rem 2rem black; */
+  /* border-radius: 1.5rem; */
+  padding-top: 1px;
+  padding-bottom: 1px;
+  margin: .3rem 0;
+  /* line-height: 26px; */
+  color: black;
+}
+
+a {
+  /* transition: ; */
+  transition-property: all;
+  transition-duration: 1s;
+}
+
+a:hover {
+  /* transform: scale(1.5); */
+  /* font-size: 1.1rem; */
+  border: solid rgb(213, 105, 255) 1px;
+  text-align: center;
+  text-decoration: double underline red 1px;
+}
+
+a span:hover {
+  transform: skew(-20deg);
+}
+
+/*标题*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: .3rem;
+  margin-bottom: 2.5rem;
+  /* padding: 1px; */
+  font-weight: bold;
+  color: black;
+  border-radius: 5px 15px;
+  /* margin: auto; */
+  text-align: center;
+  transition-property: all;
+  transition-duration: .8s;
+}
+
+h1 {
+  margin-left: 0;
+}
+
+h2 {
+  margin-left: 1rem;
+}
+
+h3 {
+  margin-left: 2rem;
+}
+
+h4 {
+  margin-left: 3rem;
+}
+
+h5 {
+  margin-left: 4rem;
+}
+
+h6 {
+  margin-left: 5rem;
+}
+
+h1 {
+  /* 使用shorthand 写法指定需要过渡到的终态以及过渡属性状态 */
+  /* transition: width, height, background-color, transform, border; */
+  /* transition-timing-function: cubic-bezier(.29, 1.01, 1, -0.68); */
+  text-align: center;
+  font-size: 1.5rem;
+  transition: all;
+  transition-duration: .7s;
+  border: solid red;
+  /* border: dotted 2px blue; */
+  /* shawdow(offset)+blur(px size) */
+}
+
+h1:hover,
+h1:focus {
+  margin: 1rem;
+  border: solid .1rem gold;
+  border-radius: 4rem 3rem;
+  padding: 1rem;
+  background-color: #1198aa80;
+  box-shadow: 1rem 1rem 2rem rgb(89, 165, 190);
+  /* background-color: rgba(214, 37, 170, 0.425); */
+  /* transform: rotate(180deg); */
+}
+
+h2:hover,
+h3:hover,
+h4:hover {
+  background-color: rgba(231, 193, 222, 0.247);
+  /* color: rgb(40, 231, 174); */
+  border-radius: 3rem 1.8rem 3rem 2rem;
+  box-shadow: 10px 2px 15px rgb(157, 255, 0),
+    16px 2px 15px red,
+    -14px 2px 15px rgba(31, 31, 30, 0.521);
+  /* color: black; */
+  text-align: start;
+  /* padding: auto; */
+  padding: .3rem;
+  animation: none;
+
+
+
+}
+
+h1 span,
+h2 span,
+h3 span,
+h4 span,
+h5 span,
+h6 span {
+  border-radius: 5px 10px;
+  padding: 3px;
+  transition: transform 1s;
+  transition: all;
+  transition-duration: .4s;
+  animation: spin 3s linear infinite;
+  border-radius: auto;
+}
+
+/*
+h2 span:hover,
+h3 span:hover,
+h4 span:hover 
+*/
+h2:hover span,
+h3:hover span,
+h4:hover span,
+h5:hover span {
+  background-color: rgba(214, 37, 170, 0.247);
+  /* color: rgb(40, 231, 174); */
+  font-weight: bolder;
+  text-decoration: double underline rgba(255, 0, 0, 0.637);
+  font-size: 1.5rem;
+  border-radius: 3rem 1.8rem 3rem 2rem;
+  box-shadow: 10px 2px 15px rgb(157, 255, 0),
+    16px 2px 15px red,
+    -14px 2px 15px rgba(31, 31, 30, 0.521);
+  color: black;
+  margin: 1rem;
+  transform: rotate(2deg);
+  margin-left: 1rem;
+  animation: none;
+}
+
+
+#write h1::after {
+  display: inline-block;
+  content: "h1";
+  margin-left: 3%;
+  color: rgba(47, 159, 199, 0.764);
+  /*   vertical-align: bottom;
+  border-bottom: 36px solid #efebe9;
+  border-right: 20px solid transparent; */
+}
+
+#write h1 span {
+  display: inline-block;
+  font-weight: bold;
+  background: rgb(239, 112, 96, 0.7);
+  color: #ffffff;
+  /* padding: 3px 10px 1px; */
+  margin-right: 3px;
+  /* border-top-right-radius: 3px;
+  border-top-left-radius: 3px; */
+}
+
+
+
+li {
+  transition: all;
+  transition-duration: 2s;
+
+}
+
+ul li:focus,
+ul li:hover {
+  /* margin: .5rem; */
+  /* margin-left: -.3rem; */
+
+  border-radius: 2rem;
+  /* font-weight: ; */
+  /* text-decoration: solid underline 2px blue; */
+  box-shadow: .5rem .5rem 3rem rgba(46, 226, 196, 0.404);
+}
+
+
+#write h2 {
+  font-size: 1.3rem;
+  border-bottom: 2px solid rgb(239, 112, 96, 0.7);
+  box-shadow: 1px 2px 5px rgb(157, 255, 0), 6px 2px 5px red, 4px 2px 7px green;
+}
+
+#write h2 span {
+  display: inline-block;
+  font-weight: bold;
+  background: rgba(96, 218, 239, 0.7);
+  color: #000;
+  /* padding: 3px 10px 1px; */
+  /* border-radius: 6px; */
+  margin-right: 3px;
+}
+
+#write h2:after {
+  display: inline-block;
+  content: "h2";
+  /* padding: 1px; */
+  margin-left: 3%;
+  color: rgba(47, 100, 199, 0.664);
+  /* vertical-align: bottom;
+  border-bottom: 36px solid #efebe9;
+  border-right: 20px solid transparent; */
+}
+
+/* #write h2 span::after {
+  content: "h2";
+  color: rgba(47, 100, 199, 0.664);
+} */
+
+#write h3 {
+  font-size: 1.2rem;
+  border-bottom: 2px solid rgb(239, 112, 96, 0.7);
+  box-shadow: -4px -4px 5px lightblue;
+}
+
+#write h3 span {
+  display: inline-block;
+  font-weight: bold;
+  background: rgba(239, 96, 167, 0.4);
+  color: #000;
+  margin-right: 3px;
+  /* padding: 3px 10px 1px; */
+  /* border-radius: 4px 6px; */
+  /* border-top-right-radius: 6px;
+  border-top-left-radius: 6px; */
+}
+
+#write h3:after {
+  /* font-size: 1.2rem; */
+  content: "h3";
+  margin: 3%;
+  color: rgba(47, 100, 199, 0.464);
+}
+
+#write h4 {
+  font-size: 1.1rem;
+}
+
+#write h4 span {
+  display: inline-block;
+  font-weight: bold;
+  background: rgba(198, 96, 239, 0.4);
+  color: #000;
+  padding: 3px 10px 1px;
+  /* border-radius: 5px; */
+  margin-right: 3px;
+}
+
+#write h4::after {
+  /* font-size: 1.1rem; */
+  content: "h4";
+  margin: 3%;
+  color: rgba(47, 100, 199, 0.364);
+}
+
+#write h5 {
+  font-size: 1rem;
+}
+
+h5 span {
+  display: inline-block;
+  font-weight: bold;
+  background: rgba(28, 161, 110, 0.4);
+  color: #000;
+  padding: 3px 10px 1px;
+  /* border-radius: 5px; */
+  margin-right: 3px;
+}
+
+h5::after {
+  /* font-size: 1.1rem; */
+  content: "h5";
+  margin: 3%;
+  color: rgba(151, 47, 199, 0.479);
+}
+
+#write h6 {
+  font-size: 1rem;
+}
+
+h6 span {
+  display: inline-block;
+  font-weight: bold;
+  background: rgba(41, 28, 161, 0.247);
+  color: rgba(0, 0, 0, 0.836);
+  padding: 3px 10px 1px;
+  /* border-radius: 5px; */
+  margin-right: 3px;
+}
+
+/*列表*/
+#write ul,
+#write ol {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  padding-left: 35px;
+  color: black;
+}
+
+#write ul {
+  list-style-type: disc;
+}
+
+#write ul ul {
+  list-style-type: square;
+}
+
+#write ol {
+  list-style-type: decimal;
+}
+
+#write li section {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  /* line-height: 26px; */
+  text-align: left;
+  color: rgb(1, 1, 1);
+  /* 只要是纯黑色微信编辑器就会把color这个属性吞掉。。。*/
+  font-weight: 500;
+}
+
+/*引用*/
+#write blockquote {
+  display: block;
+  font-size: 0.9em;
+  overflow: auto;
+  /* overflow-scrolling: touch; */
+  border-left: 3px solid rgb(239, 112, 96);
+  color: #6a737d;
+  padding: 10px 10px 10px 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  background: #fff9f9;
+}
+
+#write blockquote p {
+  margin: 0px;
+  color: black;
+  /* line-height: 26px; */
+}
+
+/*链接*/
+#write a {
+  text-decoration: none;
+  word-wrap: break-word;
+  font-weight: bold;
+  border-bottom: 1px solid #1e6bb8;
+  color: rgb(96, 134, 239);
+  border-bottom: 1px solid rgb(239, 112, 96);
+}
+
+/*行内代码(inline codes)*/
+#write p code,
+#write li code {
+  font-family: "hack nerd font";
+  font-size: 16px;
+  word-wrap: break-word;
+  text-decoration: underline dotted hotpink 1px;
+  padding: 2px 4px;
+  border-radius: 4px;
+  margin: 0 2px;
+  color: rgb(68, 70, 134, 0.7);
+  background-color: rgba(27, 31, 35, 0.01);
+  /* font-family: Operator Mono, Consolas, Monaco, Menlo, monospace; */
+  word-break: break-all;
+}
+
+/* 行内代码 */
+#write span code,
+#write li code {
+  color: rgb(239, 112, 96);
+}
+
+/*图片*/
+img {
+  display: block;
+  /* margin: 0 auto; */
+  max-width: 100%;
+  border-radius: 1rem;
+  border: dotted 1px;
+  /* margin:0 auto; */
+  transition-property: all;
+  transition-duration: 0.8s;
+}
+
+/* p>img:only-child:hover */
+body span img:hover,
+body>p>.md-image img:hover {
+  border: solid red 3px;
+  border-radius: 1.3rem 1rem 1.3rem 1.2rem;
+  box-shadow: 10px 12px 15px rgb(157, 255, 0),
+    16px 2px 15px red,
+    -14px 2px 15px rgba(31, 31, 30, 0.521);
+  margin: -.3rem 3rem 2rem -2rem;
+  margin-top: -.3rem;
+  margin-right: 3rem;
+  margin-bottom: 2rem;
+  margin-left: -2rem;
+  /* margin: 30px !important; */
+  /* position: static;
+  position: relative;
+  top: -5%;
+  left: -5%; */
+  vertical-align: middle
+    /* transition */
+}
+
+#write span img {
+  display: inline-block;
+  border-right: 0px;
+  border-left: 0px;
+}
+
+/*表格*/
+#write table {
+  display: table;
+  text-align: left;
+}
+
+#write tbody {
+  border: 0;
+}
+
+#write table tr {
+  border: 0;
+  border-top: 1px solid #ccc;
+  background-color: white;
+}
+
+#write table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+#write table tr th,
+#write table tr td {
+  font-size: 16px;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
+  text-align: left;
+}
+
+#write table tr th {
+  font-weight: bold;
+  background-color: #f0f0f0;
+}
+
+
+
+/* 脚注上标 */
+#write .md-footnote {
+  font-weight: bold;
+  color: rgb(239, 112, 96);
+}
+
+#write .md-footnote>.md-text:before {
+  content: "[";
+}
+
+#write .md-footnote>.md-text:after {
+  content: "]";
+}
+
+/* 脚注 */
+#write .md-def-name {
+  padding-right: 1.8ch;
+}
+
+#write .md-def-name:before {
+  content: "[";
+  color: #000;
+}
+
+#write .md-def-name:after {
+  color: #000;
+}
+
+/* block codes代码块主题 :多行代码配置multi line codes*/
+.md-fences:before {
+  content: " ";
+  display: block;
+  width: 100%;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  /* background-color: #edf0f5; */
+  margin-bottom: -7px;
+  border-radius: 5px;
+  background-position: 10px 10px;
+}
+
+.cm-s-inner.CodeMirror {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  /* background-color: #f0f1f6; */
+  color: #25262c;
+  font-family: "hack nerd font", consolas;
+  border-radius: 4px;
+}
+
+.CodeMirror-lines {
+  padding-left: 4px;
+}
+
+.cm-s-inner .cm-keyword {
+  color: #c792ea !important;
+}
+
+.cm-s-inner .cm-operator {
+  color: #89ddff !important;
+}
+
+.cm-s-inner .cm-variable-2 {
+  color: #0fa3a3 !important;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+  color: #f07178 !important;
+}
+
+.cm-s-inner .cm-builtin {
+  color: #ffcb6b !important;
+}
+
+.cm-s-inner .cm-atom {
+  color: #f78c6c !important;
+}
+
+.cm-s-inner .cm-number {
+  color: #ff5370 !important;
+}
+
+.cm-s-inner .cm-def {
+  color: #82aaff !important;
+}
+
+.cm-s-inner .cm-string {
+  color: #7bb91d !important;
+}
+
+.cm-s-inner .cm-string-2 {
+  color: #f07178 !important;
+}
+
+.cm-s-inner .cm-comment {
+  color: #676e95 !important;
+}
+
+.cm-s-inner .cm-variable {
+  color: #f07178 !important;
+}
+
+.cm-s-inner .cm-tag {
+  color: #ff5370 !important;
+}
+
+.cm-s-inner .cm-meta {
+  color: #ffcb6b !important;
+}
+
+.cm-s-inner .cm-attribute {
+  color: #c792ea !important;
+}
+
+.cm-s-inner .cm-property {
+  color: #c792ea !important;
+}
+
+.cm-s-inner .cm-qualifier {
+  color: #decb6b !important;
+}
+
+.cm-s-inner .cm-variable-3,
+.cm-s-inner .cm-type {
+  color: #decb6b !important;
+}
+
+/* .cm-s-inner .cm-error {
+  color: rgba(255, 255, 255, 1) !important;
+  background-color: #ff5370 !important;
+} */
+/* .cm-s-inner .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+} */
+.CodeMirror div.CodeMirror-cursor {
+  border-left: 1px solid rgb(239, 112, 96);
+  z-index: 3;
+}
+
+
+</style><title>基于微信小程序的英语学习系统</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='一项目介绍-徐超信潘淼森'><span>一、项目介绍 [徐超信,潘淼森]</span></h1><h2 id='背景'><span>背景</span></h2><p><span>本项目旨在帮助用户记忆和熟悉大学阶段的英语词汇学习,解决日常的查词功能</span></p><ul><li><span>当下的词典软件功能很丰富,但是高频使用的功能为数不多,</span></li><li><span>而且充斥着各种广告和产品推销</span></li><li><span>软件体积较大,运行开销不小,想要流畅的使用软件,需要用户有较好的设备</span></li><li><span>千方百计诱导用户充值vip,添加各种限制和不必要的信息,分散用户的精力</span></li></ul><p><span>我们设计的这套英语学习系统,希望能够帮助用户更加轻松愉快的学习英语,</span><u><span>包括</span></u><span>:</span></p><ul><li><code>cet4/cet6/考研英语</code><span>的词汇记忆学习/复习系统</span></li><li><span>用户可以分享自己对于词汇的记忆方法和技巧,互助学习</span></li><li><span>提供常规的词汇查询功能,用户可以通过输入英文单词来查询单词的基本信息(音标/词形/释义)</span></li><li><span>同时提供模糊查词的功能,帮助用户减轻查词过程中</span><code>摩擦感</code></li><li><span>同时提供基本的形近词推荐,帮助用户集中记忆相似单词</span></li><li><span>记录用户的使用痕迹和习惯,帮助用户定制学习计划,检验学习效果,集中学习专注度,拒绝分心</span></li></ul><h2 id='项目需求分析'><span>项目需求分析</span></h2><h3 id='思维导图'><span>思维导图</span></h3><p><img src="https://s2.loli.net/2022/06/08/17u62v9icUIaOeD.png" referrerpolicy="no-referrer" alt="image-20220608105755588"></p><p><img src="https://s2.loli.net/2022/06/08/aWivhRq3yEz6rJA.png" referrerpolicy="no-referrer" alt="image-20220608105853314"></p><h3 id='首页-1'><span>首页</span></h3><h4 id='欢迎'><span>欢迎</span></h4><ul><li><span>查词框(入口)</span></li><li><span>显示精美的轮播图</span></li><li><span>用户上次的科目以及对应的学习进度(进度条),诱导用户继续投入学习</span></li></ul><h4 id='查词服务'><span>查词服务</span></h4><ul><li><p><span>查词详情内容:后端数据库直接提供词典</span></p><ul><li><span>音标</span></li><li><span>词形(包括五种词形)</span></li><li><span>解释</span></li></ul></li></ul><ul><li><span>用户查过的单词自动添加到查词记录中</span></li><li><span>显示上一次学习的科目以及进度</span></li></ul><p><span>	</span></p><h3 id='学单词-1'><span>学单词</span></h3><ul><li><p><span>记单词首页:</span></p><ul><li><p><span>用户可以选择科目进入学习(刷单词卡片)</span></p></li><li><p><span>同时提供一个下拉框,可以选择学习模式</span></p><ul><li><p><span>简洁模式</span></p><ul><li><p><span>常驻上方的模式</span><code>简洁模式/交流模式</code><span>点击开挂来切换学习模式</span></p></li><li><p><span>常驻的进度提示:eg.</span><code>50/5514</code></p></li><li><p><span>单词卡片提供:</span></p><ul><li><span>单词拼写</span></li><li><span>音标</span></li><li><span>中文释义</span></li></ul></li><li><p><span>显示一个</span><code>单词详情</code><span>的查询按钮</span></p></li><li><p><span>一个收藏按钮</span></p><p>&nbsp;</p></li></ul></li><li><p><span>交流模式(引入其他用户的一些统计数据)</span></p><ul><li><p><span>基本和简洁模式一致,但包括:</span></p></li><li><p><span>提供批注的发送和查看功能</span></p></li><li><p><span>显示所有用户对该单词的平均掌握程度</span></p><p>&nbsp;</p></li></ul></li></ul></li></ul></li></ul><h3 id='提分助手复习测验'><span>提分助手(复习/测验)</span></h3><ul><li><p><span>该模块的菜单页包括</span></p><ul><li><p><span>头部显示当前的科目和学习进度(区别于复习)</span></p></li><li><p><span>复习列表(复习策略)的选择</span></p><ul><li><span>最近学过的单词群</span></li><li><span>所有熟练度不佳的单词</span></li><li><span>当前词书内抽取单词(可作为总复习)(随机不重复)</span></li></ul></li><li><p><span>用户选择一种复习策略后,显示该策略的需要复习的词数</span></p></li><li><p><span>提供四个题型的练习通道</span></p></li></ul></li></ul><h4 id='复习数据的生成设计'><span>复习数据的生成&amp;设计</span></h4><ul><li><p><span>用户初次学过一遍单词,可以复习&amp;测验</span></p><ul><li><p><span>复习的内容的生成:(两级反馈复习队列)</span></p><ul><li><p><span>最近学过的内容(譬如指定时间24小时)</span></p><ul><li><span>如何判断时间:过去24小时见过的单词(刷卡片学习单词时会刷新相关属性,后端会完成响应操作)</span></li></ul></li><li><p><span>所有熟练度小于特定值的单词(该标准参考测验的答题情况,来量化熟练度)</span></p></li></ul></li><li><p><span>测验:用户复习的形式是通过做测验题目来完成的</span></p><ul><li><blockquote><p><span>题目的交互形式主要交由前端来落实,而数据反馈会同步到后端</span></p></blockquote></li><li><p><span>系统的答题模块提供了若干种题型</span></p><ul><li><span>根据中文意思选择单词</span></li><li><span>根据音标以及意思提示拼写整个单词</span></li><li><span>根据提示,为单词字母填空</span></li></ul></li><li><p><span>如果用错答,那么系统会将该用户对于错单单词的熟练度值-1</span></p></li><li><p><span>如果用户正确答题,那么响应的将熟练度+1</span></p></li></ul><p>&nbsp;</p></li></ul></li><li><p><span>提供学习规划:</span></p><ul><li><p><span>帮助用户规划每天学习的词汇数量,前端提供双向联动的学习计划设置入口.</span></p><ul><li><span>根据用户设定的每日任务计划数,计算出总耗时(天数)</span></li><li><span>比如用户希望在多少天内完成,那么每天任务量是多少词,</span></li></ul></li><li><p><span>后台可以同步用户的计划设置(schedule)</span></p></li></ul></li></ul><h3 id='我的-1'><span>我的</span></h3><ul><li><p><span>提供微信小程序的登录授权按你就,首先要求用户登录授权后继续使用</span></p></li><li><p><span>登录成功后显示</span></p><ul><li><p><span>用户昵称的基本信息</span></p><ul><li><span>用户户龄</span></li><li><span>用户打卡累计天数和排行榜</span></li></ul></li></ul></li></ul><ul><li><p><span>用户考试倒计时功能</span></p><ul><li><span>用户输入考试时间,系统提示剩余时间倒计时</span></li></ul></li><li><p><span>用户学习过程中累计的</span></p><ul><li><p><span>收藏列表</span></p><ul><li><span>收藏列表显示单词拼写</span></li><li><span>用户在收藏列表中可以选择取消收藏</span></li><li><span>用户点击单词,可以调转到单词解释详情页</span></li></ul></li><li><p><span>查词记录列表</span></p><ul><li><span>类似于收藏列表</span></li></ul></li></ul></li><li><p><span>提供小程序问题反馈功能</span></p></li></ul><h2 id='计划和分工'><span>计划和分工</span></h2><blockquote><p><span>介绍大致的开发计划以及每个人的分工。</span></p></blockquote><ul><li><p><span>徐超信:</span></p><ul><li><span>原型设计和功能设计</span></li><li><span>数据库设计</span></li><li><span>后端开发接口开发与测试</span></li><li><span>后端服务部署</span></li><li><span>文档编写(主体)</span></li></ul></li><li><p><span>潘淼森:</span></p><ul><li><span>前端小程序的开发与测试</span></li><li><span>文档编写(前端)</span></li></ul></li></ul><h1 id='二界面原型设计-徐超信'><span>二、界面原型设计 [徐超信]</span></h1><p>&nbsp;</p><blockquote><p><span>结合上述功能设计,我们将原型设计为对应的四个模块,采用</span><code>墨刀工具进行设计</code></p></blockquote><h2 id='首页-2'><span>首页</span></h2><p><img src="https://img-blog.csdnimg.cn/ea9e2431c925449fa1b05c3d9c6079db.png" referrerpolicy="no-referrer" alt="首页设计"></p><ul><li><span>用户可以在首页提供的查词框中输入单词进行查词</span></li><li><span>查词框下面是一个轮播图,获取通过bing的图片接口,获取精美图片,为学习带来一点视觉上的享受</span></li><li><span>我们将单词的解释分为两层,第一层仅仅提供单词的音标和简单的解释,这一般能够满足主要的需求;此外,我们在第一层中配置了一个进一步查询单词的词形变化的按钮,点击该按钮,会跳转到第二层,这一层提供了更详细的解释,包括单词的词性等等</span></li><li><span>此外,还提供了收藏该的单词的按钮,点击该按钮,会将该单词添加到收藏列表中</span></li></ul><p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220608181908470.png" referrerpolicy="no-referrer" alt="image-20220608181908470"></p><ul><li><span>轮播图下面安排了用户当前的学习科目和学习进度,用户点击继续学习,便可以进入学习模式</span></li></ul><p>&nbsp;</p><p><img src="https://img-blog.csdnimg.cn/06d87c57851d462da531acf846027e5b.png" referrerpolicy="no-referrer" alt="请添加图片描述"></p><ul><li><p><span>对于拼写错误的单词,后台会尝试通过匹配算法推荐一些形近词</span></p><ul><li><span>对于记忆不清的单词来说,这会很有用,用户也可以利用该接口查找形近词</span></li><li><span>事实上,后端可以提供正则匹配/通配符等高级功能(尽管已经很少用到了)</span></li></ul></li></ul><p>&nbsp;</p><p>&nbsp;</p><h2 id='学单词-2'><span>学单词</span></h2><p><img src="https://img-blog.csdnimg.cn/9205722daed04e0093be2f8cdfa7b137.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><ul><li><p><span>学单词模块,也就是本应用的核心模块</span></p></li><li><p><span>用户可以在该模块的主菜单页选择记忆模式(包括简洁模式和交流模式(也叫常规模式))</span></p><ul><li><span>默认的,记忆模式是常规模式</span></li></ul></li><li><p><span>然后选择自己的考试类型(对应的词书)</span></p></li><li><p><span>其中,简洁模式包含内容弄个较少,只有音标和基本的解释,已经一个查询单词详情解释的按钮和收藏按钮</span></p></li><li><p><span>而另一个模式(交流模式中),除了包含简洁模式中的相关功能,还提供了基于后台数据分析的</span><code>所有用户平均熟练度指标</code><span>(也被称为</span><code>难度等级</code><span>)</span></p></li><li><p><code>我的观点</code><span>则是反映本人的当前对于该词汇的熟练度</span></p></li></ul><p><img src="https://img-blog.csdnimg.cn/ae7cf0f2d90347eca6e0c959d96b1fd5.png" referrerpolicy="no-referrer" alt="请添加图片描述"></p><ul><li><span>这是用户点击单词详情和收藏后分别的出现的响应结果</span></li></ul><p><img src="https://img-blog.csdnimg.cn/e47c3386c0444de6a6508c497189118b.png" referrerpolicy="no-referrer" alt="请添加图片描述"></p><ul><li><span>这是用户在交流模式下,提交自己的记忆技巧(简称为</span><code>批注</code><span>)</span></li><li><span>提交成功,则反馈一个</span><code>提交成功</code><span>的标识给用户</span></li></ul><h2 id='复习与测验'><span>复习与测验</span></h2><p><img src="https://img-blog.csdnimg.cn/8bc5e7ec92304ff0b9563342c3f2b74b.png" referrerpolicy="no-referrer" alt="请添加图片描述"></p><ul><li><p><span>复习&amp;测验也是本应用的主要功能,能够帮助用户检查自己的记忆效果(掌握程度),帮助用户对自己的学习成果有更加客观的把握</span></p></li><li><p><span>我们提供了多样化的复习策略和题型,包括中文选词,拼写组合,拼写填空和全拼默写</span></p></li><li><p><span>对于答错的题目,页面会切换到正确答案的解释页面</span></p></li><li><p><span>对于答对的题目,页面会切换到下一题</span></p></li><li><p><span>注:问题提交答案的方式:</span></p><ul><li><span>用户选中一个选项后,(被自动提交),后台自动判断正确性,根据正确性切换对应的页面</span></li><li><span>上述流程表示的是中文选词的答题过程</span></li></ul></li></ul><p><img src="https://img-blog.csdnimg.cn/a1eaba552a494f09a42457c4c43fac65.png" referrerpolicy="no-referrer" alt="请添加图片描述"></p><ul><li><span>这是拼写填空题型下的答题过程</span></li></ul><h2 id='我的-2'><span>我的</span></h2><p><img src="https://img-blog.csdnimg.cn/4e96e13bd2f342eab9a19ac8d6a8c188.png" referrerpolicy="no-referrer" alt="请添加图片描述"></p><p>&nbsp;</p><ul><li><p><span>这是</span><code>我的(用户中心)</code><span>模块,用于借助于微信平台的登录授权功能方便的注册登录到本系统</span></p><ul><li><span>后台通过获取微信提供的信息头像和昵称的信息创建一个用户记录</span></li><li><span>该记录也作为登录状态保持(session)的value</span></li><li><span>后台将会凭借session来判断和区别用户</span></li></ul></li><li><p><span>登录成功后,小程序拉取必要的同步数据,并且做一定的数据计算和转换,得到签到天数,户龄</span></p></li><li><p><span>还包括考试倒计时/单词收藏列表和查词记录/反馈与建议的提交入口</span></p></li></ul><p>&nbsp;</p><p><img src="https://img-blog.csdnimg.cn/dfb8484b4cfb48b0946d4a4ebdec51a9.png" referrerpolicy="no-referrer" alt="请添加图片描述"></p><ul><li><p><span>用户点击我的-&gt;收藏列表,可以看到之前做过的单词收藏,(这些单词可能是用户自认为容易混淆意思/难以拼写/品读正确的单词)</span></p></li><li><p><span>用户点击某个条目后,可以跳转到响应的词典解释页面</span></p></li><li><p><span>用户点击星号</span><code>star</code><span>,可以取消掉对某个单词的收藏,程序会向用户发送一个确认询问,当用户确认取消,才真正将对应的单词从收藏列表中移除,否则,操作被取消</span></p><p>&nbsp;</p></li></ul><p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220609081939578.png" referrerpolicy="no-referrer" alt="image-20220609081939578"></p><ul><li><span>这是进入</span><code>单词搜索记录</code><span>的流程,UI和操作逻辑基本和</span><code>收藏列表</code><span>一致</span></li></ul><h2 id='墨刀在线预览可交互'><span>墨刀在线预览(可交互)</span></h2><ul><li><a href='https://modao.cc/app/Zq2TY5o8rd1a7cROgqSHwe' target='_blank' class='url'>https://modao.cc/app/Zq2TY5o8rd1a7cROgqSHwe</a><span> 《EnglishLearningAsistant》 (页面附带多种状态)</span></li><li><a href='https://modao.cc/app/xg43top2raoiorN4gHVgF' target='_blank' class='url'>https://modao.cc/app/xg43top2raoiorN4gHVgF</a><span> 《ELA_morePages》 </span></li></ul><h1 id='三系统架构设计-徐超信'><span>三、系统架构设计 [徐超信]</span></h1><h2 id='前端'><span>前端</span></h2><ul><li><span>前端我们分为四个功能模块</span></li><li><span>第一个模块是工具性模块,提供查词功能和形近词推荐功能</span></li><li><span>第二个模块是学单词模块(核心),并且具有两种模式可供选择,可以满足用户不同的学习风格</span></li><li><span>第三个模块是承接第二个模块,也是核心模块,用户可以复习和检测自己的学习效果;并提供了多样的复习策略和复习题型,也能更加全面的检测对单词的掌握情况</span></li><li><span>第四个模块是用户中心,属于不太常用但又不可或缺的模块,用户可以通过本模块获取自己的总体的学习情况和学习痕迹(打卡天数/收藏列表/查词记录列表/...),用户也是在该模块中反馈问题给程序后台</span></li><li><span>程序操作逻辑如下</span></li></ul><p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imageslogic.svg" referrerpolicy="no-referrer" alt="logic"></p><h2 id='后端'><span>后端</span></h2><ul><li><blockquote><p><span>后端对应前端,创建了4个功能模块,每个功能模块中在进一步细分</span></p></blockquote><ul><li><span>为了实现灵活性,独立性,使用前后端分离的方式渐渐称为主流,本项目中,我们采用前后端分离的开发模式,并且借助于apifox做接口设计和对接,前后端可以有自己实际开发进度</span></li><li><span>我们奉行</span><code>api first</code><span>的开发方式,促进前后端的进一步分离</span></li></ul></li><li><p><span>后端采用Python/Django技术实现数据管理,用户登录与信息同步等功能</span></p></li></ul><h2 id='数据库'><span>数据库</span></h2><ul><li><span>数据库采用免费的关系型数据库mysql,该数据库足够流行(意味着它经过了足够多的考验),完全可以胜任我们的本次项目</span></li><li><span>除了数据库软件本身的功能足够,我们本身已有的数据库知识也主要是关系型数据库的理论,因此最终采用mysql来提供数据管理服务</span></li></ul><h2 id='api'><span>api</span></h2><blockquote><p><span>api设计是项目功能的重点,良好的接口设计有利于提高开发效率,节约沟通成本,提供可维护性</span></p></blockquote><p><span>本项目的所有api都统一在apifox上设计,包括指定参数和响应,编写mock来实现前后端开发,借助于mock,前后端都有所参照,可以更加灵活的开发,项目的api总体符合restful的设计理念,具有简洁明了的特点</span></p><ul><li><p><span>此外,后端还提供了基于swagger的文档,前端即使不查看后端代码,也可以对后端提供的接口有所了解</span></p></li><li><p><code>123.56.72.67:8000/doc/</code></p><ul><li><img src="https://s2.loli.net/2022/06/07/wvMN7ACpkDd8qzX.png" alt="image-20220607201359428" style="zoom:50%;" /></li></ul></li></ul><p>&nbsp;</p><h1 id='四api设计-徐超信'><span>四、API设计 [徐超信]</span></h1><blockquote><ul><li><span>这部分主要是API的设计，分模块进行介绍，并通过APIfox介绍API的设计理念，使用、测试方法等。</span></li><li><span>用列表和文档对所有的API进行详细的列举和描述。</span></li></ul></blockquote><h2 id='api风格与设计理念'><span>api风格与设计理念</span></h2><p><span>我们采用流行的RESTful api 设计风格,改善我们的api开发效率和规范性</span></p><ul><li><p><a href='https://en.wikipedia.org/wiki/Representational_state_transfer'><span>RESTful API</span></a><span>是目前比较成熟的一套互联网应用程序的API设计理论。</span></p><ul><li><blockquote><p><span>访问一个网站，就代表了客户端和服务器的一个互动过程。在这个过程中，势必涉及到数据和状态的变化。</span></p><p><span>互联网通信协议HTTP协议，是一个无状态协议。这意味着，所有的状态都保存在服务器端。因此，</span><strong><span>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生&quot;状态转化&quot;（State Transfer）。而这种转化是建立在表现层之上的，所以就是&quot;表现层状态转化&quot;。</span></strong></p><p><span>客户端用到的手段，只能是HTTP协议。具体来说，就是HTTP协议里面，四个表示操作方式的动词：GET、POST、PUT、DELETE。它们分别对应四种基本操作：</span><strong><span>GET用来获取资源，POST用来新建资源（也可以用于更新资源），PUT用来更新资源，DELETE用来删除资源。</span></strong></p></blockquote></li></ul></li><li><p><span>我们在开发项目的api的过程中,尽可能地采用RESTful理念,充分利用了http协议中的四个常用动词来设计api,客户端通过四个HTTP动词，对服务器端资源进行操作，实现&quot;表现层状态转化&quot;</span></p></li><li><p><span>RESTful API最好做到Hypermedia，即返回结果中提供链接，连向其他API方法，使得用户不查文档，也知道下一步应该做什么。我们的后端的四个模块的基础路由提供了类似的功能,帮助api的使用者更快了解后端的api功能组织</span></p><ul><li><img src="https://s2.loli.net/2022/06/07/p2Hwvm8NaDX7TtQ.png" referrerpolicy="no-referrer" alt="image-20220607201049797"></li></ul></li><li><p><span>尽管RESTful 是一个很好的理念,但是在开发过程中,发现有少量的api较难通过四个动词来贴切地描述api的实际用意,因此,我们结合实际需求,对少数api做了折衷处理</span></p></li></ul><h2 id='详细的api文档参看附件'><span>详细的api文档参看附件</span></h2><p><span>附件中的api文档是通过apifox导出</span></p><h1 id='五数据库设计-徐超信'><span>五、数据库设计 [徐超信]</span></h1><p>&nbsp;</p><h2 id='持久化数据'><span>持久化数据</span></h2><ul><li><p><span>本项目中,需要持久化的数据包括</span></p><ul><li><span>词典(单词的各个属性)</span></li><li><span>三种考试科目考纲词汇列表</span></li><li><span>用户信息</span></li><li><span>用户的学习记录和学习情况</span></li><li><span>用户的问题反馈记录</span></li><li><span>用户的收藏</span></li><li><span>用户的查词记录</span></li><li><span>用户的评论记录(批注)</span></li><li><span>等其他附加信息</span></li></ul></li></ul><h2 id='数据库的选择'><span>数据库的选择</span></h2><ul><li><p><span>数据库方面,我们希望采用具有如下特点的数据库软件:</span></p><ul><li><span>当下流行的</span></li><li><span>易用的</span></li><li><span>参考资料丰富的</span></li><li><span>免费的</span></li><li><span>跨平台的</span></li></ul></li><li><p><span>由于我们有关系型数据库的理论基础,对此会更加熟悉一些,因此我们考虑在关系型数据库中选择一款数据库软件</span></p></li><li><p><span>在具体选择数据库的时候,我们考虑过</span></p><ul><li><span>postgre数据库(先进,功能完备,django首推的生产环境数据库)</span></li><li><span>mysql数据库(小巧,速度快)</span></li></ul></li><li><p><span>两者都是可以免费使用,但基于资料的丰富程度,和现有的教程,我们选择了mysql</span></p></li></ul><h2 id='er关系图'><span>ER关系图</span></h2><p><img src="https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesER.svg" referrerpolicy="no-referrer" alt="ER"></p><h2 id='创建数据库时的考虑'><span>创建数据库时的考虑</span></h2><p>&nbsp;</p><ul><li><p><span>将不同考试类型的词汇大纲怎么处理</span></p><ul><li><p><span>放在不同表</span></p><ul><li><span>字段最少(结构最简单)</span></li><li><span>但是需要管理的表数量变多,而且结构重复,编写接口的时候有一定重复</span></li></ul></li><li><p><span>放在一张表</span></p><ul><li><p><span>为每个单词增加字段</span></p><ul><li><p><span>一个字段</span></p><ul><li><span>多个值:一个单词可能属于多个考试考纲中的词汇)(4,6,8,46,68,...)</span></li><li><span>字段单个值,拆分为多条记录:在一条记录的同一个字段有个取值时,将其拆分为多条记录加以存放</span></li></ul></li><li><p><span>多个字段:</span></p><ul><li><span>分别设置cet4/cet6/neep字段,如果某个单词属于该字段,那么为其取bool值true(1)</span></li></ul></li></ul></li></ul><blockquote><ul><li><span>主属性采用原主键+多值的那个字段构成多字段主键</span></li></ul></blockquote></li><li><p><span>收藏表和搜索记录表是否分开放</span></p><ul><li><span>两个表结构相似</span></li></ul></li><li><p><span>但是考虑到各自的可独立扩展性,本项目将其拆分</span></p></li></ul></li></ul><p>&nbsp;</p><blockquote><p><span>基于如下考虑,我决定不拆分word表(将词形(诸如past tense/presentParticiple/pastParticiple))从而提高查询效率</span></p></blockquote><p>&nbsp;</p><ul><li><p><span>复杂表的优缺点</span></p><ul><li><span>优点：包含全部字段的表，在查询时避免了连表查询，程序处理起来比方便，有时候某些表会加进一些冗余字段，也就是为了避免连表查询。查询的效率方面有优势。</span></li><li><span>缺点：如果字段里面有大字段（text,blob)类型的，而且这些字段的访问并不多，这时候放在一起就变成缺点了。 </span></li></ul></li><li><p><span>简单表(字段简单的表)</span></p><ul><li><span>更可能符合更高的范式</span></li><li><span>MYSQL数据库的记录存储是按行存储的，数据块大小又是固定的（16K），</span><strong><span>每条记录越小</span></strong><span>，存储块内存储的记录就越多。此时应该把大字段拆走，这样</span><strong><span>应付大部分小字段的查询时，就能提高效率</span></strong><span>。</span></li><li><span>当需要查询大字段时，此时的关联查询是不可避免的，但也是值得的。</span></li><li><span>拆分开后，对字段的UPDATE就要UPDATE多个表了</span></li><li><span>用于查询和展示的 不建议分表， </span></li><li><span>若只是存储数据，可以考虑分表。</span></li></ul><p>&nbsp;</p></li></ul><h2 id='各个模块下的表设计'><span>各个模块下的表设计</span></h2><h2 id='user用户模块'><span>User用户模块</span></h2><p>&nbsp;</p><h3 id='用户表'><span>用户表</span></h3><p><span>![image-20220604160924400](</span><a href='https://s2.loli.net/2022/06/04/EjDpu7TSYJqMiF8.png' target='_blank' class='url'>https://s2.loli.net/2022/06/04/EjDpu7TSYJqMiF8.png</a></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 41.9922px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33.9974px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+---------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">Field</span> &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> Type &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">Null</span> <span class="cm-operator">|</span> <span class="cm-keyword">Key</span> <span class="cm-operator">|</span> <span class="cm-keyword">Default</span> <span class="cm-operator">|</span> Extra &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+---------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> uid &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> PRI <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">auto_increment</span> <span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> name &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">250</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> signIn &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> examType &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">1</span><span class="cm-bracket">)</span> &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> examDate &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">date</span> &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> signUpDate &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">date</span> &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> openid &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">150</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> UNI <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> password_hash <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">250</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> password_salt <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">250</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">status</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">schedule</span> &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">15</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+---------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">16</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-number">11</span> rows <span class="cm-keyword">in</span> <span class="cm-keyword">set</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 288px;"></div><div class="CodeMirror-gutters" style="height: 288px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><h3 id='查词记录'><span>查词记录</span></h3><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>8</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+----------+-------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">Field</span> &nbsp; &nbsp;<span class="cm-operator">|</span> Type &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-atom">Null</span> <span class="cm-operator">|</span> <span class="cm-keyword">Key</span> <span class="cm-operator">|</span> <span class="cm-keyword">Default</span> <span class="cm-operator">|</span> Extra &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+----------+-------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> id &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">bigint</span><span class="cm-bracket">(</span><span class="cm-number">20</span><span class="cm-bracket">)</span> &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> PRI <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">auto_increment</span> <span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> spelling <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">25</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> user_id &nbsp;<span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> MUL <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+----------+-------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-number">3</span> rows <span class="cm-keyword">in</span> <span class="cm-keyword">set</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 144px;"></div><div class="CodeMirror-gutters" style="height: 144px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><h3 id='单词收藏表'><span>单词收藏表</span></h3><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>8</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+----------+-------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">Field</span> &nbsp; &nbsp;<span class="cm-operator">|</span> Type &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-atom">Null</span> <span class="cm-operator">|</span> <span class="cm-keyword">Key</span> <span class="cm-operator">|</span> <span class="cm-keyword">Default</span> <span class="cm-operator">|</span> Extra &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+----------+-------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> id &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">bigint</span><span class="cm-bracket">(</span><span class="cm-number">20</span><span class="cm-bracket">)</span> &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> PRI <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">auto_increment</span> <span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> spelling <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">25</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> user_id &nbsp;<span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> MUL <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+----------+-------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-number">3</span> rows <span class="cm-keyword">in</span> <span class="cm-keyword">set</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 144px;"></div><div class="CodeMirror-gutters" style="height: 144px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p>&nbsp;</p><h3 id='反馈表'><span>反馈表</span></h3><ul><li><span>由于不是所有用户都会做反馈,为了减少冗余,我们将反馈表单独拆分出来</span></li></ul><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 41.9922px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>10</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33.9974px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">root<span class="cm-variable-2">@localhost</span> <span class="cm-bracket">[</span>Sat Jun &nbsp;<span class="cm-number">4</span> <span class="cm-number">20</span><span class="cm-punctuation">:</span><span class="cm-number">56</span><span class="cm-punctuation">:</span><span class="cm-number">41</span> <span class="cm-number">2022</span> <span class="cm-number">23</span> ela4<span class="cm-bracket">]</span><span class="cm-operator">&gt;</span> <span class="cm-keyword">desc</span> feed_back<span class="cm-punctuation">;</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+---------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">Field</span> &nbsp; <span class="cm-operator">|</span> Type &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">Null</span> <span class="cm-operator">|</span> <span class="cm-keyword">Key</span> <span class="cm-operator">|</span> <span class="cm-keyword">Default</span> <span class="cm-operator">|</span> Extra &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+---------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> id &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">bigint</span><span class="cm-bracket">(</span><span class="cm-number">20</span><span class="cm-bracket">)</span> &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> PRI <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">auto_increment</span> <span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> content <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-type">date</span> &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">datetime</span><span class="cm-bracket">(</span><span class="cm-number">6</span><span class="cm-bracket">)</span> &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> user_id <span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> MUL <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+---------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-number">4</span> rows <span class="cm-keyword">in</span> <span class="cm-keyword">set</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 180px;"></div><div class="CodeMirror-gutters" style="height: 180px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><p>&nbsp;</p><p>&nbsp;</p><h2 id='words词典记单词模块模块'><span>words(词典/记单词模块)模块</span></h2><h3 id='单词表'><span>单词表</span></h3><ul><li><p><span>词典表</span></p></li><li><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 41.9922px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>14</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33.9974px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+--------------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">Field</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> Type &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">Null</span> <span class="cm-operator">|</span> <span class="cm-keyword">Key</span> <span class="cm-operator">|</span> <span class="cm-keyword">Default</span> <span class="cm-operator">|</span> Extra &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+--------------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> wid &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> PRI <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">auto_increment</span> <span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> spelling &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> phonetic &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> plurality &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> thirdpp &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> present_participle <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> past_tense &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> past_participle &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">12</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> explains &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">longtext</span> &nbsp; &nbsp; <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">13</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+--------------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">14</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-number">9</span> rows <span class="cm-keyword">in</span> <span class="cm-keyword">set</span> <span class="cm-bracket">(</span><span class="cm-number">0.32</span> sec<span class="cm-bracket">)</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 252px;"></div><div class="CodeMirror-gutters" style="height: 252px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre></li></ul><ul><li><p><span>字段描述:其中</span></p><ul><li><span>wid作为主键,表示词汇序号</span></li><li><span>thirdpp为单词第三人称单数</span></li><li><span>past_tense为动词过去式</span></li><li><span>past_participle为动词过去分词</span></li><li><span>explains作为单词中文解释</span></li></ul></li></ul><h3 id='词典拼写分析-wordmatcher'><span>词典拼写分析( word_matcher)</span></h3><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>8</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+--------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">Field</span> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> Type &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">Null</span> <span class="cm-operator">|</span> <span class="cm-keyword">Key</span> <span class="cm-operator">|</span> <span class="cm-keyword">Default</span> <span class="cm-operator">|</span> Extra &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+--------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">bigint</span><span class="cm-bracket">(</span><span class="cm-number">20</span><span class="cm-bracket">)</span> &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> PRI <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">auto_increment</span> <span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> spelling &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> char_set_str <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">26</span><span class="cm-bracket">)</span> &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+--------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-number">3</span> rows</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 144px;"></div><div class="CodeMirror-gutters" style="height: 144px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><ul><li><span>该表辅助模糊匹配算法的实现</span></li><li><span>char_set_str是构成单词的字符集合,类型为字符串</span></li></ul><p>&nbsp;</p><h3 id='单词批注'><span>单词批注</span></h3><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+-----------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">Field</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> Type &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">Null</span> <span class="cm-operator">|</span> <span class="cm-keyword">Key</span> <span class="cm-operator">|</span> <span class="cm-keyword">Default</span> <span class="cm-operator">|</span> Extra &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+-----------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">bigint</span><span class="cm-bracket">(</span><span class="cm-number">20</span><span class="cm-bracket">)</span> &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> PRI <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">auto_increment</span> <span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> content &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> spelling &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> UID &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+-----------------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-number">5</span> rows <span class="cm-keyword">in</span> <span class="cm-keyword">set</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 162px;"></div><div class="CodeMirror-gutters" style="height: 162px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><blockquote><ul><li><span>原本想要使用一个</span><code>difficalty_rate</code><span>难度投票字段,来丰富用户的交互,但是后来发现这样不实用</span></li><li><span>遂采用后台统计的平均熟练度来表征应该更为准确.</span></li></ul></blockquote><ul><li><span>此表用户记录用户在单词下的留言批注</span></li><li><span>content是留言内容</span></li><li><span>spelling是被留言的单词</span></li></ul><h3 id='词汇大纲表'><span>词汇大纲表</span></h3><blockquote><ul><li><span>在单词(释义)表(词典)之外,我们另外建立了考试大纲词汇的索引数据库(大纲单词索引)</span></li><li><span>有三张表使用了相同的结构</span></li></ul></blockquote><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>7</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+-----------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">Field</span> &nbsp; &nbsp; <span class="cm-operator">|</span> Type &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">Null</span> <span class="cm-operator">|</span> <span class="cm-keyword">Key</span> <span class="cm-operator">|</span> <span class="cm-keyword">Default</span> <span class="cm-operator">|</span> Extra &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+-----------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> wordOrder <span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> PRI <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">auto_increment</span> <span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> spelling &nbsp;<span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">255</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+-----------+--------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-number">2</span> rows <span class="cm-keyword">in</span> <span class="cm-keyword">set</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 126px;"></div><div class="CodeMirror-gutters" style="height: 126px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><ul><li><span>字段wordOrder用来充当该表的主键</span></li><li><span>原本打算使用spelling直接作为主键,然而,mysql默认不区分大小写,会导致某些词汇发生冲突;</span></li><li><span>虽然可以配置mysql强制区分大小写,但是Django文档指出,这可能会引发意料之外的问题,故采用了需要来作为主键</span></li></ul><p>&nbsp;</p><h2 id='scoreimprover复习测验模块'><span>scoreImprover(复习&amp;测验)模块</span></h2><h3 id='学习记录表'><span>学习记录表</span></h3><blockquote><p><span>本表将所有用户的所有考试类型的学习记录都整合起来,方便管理和分析数据</span></p></blockquote><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="sql"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="sql"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 41.9922px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 34px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>11</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -33.9974px; width: 34px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+-------------------+-------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> <span class="cm-keyword">Field</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> Type &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-atom">Null</span> <span class="cm-operator">|</span> <span class="cm-keyword">Key</span> <span class="cm-operator">|</span> <span class="cm-keyword">Default</span> <span class="cm-operator">|</span> Extra &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+-------------------+-------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> PRI <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">auto_increment</span> <span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> last_see_datetime <span class="cm-operator">|</span> <span class="cm-type">datetime</span><span class="cm-bracket">(</span><span class="cm-number">6</span><span class="cm-bracket">)</span> <span class="cm-operator">|</span> YES &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> familiarity &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> examType &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">varchar</span><span class="cm-bracket">(</span><span class="cm-number">1</span><span class="cm-bracket">)</span> &nbsp;<span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> user_id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> MUL <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 25px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">|</span> wid_id &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span> <span class="cm-type">int</span><span class="cm-bracket">(</span><span class="cm-number">11</span><span class="cm-bracket">)</span> &nbsp; &nbsp; <span class="cm-operator">|</span> <span class="cm-keyword">NO</span> &nbsp; <span class="cm-operator">|</span> MUL <span class="cm-operator">|</span> <span class="cm-atom">NULL</span> &nbsp; &nbsp;<span class="cm-operator">|</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-operator">|</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">10</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-operator">+-------------------+-------------+------+-----+---------+----------------+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -33.9974px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 25px;">11</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-number">6</span> rows <span class="cm-keyword">in</span> <span class="cm-keyword">set</span> <span class="cm-bracket">(</span><span class="cm-number">0.17</span> sec<span class="cm-bracket">)</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 198px;"></div><div class="CodeMirror-gutters" style="height: 198px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 33px;"></div></div></div></div></pre><ul><li><span>根据ER图表示上看,学习记录是一个多对多的关系,对于每个科目下都可以产生一个学习记录表</span></li><li><span>但是表的结构上看,如果每个科目一个表,那么就会有三张结构一致的表,这显得不那么有利于后台开发</span></li><li><span>所为了方便管理,我们将不同的科目不同用户的学习记录聚合到一张表上并且用一个字段examType来区分每条记录时属于哪个科目下的学习记录</span></li></ul><h2 id='数据相关技术'><span>数据相关技术</span></h2><ul><li><span>我们采用django框架提供的ORM来操作数据,这使得后端代码的更加具有通用性,相对于编写原生的SQL语句,使用更加通用和专业的编程语言会更加开发上的有效率优势和维护优势</span></li><li><span>此外,django提供了强大的数据库迁移功能,当数据模型发生变化时,数据库迁移</span><code>migrations&amp;migrate</code><span>操作可以将模型的修改同步反映到数据库表的修改</span></li><li><span>数据库迁移的另一大好处是,可以和代码版本控制相互配合,实现整整的整个项目上的版本控制</span></li><li><span>当代码回滚到早期的版本是,数据库结构也需要回滚到相兼容的版本,否则项目可能直接无法运行起来</span></li><li><span>另一方面,django自带的ORM操作还比较初级,我们选用了基于Django的子框架DRF来提高数据库操作相关的编码效率和数据安全性检查,</span></li><li><span>特别是,对于大量数据查询操作返回的结果的分页功能的实现上,使用DRF会比原生的django分页更加合适前后端分离的项目</span></li></ul><h1 id='六微信小程序端的实现-潘淼森'><span>六、微信小程序端的实现 [潘淼森]</span></h1><blockquote><p><span>这部分分模块来描述前端的具体实现，比如：</span></p></blockquote><ul><li><span>vant app 组件+微信小程序</span></li></ul><h2 id='61-登录登出功能的实现'><span>6.1 登录登出功能的实现</span></h2><blockquote><p><span>这部分是用户管理模块，如登录、注册、修改等功能的具体实现。这里应该重点将实现时考虑的因素，使用的算法以及这样做的优缺点，最后可以通过界面的截图来展示实现效果。</span></p></blockquote><p><img src="https://img-blog.csdnimg.cn/335d26fb8ba74397a42ddcd1db6a39e1.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p>&nbsp;</p><p>&nbsp;</p><p><img src="https://img-blog.csdnimg.cn/07bc0df6722a4d34a41ae4b46028e4eb.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p>&nbsp;</p><p>&nbsp;</p><p><img src="https://img-blog.csdnimg.cn/ab7571f4a11a41ff860c15f37cd5139f.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p>&nbsp;</p><p>&nbsp;</p><h2 id='62-查词功能的实现'><span>6.2 查词功能的实现</span></h2><blockquote><p><span>这部分是用户管理模块，如登录、注册、修改等功能的具体实现。这里应该重点将实现时考虑的因素，使用的算法以及这样做的优缺点，最后可以通过界面的截图来展示实现效果。</span></p></blockquote><p>&nbsp;</p><p><span>1.如果数据库中未找到则显示未找到相关内容</span></p><p><img src="https://img-blog.csdnimg.cn/b7e5234012314390a4548018f0dcb811.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p><span>2.如果输入正确</span></p><p><img src="https://img-blog.csdnimg.cn/011f5a30d6dc49c1af82a6bcbe26d707.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p><img src="https://img-blog.csdnimg.cn/65ff17ea489d466e9fb73e0bf02e7947.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p><img src="https://img-blog.csdnimg.cn/3a51c0d4f3854e859c260e7c475876c7.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p><img src="https://img-blog.csdnimg.cn/e9e9feaa414e458090afbab420ff7c6f.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p>&nbsp;</p><h2 id='63-学单词功能的实现'><span>6.3 学单词功能的实现</span></h2><p><span>左滑右滑实现翻页，翻到第一页再往前翻会提示</span></p><p><img src="https://img-blog.csdnimg.cn/51e868097d7e4a5393a72948e187b2a8.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p><img src="https://img-blog.csdnimg.cn/920924aa1e1b41abbc2f1c74baa1ec86.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p><img src="https://img-blog.csdnimg.cn/5ab5bd57fdf942cc8ecd05531c67b562.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p><span>难度评价打分</span></p><p><img src="https://img-blog.csdnimg.cn/cab3373d433d4b11a48c44abc80b3aca.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p><span>添加批注</span></p><p><img src="https://img-blog.csdnimg.cn/291ca656070c401bbcec36370ac4106d.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p><img src="https://img-blog.csdnimg.cn/a6d922da2aab445f96c434ddb6f41e5f.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p><img src="https://img-blog.csdnimg.cn/855a8d37be6748b0aa27ce45e9e2f43f.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id='64-查考纲功能的实现'><span>6.4 查考纲功能的实现</span></h2><p><img src="https://img-blog.csdnimg.cn/55aabd4ea0304a9390812f3f4a4d1fe5.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p>&nbsp;</p><p><img src="https://img-blog.csdnimg.cn/06556ba4c4f746078fbfafb9746fe5c9.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><p><img src="https://img-blog.csdnimg.cn/0cbb554de1724c8988e5772175898d2b.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p>&nbsp;</p><h2 id='65-计算ddl功能的实现'><span>6.5 计算ddl功能的实现</span></h2><p><img src="https://img-blog.csdnimg.cn/ab7571f4a11a41ff860c15f37cd5139f.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p>&nbsp;</p><p><img src="https://img-blog.csdnimg.cn/5d8a6c3d24c84863bf436418f7aa050b.png" alt="image-20220607201359428" style="zoom:50%;" /></p><p>&nbsp;</p><p><img src="https://img-blog.csdnimg.cn/1581772b39d9473b8c3cb50501a08430.png" alt="image-20220607201359428" style="zoom:50%;" /></p><h2 id='66-反馈建议在线客服功能的实现'><span>6.6 反馈建议&amp;在线客服功能的实现</span></h2><p><img src="https://img-blog.csdnimg.cn/d95df938405d4162bb1d950129a6740d.jpeg" alt="image-20220607201359428" style="zoom:20%;" /></p><p><img src="https://img-blog.csdnimg.cn/8db86656eed0474abb7319fa52eefa45.jpeg" alt="image-20220607201359428" style="zoom:20%;" /></p><h1 id='七英语助手后端的实现徐超信'><span>七、英语助手后端的实现[徐超信]</span></h1><blockquote><p><span>这部分也是分模块来展示后端的实现方案。具体参见前面第六部分。</span></p></blockquote><blockquote><p><span>这部分分模块来描述后端的具体实现，比如：</span></p></blockquote><h2 id='71-查词功能的实现'><span>7.1 查词功能的实现</span></h2><blockquote><p><span>这部分是用户管理模块，如登录、注册、修改等功能的具体实现。这里应该重点将实现时考虑的因素，使用的算法以及这样做的优缺点，最后可以通过界面的截图来展示实现效果。</span></p></blockquote><ul><li><p><span>查词功能是本程序的首页模块的功能,类似于词典</span></p></li><li><p><span>我们通过python+pandas从有道词典的接口爬取了13k单词,每个单词都具有</span></p><ul><li><span>中文释义</span></li><li><span>音标</span></li><li><span>5中词形(当然,名词没有过去式,动词没有复数,这种情况下都用NULL来填充字段)</span></li><li><span>他们被存储在数据中,并通过ORM编写响应的查词接口,实现查词功能</span></li></ul></li><li><p><img src="https://img-blog.csdnimg.cn/bbe7f50e67594f1899914dafae0906b0.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p></li></ul><h2 id='72-学单词功能的实现'><span>7.2 学单词功能的实现</span></h2><p><img src="https://img-blog.csdnimg.cn/a618bcbe31324b218df90b22032b5d4a.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><ul><li><span>学单词功能的实现,首先要获取对应科目的考纲词汇列表,由于列表很长,所以提供了分页功能</span></li><li><span>值得一提的是,后端几乎为所有返会长列表(大数据量)的操作提供了分页参数,因此不在每个接口地反复说明</span></li><li><span>实现本功能用到地接口原理也比较简单,获取考纲列表地接口通过读取对应的科目地词汇数据库表,将他们分页返回</span></li><li><span>在搭配一个刷单词时更新最近刷过(见过面的)卡片的时间(last_see_datetime),用以提供后面计算复习单词列表的基础数据</span></li></ul><h3 id='单词平均难度指数的实现'><span>单词平均难度指数的实现</span></h3><p><img src="https://img-blog.csdnimg.cn/4f267651e3c041a88447cd04b48b4599.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><ul><li><span>该指标是通过计算数据库中所有用户对该单词的熟练度,并计算平均值,以此来计算单词的平均难度指数</span></li><li><span>可以帮助用户参考准确记忆该单词的难度</span></li></ul><p><span>7.3 复习功能的实现</span></p><p><img src="https://img-blog.csdnimg.cn/0bf8da54db6f45818cf502b5c0655e06.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><ul><li><span>用户通过指定科目,获取系统推荐的全书范围内的熟练度不佳的单词列表</span></li></ul><p><img src="https://img-blog.csdnimg.cn/2fcf70e6fadc4d9fabb75f1e69607dbb.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><ul><li><span>这是另一种复习模式:根据用户近期学习的词汇,提供复习列表</span></li><li><span>这里使用的是UTC时间,但是不影算法效果</span></li><li><span>客户端可以自行指定</span><code>最近</code><span>的概念,是最近1天还是最近1小时,甚至可以指定单位和浮点数</span></li><li><span>算法的基本原理比较简单,首先获取用户刷单词卡片的时候的时间(后端提供了响应的刷新时间的接口)</span></li><li><span>然后利用最近见过单词的时间和此时的时间(用户打开复习模块刷题的时刻)做时间差,当时间差处于指定范围内时,响应的记录就会被返回,用户生成复习列表</span></li><li><span>前端同样可以利用本接口开发丰富的复习模式,譬如允许用户输入时间范围.</span>
+<img src="https://img-blog.csdnimg.cn/5a8f3ab2f64c433f8fd4935e18f5902b.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></li></ul><ul><li><span>这是最后一种复习模式,用户可以将其作为抽查对全书范围内抽取的一组词汇检验,同样式借助于刷题来完成(原型设计中的四种题型)</span></li></ul><h2 id='74-模糊查词的实现'><span>7.4 模糊查词的实现</span></h2><ul><li><p><span>模糊查词(模糊匹配)的专业算法设计复杂的理论和推理知识,如果需要带有智能性,还需要人工智能技术来实现</span></p></li><li><p><span>本项目的匹配算法不具备智能性,但是也有一定的灵活性和实用性,具体的实现过程如下</span></p><ul><li><p><span>django_实现朴素/基本模糊拼写候选/纠错</span></p></li><li><p><span>使用到的拼写数据库支持(一角)</span></p></li><li><p><img src="https://img-blog.csdnimg.cn/5f9e8eb80d69412582e48f433cfe825c.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p></li><li><p><span>计算单词字符集:</span><code>char_set</code><span>,计算该属性的目的是为了实现单词间字符构成的相似性匹配</span></p></li><li><p><span>处于现实效果的考虑,当用户输入的单词长度不超过4个字符时,我们只返回单词长度相同的并且字符构成一致的单词</span></p></li><li><p><span>对于较长的输入,我们会允许一定比例的字符误差(譬如8个字符串长度的输入,允许波动1~2个字符),这样可以匹配到一些字母记错,字母顺序错误的情况,此外,为了使得长度合理,还我还设置了长度波动范围(也是根据比例波动(譬如25%)),这样,可以匹配到比用户拼写的单词更短一些的词汇,这种情况发生的概率较小,但是不可以完全排除</span></p></li><li><p><span>后端还基于此开发了丰富的query参数,客户端可以以灵活的方式调用该接口,开发出多功能的查词功能</span></p><ul><li><span>比如,强制匹配前两个字母(startwith=2)</span></li><li><span>强制匹配终结符(endwith=2)</span></li><li><span>甚至,后台也提供了正则匹配的功能,但是这不太是本程序的重点目标,遂没有将前端实现出来</span></li></ul></li></ul></li><li><p><span>接口效果:</span></p></li></ul><h3 id='eg0'><span>eg0:</span></h3><p><img src="https://img-blog.csdnimg.cn/4f9b35ca1edc43fba01f0c260f671331.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><h3 id='eg1'><span>eg1:</span></h3><p><img src="https://img-blog.csdnimg.cn/3af4a149f56c40359f688adf88783569.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><h3 id='eg2'><span>eg2</span></h3><p><code>GEThttp://127.0.0.1:8000/word/fuzzy/fhather/1</code>
+<img src="https://img-blog.csdnimg.cn/555e35733de84570bd5f40d9fa088e96.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><blockquote><p><span>这部分主要讲点名功能的具体实现方案，可以通过用例图、流程图等来辅助说明。并通过截图来展示效果。</span></p><p><span>实现部分不要只有截图，要有文字说明，讲讲这部分实现时采用什么技术，优缺点是什么，实现难点在哪里。</span></p></blockquote><h2 id='75-用户中心'><span>7.5 用户中心</span></h2><h3 id='登录功能方案选型'><span>登录功能方案选型:</span></h3><blockquote><p><a href='https://juejin.cn/post/6933115003327217671'><span>前端常见登录实现方案 + 单点登录方案 - 掘金 (juejin.cn)</span></a></p></blockquote><ul><li><code>Cookie + Session</code><span> 历史悠久，适合于简单的后端架构，需开发人员自己处理好安全问题。</span></li><li><code>Token</code><span> 方案对后端压力小，适合大型分布式的后端架构，但已分发出去的 </span><code>token</code><span> ，如果想收回权限，就不是很方便了。</span></li><li><span>SSO 单点登录，适用于中大型企业，想要统一内部所有产品的登录方式的情况。</span></li><li><span>OAuth 第三方登录，简单易用，对用户和开发者都友好，但第三方平台很多，需要选择合适自己的第三方登录平台。</span></li></ul><blockquote><ul><li><span>综合比较,我们选择第一种方案,比较符合项目定位</span></li><li><span>利用session,后端可以充分利用用户的登录状态(从客户端提交过来的cookie中解析出用户信息从而帮助前端以更加简洁的参数就可以调用经过改进后的api)</span></li><li><span>另一方面,提供身份认证为数据安全提供了基本保障,减少被攻击的可能</span></li></ul></blockquote><h1 id='八系统测试'><span>八、系统测试</span></h1><blockquote><p><span>这部分主要讲系统的测试方案，不要简单贴图，要写出具体的自动测试方案。可以前后端分开来写。</span></p></blockquote><h2 id='81-单元测试'><span>8.1 单元测试</span></h2><blockquote><p><span>这部分是单元测试的方案，可以列表统计有多少测试，覆盖率是多少。</span></p></blockquote><p>&nbsp;</p><h3 id='后端测试'><span>后端测试</span></h3><ul><li><p><span>后端的测试采用django推荐的unittest来对代码进行测试</span></p></li><li><p><span>在开发过程中,我们适当的使用TDD(测试驱动开发)的方式来编写了一部分api,并且认识到了TDD开发的优势</span></p></li><li><p><span>编写测试需要花费一些实际,但是随着项目的体积的增长,依靠测试带来的便利就回来越显著,我们对自己的代码正确性也心中有底</span></p></li><li><p><span>在编写测试的时候,主要针对以下几个方面:</span></p><ul><li><p><span>路由和试图函数的映射是否正确</span></p><ul><li><span>在这里做测试是因为,随着项目规模的增大,我们的代码越来越复杂,对于每一个接口都要有响应的路由,这就发生后写的路由模式和之前已有的模式发生冲突,或者相互覆盖,导致api调用的时候数据传入到错误的函数中去处理</span></li></ul></li><li><p><span>编写关于视图函数的测试,这时候需要操作临时数据库,或者在测似乎代码中模拟出一些随机的或者特定的数据,总之应该使用能够达到检查目的数据</span></p></li></ul></li><li><p><span>利用APIfox 来测试接口</span></p><ul><li><span>apifox也提供了简单易用的批量测试接口的功能,可以在线上环境中进行测试,也可以在本地进行测试,甚至支持多线程测试和并发测试,而且统计了接口的调用次数和调用时间,比较直观</span></li><li><span>本项目在开发过程中就受益于批量测试,帮助我在部分接口缺少测试的时候及时发现问题并解决</span></li></ul></li></ul><h2 id='82-集成测试集'><span>8.2 集成测试集</span></h2><ul><li><span>成测试（Integration Testing），也叫组装测试或联合测试。在单元测试的基础上，将所有模块按照设计要求（如根据结构图）组装成为子系统或系统，进行集成测试</span></li></ul><ul><li><span>在本项目中,我利用apifox,我定义了若干有步骤之分的测试用例,每个测试用来中可以包含多个来自接口的请求示例,并且可以调整顺序,特别是在测试登录功能的时候,依赖于登录状态的api必须要放在登录后的接口后执行,依次地完对项目地4个模块的有序测试,所有接口,基本全部通过</span></li></ul><h2 id='83-测试部署及结果'><span>8.3 测试部署及结果</span></h2><p><img src="https://img-blog.csdnimg.cn/4598744f2c954c0d84e8adc0bd95eb1d.png" referrerpolicy="no-referrer" alt="在这里插入图片描述"></p><ul><li><span>我们利用github Actions 来执行自动化测试,主要的内容是,当我从本地将项目push到github上时,我们会自动运行测试,并且将测试结果发送到我的邮箱中,这样我们就可以更加方便的了解项目的测试结果,问题和故障可以及时的得到反馈,而不需要每次在本地跑一遍所有测试,可以节约时间</span></li><li><span>不仅如此,团队中的其他人也可以看到测试结果</span></li></ul><h1 id='九系统部署-徐超信'><span>九、系统部署 [徐超信]</span></h1><h2 id='自动部署'><span>自动部署</span></h2><ul><li><span>我们通过云主机来部署我们的项目,使得后台服务可以通过公网ip能够访问</span></li><li><span>我们有又利用github+webhook+github Actions实现持续继承和持续交付</span></li><li><span>云端可以及时自动的同步本地的最新项目成果,同时能够经过Actions的检查,依赖于本项目的其他成员就可以直到新的版本情况.</span></li></ul><h3 id='references'><span>references</span></h3><ul><li><a href='https://cloud.tencent.com/developer/article/1893950'><span>【github 自动部署】github实现自动部署 </span></a></li></ul><h3 id='操作步骤'><span>操作步骤</span></h3><ul><li><p><span>安装webbook</span></p><ul><li><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">sudo</span> apt-get install webhook</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 18px;"></div><div class="CodeMirror-gutters" style="height: 18px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p>&nbsp;</p></li></ul></li><li><p><span>编写部署脚本deploy.sh:任务内容</span></p><ul><li></li></ul><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><span><span>​</span>x</span></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># cxxu @ cxxuAli in ~/backEnd on git:main x [17:53:07]</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">$ cat</span> deploy.sh</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-meta">#! /bin/bash</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">cd</span> ~/backEnd/</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment">#git status</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> pull origin main</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">echo</span> <span class="cm-quote">`date`</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">echo</span> <span class="cm-string">'---------the git pull origin main ran just before---------------'</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 162px;"></div><div class="CodeMirror-gutters" style="height: 162px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p><span>强拉版本:</span></p><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>9</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">cd</span> /home/cxxu/backEnd/</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># ls</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># git checkout main</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> reset <span class="cm-attribute">--hard</span> origin/main</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> log|tail <span class="cm-attribute">-n</span> <span class="cm-number">10</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># git pull origin main</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">git</span> status |head <span class="cm-attribute">-n</span> <span class="cm-number">10</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">echo</span> <span class="cm-quote">`date`</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">9</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-builtin">echo</span> <span class="cm-string">'----brute force pull done!(by reset --hard to the remote origin/main---)'</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 162px;"></div><div class="CodeMirror-gutters" style="height: 162px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p>&nbsp;</p></li><li><p><span>编写hooks.json:</span></p><ul><li><p><span>注意,</span><code>execute-command</code><span>:是需要运行的脚本的路径(而不是命令,譬如source .deploy.sh)是不正确的</span></p></li><li><p><code>command-working-directory</code><span> 是工作目录</span></p><ul><li><span>我在实验过程中,发现,当</span><code>deploy.sh</code><span>和工作目录在同一目录下,才生效</span></li><li><span>此外,为了确保脚本的可用性和正确性,在正式使用前应该手动运行一下脚本文件(可以利用</span><code>chmod +x deploy.sh</code><span>赋予脚本可执行的权限)</span></li></ul></li><li><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="json"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="json"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>8</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  {</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string cm-property">"id"</span>: <span class="cm-string">"deploy"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string cm-property">"execute-command"</span>: <span class="cm-string">"./deploy.sh"</span>,</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp;<span class="cm-string cm-property">"command-working-directory"</span>: <span class="cm-string">"/home/cxxu/backEnd/"</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">  }</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">]</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 144px;"></div><div class="CodeMirror-gutters" style="height: 144px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre></li></ul></li><li><p><span>启动服务(临时性实验)</span></p><ul><li><p><span>进入到</span><code>hooks.json</code><span>所在目录中(或者指定hooks.json的绝对路径)</span></p></li><li><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">webhook <span class="cm-attribute">-hooks</span> hooks.json <span class="cm-attribute">-verbose</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 18px;"></div><div class="CodeMirror-gutters" style="height: 18px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre></li></ul></li><li><p><span>实验webhooks连接</span></p><ul><li><p><span>用浏览器(或者其他可以发送http请求的客户端)发送get请求</span><code>http://123.56.72.67:9000/hooks/deploy/</code></p></li><li><p><span>这时候检查主机终端,如果能够捕获到请求,并且正确执行相关脚本,那么配置成功</span></p><p>&nbsp;</p></li></ul></li><li><p><span>配置github</span></p><ul><li><span>如果上述的服务启动可以正常运行,则将上述链接添加到githhub项目仓库的webhook中(settings-&gt;webhook)</span></li></ul></li><li><p><span>长期运行</span></p><ul><li><p><span>将webhook的输出内容重定向到log.txt文件中.</span></p></li><li><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>1</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">nohup webhook <span class="cm-attribute">-hooks</span> hooks.json <span class="cm-attribute">-verbose</span> &gt;log.txt &amp;</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 18px;"></div><div class="CodeMirror-gutters" style="height: 18px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre></li><li><p><span>将所有输出(包括错误输出重定向到一个文件中)</span></p></li><li><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>3</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">$ nohup</span> webhook <span class="cm-attribute">-hooks</span> hooks.json <span class="cm-attribute">-verbose</span> &gt;log.txt <span class="cm-number">2</span>&gt;&amp;1 &amp;</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[1] <span class="cm-number">29968</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 54px;"></div><div class="CodeMirror-gutters" style="height: 54px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p>&nbsp;</p></li></ul></li></ul><blockquote><p><span>利用github+webhook,实现基本的自动部署</span></p></blockquote><p><img src="https://s2.loli.net/2022/06/06/MqBf4Zu1VRnLovi.png" referrerpolicy="no-referrer" alt="image-20220606164228944"><span>图:github&amp;webhook</span></p><ul><li><p><span>查看输出日志</span></p><ul><li><pre class="md-fences md-end-block md-fences-with-lineno ty-contain-cm modeLoaded" spellcheck="false" lang="bash"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="bash"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 13.9896px; left: 35.9896px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 28px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre><div class="CodeMirror-linenumber CodeMirror-gutter-elt"><div>8</div></div></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: -27.9948px; width: 28px;"></div><div class="CodeMirror-gutter-wrapper CodeMirror-activeline-gutter" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">1</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-comment"># cxxu @ cxxuAli in ~/backEnd on git:main x [18:04:52]</span></span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">2</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-def">$ cat</span> log.txt</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">3</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[webhook] <span class="cm-number">2022</span>/06/06 <span class="cm-number">16</span>:44:39 version <span class="cm-number">2</span>.5.0 starting</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">4</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[webhook] <span class="cm-number">2022</span>/06/06 <span class="cm-number">16</span>:44:39 setting up os signal watcher</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">5</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[webhook] <span class="cm-number">2022</span>/06/06 <span class="cm-number">16</span>:44:39 attempting to load hooks from hooks.json</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">6</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[webhook] <span class="cm-number">2022</span>/06/06 <span class="cm-number">16</span>:44:39 found <span class="cm-number">1</span> hook(s) <span class="cm-keyword">in</span> file</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt" style="left: 0px; width: 18px;">7</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[webhook] <span class="cm-number">2022</span>/06/06 <span class="cm-number">16</span>:44:39 &nbsp; loaded: deploy</span></pre></div><div style="position: relative;"><div class="CodeMirror-gutter-wrapper" style="left: -27.9948px;"><div class="CodeMirror-linenumber CodeMirror-gutter-elt CodeMirror-linenumber-show" style="left: 0px; width: 18px;">8</div></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">[webhook] <span class="cm-number">2022</span>/06/06 <span class="cm-number">16</span>:44:39 serving hooks on http://0.0.0.0:9000/hooks/{id}</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 144px;"></div><div class="CodeMirror-gutters" style="height: 144px;"><div class="CodeMirror-gutter CodeMirror-linenumbers" style="width: 27px;"></div></div></div></div></pre><p>&nbsp;</p></li></ul></li></ul><p>&nbsp;</p><h1 id='十功能展示-潘淼森'><span>十、功能展示 [潘淼森]</span></h1><ul><li><span>参看演示视频附件</span></li></ul><h1 id='十一清单-徐超信潘淼森'><span>十一、清单 [徐超信,潘淼森]</span></h1><ul><li><span>项目github(组织):</span><a href='https://github.com/MaterialSharing'><span>MaterialSharing (github.com)</span></a></li></ul><blockquote><p><span>这部分列出项目提交的清单，如：</span></p><ul><li><span>前端代码: Front-End</span></li><li><span>后端代码: backEnd</span></li><li><span>原型设计文件: docs/design/design_原型操作逻辑1.pptx</span></li><li><span>项目演示视频: docs/video.mp4</span></li><li><span>各种流图和思维导图文件: docs/design/</span></li><li><span>……</span></li></ul></blockquote><h1 id='十二总结-徐超信潘淼森'><span>十二、总结 [徐超信,潘淼森]</span></h1><blockquote><p><span>项目的总结，整个项目的感受以及下一步的计划。</span></p></blockquote><p><a href='https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files'><span>version control - How do I force &quot;git pull&quot; to overwrite local files? - Stack Overflow</span></a></p><p><span>在开发本项目的过程中,我们收获了很多</span></p><ul><li><span>学习,了解并实践了当下流行的开发技术,体验了规范的和相对完善的开发流程</span></li><li><span>培养了我们的主动学习能力,思考能力以及动手能力,为我们今后的工作学习打下了重要的基础</span></li></ul><p><span>在开发过程中,我们同样遇到了各种问题</span></p><ul><li><span>由于缺乏产品设计经验以及实战开发经验,我们小组在项目之初进度就较为落后,我们深刻的认识到,需求设计和架构设计一点也不能轻视,轻则拖慢项目开发进展,重则推导重来.</span></li><li><span>小组成员合理分工,沟通协商,团结一致也是分重要,不合理的分工会导致矛盾,缺乏沟通也会导致组内矛盾,影响开发效率和进度,而不团结的队伍也不利于项目的完善</span></li><li><span>此外还有进度安排不签当的任务复杂度估计往往会导致项目开发无法及时完成或者流程不够完善.</span></li></ul><h1 id='十二参考文献-徐超信潘淼森'><span>十二、参考文献 [徐超信,潘淼森]</span></h1><blockquote><p><span>系统所参考的文献或者代码，比如：</span></p><ul><li><span>django4:</span><a href='https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiYp9yJ2__3AhW6qVYBHS0TCZgQFnoECBUQAQ&amp;url=https%3A%2F%2Fwww.djangoproject.com%2F&amp;usg=AOvVaw3E6qaJashVeeIx3oahQxD7'><span> Django: The web framework for perfectionists with deadlines https://www.djangoproject.com (google.com)</span></a></li><li><span>Django Rest framework:</span><a href='https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwi7qJ-Y2__3AhUepVYBHbjiAPEQFnoECAcQAQ&amp;url=https%3A%2F%2Fwww.django-rest-framework.org%2F&amp;usg=AOvVaw0ZGmLSXHw1XKCvqteVn5f-'><span> Django REST framework: Home https://www.django-rest-framework.org (google.com)</span></a></li><li><span>mysql8:</span><a href='https://dev.mysql.com/doc/refman/8.0/en/'><span>MySQL :: MySQL 8.0 Reference Manual</span></a></li><li><span>wechat 小程序开发文档:</span><a href='https://developers.weixin.qq.com/miniprogram/dev/framework/'><span>微信开放文档 (qq.com)</span></a></li><li><span>vant3:</span><a href='https://youzan.github.io/vant/#/zh-CN'><span>Vant 3 - 轻量、可靠的移动端组件库 (youzan.github.io)</span></a></li><li><span>uni-app: </span><a href='https://uniapp.dcloud.io/' target='_blank' class='url'>https://uniapp.dcloud.io/</a><span> </span></li><li><a href='https://stackoverflow.com/questions/1125968/how-do-i-force-git-pull-to-overwrite-local-files'><span>version control - How do I force &quot;git pull&quot; to overwrite local files? - Stack Overflow</span></a></li><li></li></ul></blockquote><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</body>
+</html>
