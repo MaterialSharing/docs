@@ -847,6 +847,19 @@ root@localhost [Sat Jun  4 20:56:41 2022 23 ela4]> desc feed_back;
 > - 综合比较,我们选择第一种方案,比较符合项目定位
 > - 利用session,后端可以充分利用用户的登录状态(从客户端提交过来的cookie中解析出用户信息从而帮助前端以更加简洁的参数就可以调用经过改进后的api)
 > - 另一方面,提供身份认证为数据安全提供了基本保障,减少被攻击的可能
+#### 登录流程
+
+```mermaid
+graph LR
+star([start])-->is_logged{is logged?}-->|yes|allow_access[allow the user access the apis]
+is_logged --no-->login_required[the api require the user to login]
+login_required-->is_success{is success}-->|yes|allow_access
+is_success-->|no|login_required
+```
+
+
+
+
 
 # 八、系统测试
 
@@ -874,7 +887,17 @@ root@localhost [Sat Jun  4 20:56:41 2022 23 ela4]> desc feed_back;
 
 ## 8.2 集成测试集
 * 成测试（Integration Testing），也叫组装测试或联合测试。在单元测试的基础上，将所有模块按照设计要求（如根据结构图）组装成为子系统或系统，进行集成测试
-- 在本项目中,我利用apifox,我定义了若干有步骤之分的测试用例,每个测试用来中可以包含多个来自接口的请求示例,并且可以调整顺序,特别是在测试登录功能的时候,依赖于登录状态的api必须要放在登录后的接口后执行,依次地完对项目地4个模块的有序测试,所有接口,基本全部通过
+
+在本项目中,我利用apifox,我定义了若干有步骤之分的测试用例,每个测试用来中可以包含多个来自接口的请求示例,并且可以调整顺序,特别是在测试登录功能的时候,依赖于登录状态的api必须要放在登录后的接口后执行,依次地完对项目地4个模块的有序测试,所有接口,基本全部通过
+
+![image-20220610090324016](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610090324016.png)
+
+- 通过apifox 进行的批量自动化测试,每个几口可以又多个测试实例
+
+![image-20220610090904377](https://raw.githubusercontent.com/xuchaoxin1375/pictures/main/imagesimage-20220610090904377.png)
+
+- 这是通过apifox的套件测试,批量测试接口下的测试用例,并且测试保证顺序
+- 报告测试结果
 
 
 ## 8.3 测试部署及结果

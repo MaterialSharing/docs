@@ -1,0 +1,5 @@
+graph LR
+star([start])-->is_logged{is logged?}-->|yes|allow_access[allow the user access the apis]
+is_logged --no-->login_required[the api require the user to login]
+login_required-->is_success{is success}-->|yes|allow_access
+is_success-->|no|login_required
